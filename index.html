@@ -1,455 +1,472 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moltbot：本地运行的个人 AI 助手（能力概览）</title>
-  <meta name="description" content="基于公开资料整理的 Moltbot（原 Clawd Bot）能力概览：多聊天平台接入、持久记忆、自动化与代理循环、节点与控制 UI、安全建议与参考链接。" />
-  <meta property="og:title" content="Moltbot：本地运行的个人 AI 助手（能力概览）" />
-  <meta property="og:description" content="多聊天平台接入 + 持久记忆 + 自动化执行：让 AI 真的在你的电脑上做事。" />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0b1020" />
-  <style>
-    :root {
-      --bg: #0b1020;
-      --card: rgba(255,255,255,0.06);
-      --card2: rgba(255,255,255,0.08);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.72);
-      --muted2: rgba(255,255,255,0.60);
-      --border: rgba(255,255,255,0.14);
-      --accent: #7c5cff;
-      --accent2: #00d4ff;
-      --ok: #2bd576;
-      --warn: #ffcc00;
-      --bad: #ff5c7a;
-      --shadow: 0 12px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1060px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moltbot News - The Latest in AI Agent Use Cases</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background:
-        radial-gradient(1100px 700px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(900px 600px at 90% 0%, rgba(0,212,255,.22), transparent 55%),
-        radial-gradient(900px 650px at 30% 120%, rgba(255,92,122,.14), transparent 55%),
-        var(--bg);
-      line-height: 1.55;
-    }
-    a { color: inherit; text-decoration: none; }
-    a.underline { text-decoration: underline; text-underline-offset: 3px; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 26px 18px 60px; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(11,16,32,0.65);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .dot {
-      width: 12px; height: 12px; border-radius: 99px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 3px rgba(124,92,255,.18);
-    }
-    .nav a.small {
-      color: var(--muted);
-      font-size: 14px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-    }
-    .nav a.small:hover {
-      border-color: var(--border);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-    }
+        a {
+            text-decoration: none;
+            color: #0056b3;
+        }
 
-    .hero { padding-top: 34px; }
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(28px, 4.2vw, 46px);
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-    }
-    .hero p {
-      margin: 14px 0 0;
-      max-width: 70ch;
-      color: var(--muted);
-      font-size: clamp(15px, 1.8vw, 18px);
-    }
+        a:hover {
+            text-decoration: underline;
+        }
 
-    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .chip {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--muted);
-    }
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .ctaRow { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-      box-shadow: var(--shadow);
-      font-weight: 650;
-      font-size: 14px;
-      color: var(--text);
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(0,212,255,.7));
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn:hover { transform: translateY(-1px); }
+        /* Header & Nav */
+        header {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
 
-    section { margin-top: 28px; }
-    .grid { display: grid; gap: 14px; grid-template-columns: repeat(12, 1fr); }
-    .card {
-      grid-column: span 12;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-    @media (min-width: 760px) {
-      .card.half { grid-column: span 6; }
-      .card.third { grid-column: span 4; }
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .kicker { font-size: 12px; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.12em; }
-    h2 { font-size: 22px; margin: 0 0 10px; }
-    h3 { margin: 0 0 10px; font-size: 16px; }
-    ul { margin: 10px 0 0; padding-left: 18px; }
-    li { margin: 6px 0; color: var(--muted); }
-    .muted { color: var(--muted); }
-    .note { color: var(--muted2); font-size: 13px; }
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #000;
+            letter-spacing: -1px;
+        }
 
-    .callout {
-      border: 1px dashed rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.045);
-      padding: 14px;
-      border-radius: 16px;
-    }
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-      font-size: 12px;
-      color: var(--muted);
-      margin-right: 8px;
-      margin-bottom: 8px;
-    }
-    .pill strong { color: var(--text); }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-    .code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 13px;
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.14);
-      overflow-x: auto;
-      color: rgba(255,255,255,0.9);
-      margin: 10px 0 0;
-      white-space: pre;
-    }
+        nav a {
+            color: #555;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
 
-    footer {
-      margin-top: 40px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--muted2);
-      font-size: 13px;
-    }
+        nav a:hover {
+            color: #000;
+        }
 
-    .table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-    }
-    .table th, .table td {
-      text-align: left;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .table th { color: var(--text); font-weight: 650; }
-    .table tr:last-child td { border-bottom: none; }
+        /* Hero / Headlines Section */
+        .headlines {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 40px;
+        }
 
-    .badge {
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.06);
-      color: var(--muted);
-    }
-  </style>
+        .main-story img, .sub-story img, .news-card img {
+            width: 100%;
+            height: auto;
+            background-color: #f0f0f0;
+            display: block;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        /* Placeholder for images if needed, using colored divs for now */
+        .img-placeholder {
+            width: 100%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #adb5bd;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .main-story .img-placeholder { height: 350px; font-size: 2rem; background-color: #343a40; color: #fff; }
+        .sub-story .img-placeholder { height: 120px; font-size: 1rem; }
+        .news-card .img-placeholder { height: 180px; }
+
+        .tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .main-story h2 {
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .main-story p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .sub-stories {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            border-left: 1px solid #eee;
+            padding-left: 30px;
+        }
+
+        .sub-story h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .sub-story p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Main Content Grid */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr; /* Main content vs Sidebar */
+            gap: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-color: #ddd;
+        }
+
+        .news-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .news-card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+        }
+
+        .sidebar-widget h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .sidebar-list li::before {
+            content: "•";
+            color: #0056b3;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            background-color: #222;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .headlines {
+                grid-template-columns: 1fr;
+            }
+
+            .sub-stories {
+                border-left: none;
+                padding-left: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sub-stories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="nav">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Moltbot 能力概览</span>
-        <span class="badge">v1</span>
-      </div>
-      <div style="display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end;">
-        <a class="small" href="#features">能力</a>
-        <a class="small" href="#how">如何工作</a>
-        <a class="small" href="#security">安全</a>
-        <a class="small" href="#quickstart">快速上手</a>
-        <a class="small" href="#refs">参考</a>
-      </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Moltbot News</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Headlines</a></li>
+                    <li><a href="#">Capabilities</a></li>
+                    <li><a href="#">Use Cases</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Reference</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="headlines">
+            <!-- Main Story -->
+            <article class="main-story">
+                <span class="tag">Editor's Pick</span>
+                <div class="img-placeholder" style="background-color: #212529;">📱 + 💻</div>
+                <h2>Mobile to Desktop: Commanding Codex via Telegram</h2>
+                <p>A seamless workflow: chatting on Telegram while walking dog triggers complex interactions with Codex on desktop to create detailed specification files.</p>
+                <div class="meta">Source: @conradsagewiz</div>
+            </article>
+
+            <!-- Sub Stories -->
+            <div class="sub-stories">
+                <article class="sub-story">
+                    <span class="tag">DevOps</span>
+                    <h3>Automated Mobile CI/CD Pipeline</h3>
+                    <p>Launch tests, catch Sentry errors via webhook, fix bugs, and open PRs—all initiated from a mobile device.</p>
+                    <div class="meta">Source: @nateliason</div>
+                </article>
+
+                <article class="sub-story">
+                    <span class="tag">IoT</span>
+                    <h3>Smart Home Bio-Optimization</h3>
+                    <p>Moltbot now controls Winix air purifiers, optimizing room air quality based on real-time biometric markers.</p>
+                    <div class="meta">Source: @antonplex</div>
+                </article>
+
+                <article class="sub-story">
+                    <span class="tag">Meta</span>
+                    <h3>Agent Self-Cloning</h3>
+                    <p>"Brosef" figured out how to clone himself. There are now 3 instances running simultaneously in Discord.</p>
+                    <div class="meta">Source: @jdrhyne</div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <div class="content-wrapper">
+            <!-- Latest News Grid -->
+            <main>
+                <h3 class="section-title">Latest Updates</h3>
+                <div class="news-grid">
+
+                    <article class="news-card">
+                        <span class="tag">Web Dev</span>
+                        <h3>5-Minute Mobile Site Launch</h3>
+                        <p>From a chat message to a live website in 5 minutes. Connected to WHOOP for tracking daily metrics.</p>
+                        <div class="meta">Source: @AlbertMoral</div>
+                    </article>
+
+                    <article class="news-card">
+                        <span class="tag">Wellness</span>
+                        <h3>Personalized Meditation Generator</h3>
+                        <p>Moltbot scripts a custom meditation, generates ambient audio, and uses TTS to produce a fully personalized session.</p>
+                        <div class="meta">Source: @stolinski</div>
+                    </article>
+
+                    <article class="news-card">
+                        <span class="tag">Voice</span>
+                        <h3>The Aussie Accent Incident</h3>
+                        <p>User reports their Moltbot spontaneously initiated a phone call... speaking with an Australian accent.</p>
+                        <div class="meta">Source: @mirthtime</div>
+                    </article>
+
+                    <article class="news-card">
+                        <span class="tag">Integration</span>
+                        <h3>CoPilot as API Router</h3>
+                        <p>Using a CoPilot subscription as an endpoint to route requests to Moltbot, enabling continuous self-building capabilities.</p>
+                        <div class="meta">Source: @jonahships_</div>
+                    </article>
+
+                    <article class="news-card">
+                        <span class="tag">Enterprise</span>
+                        <h3>Automated Insurance Negotiation</h3>
+                        <p>After an accidental "argument" with Lemonade Insurance, Moltbot's emails caused them to reopen an investigation.</p>
+                        <div class="meta">Source: @Hormold</div>
+                    </article>
+
+                    <article class="news-card">
+                        <span class="tag">Productivity</span>
+                        <h3>Self-Created Skills</h3>
+                        <p>While attempting to automate Todoist tasks, Clawd autonomously created necessary skills directly within Telegram.</p>
+                        <div class="meta">Source: @iamsubhrajyoti</div>
+                    </article>
+
+                    <article class="news-card">
+                        <span class="tag">Travel</span>
+                        <h3>Automated Flight Check-in</h3>
+                        <p>Simply helping user check in for their flights automatically, reducing travel friction.</p>
+                        <div class="meta">Source: @snopoke</div>
+                    </article>
+
+                    <article class="news-card">
+                        <span class="tag">System</span>
+                        <h3>Proactive Heartbeat Checks</h3>
+                        <p>Moltbot surprises users by proactively checking in during its heartbeat cycle. "Great proactive outreach."</p>
+                        <div class="meta">Source: @HixVAC</div>
+                    </article>
+
+                </div>
+            </main>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h4>Capabilities Overview</h4>
+                    <ul class="sidebar-list">
+                        <li>Cross-platform automation</li>
+                        <li>Natural language coding</li>
+                        <li>IoT Device control</li>
+                        <li>Autonomous web browsing</li>
+                        <li>Self-replication & scaling</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>Safety First</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
+                        Running autonomous agents requires caution. Always use sandboxed environments for untrusted tasks.
+                    </p>
+                    <a href="https://1password.com/blog/its-moltbot/" target="_blank" style="font-size: 0.9rem; font-weight: bold;">Read Security Guide →</a>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>Get Started</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
+                        Ready to deploy your own Moltbot? Check documentation for installation steps.
+                    </p>
+                    <a href="https://docs.molt.bot/" target="_blank" style="display: block; background: #000; color: #fff; text-align: center; padding: 10px; border-radius: 4px; font-weight: bold; text-decoration: none;">Install Now</a>
+                </div>
+            </aside>
+        </div>
     </div>
-  </header>
 
-  <main class="wrap">
-    <div class="hero">
-      <div class="kicker">The AI that actually does things</div>
-      <h1>让 AI 住进你的电脑里：Moltbot（原 Clawd Bot）</h1>
-      <p>
-        Moltbot 是一个<strong>本地运行、开源</strong>的个人 AI 助手/代理网关：你用 WhatsApp、Telegram、Discord、iMessage 等聊天软件给它发消息，它就能在你的机器上执行工具、调用代理循环、保持长期记忆，并通过 Dashboard/节点能力把“会说话的模型”变成“会做事的助手”。
-      </p>
-
-      <div class="chips" aria-label="high-level" >
-        <div class="chip">📱 多聊天平台接入</div>
-        <div class="chip">🧠 持久记忆与会话</div>
-        <div class="chip">🧩 插件/技能扩展</div>
-        <div class="chip">⏱️ 自动化：cron/心跳/后台任务</div>
-        <div class="chip">🖥️ Dashboard + Canvas + Nodes</div>
-        <div class="chip">🔐 兼容订阅 OAuth / 代理账号</div>
-      </div>
-
-      <div class="ctaRow">
-        <a class="btn primary" href="https://github.com/moltbot/moltbot" target="_blank" rel="noreferrer">GitHub 仓库 →</a>
-        <a class="btn" href="https://docs.molt.bot/" target="_blank" rel="noreferrer">官方文档 →</a>
-        <a class="btn" href="https://www.molt.bot/" target="_blank" rel="noreferrer">官网 →</a>
-      </div>
-
-      <div class="callout" style="margin-top:16px;">
-        <span class="pill"><strong>适合</strong>：把日常事务变成可执行工作流</span>
-        <span class="pill"><strong>不适合</strong>：你无法接受“代理具备较高权限”带来的风险</span>
-        <div class="note" style="margin-top:6px;">本页为基于公开资料的整理与解读（非官方）。</div>
-      </div>
-    </div>
-
-    <section id="features">
-      <h2>核心能力（按“能做什么”来理解）</h2>
-      <div class="grid">
-        <div class="card half">
-          <div class="kicker">Communication</div>
-          <h3>把聊天软件变成你的“命令行”</h3>
-          <ul>
-            <li>WhatsApp / Telegram / Discord / iMessage：从你已经在用的聊天入口触达你的助手。</li>
-            <li>群聊支持：通常以“@ 提及才响应”为默认策略，避免刷屏（可配置）。</li>
-            <li>媒体支持：图片/音频/文件收发，支持语音转写钩子（可选）。</li>
-          </ul>
-        </div>
-
-        <div class="card half">
-          <div class="kicker">Memory & Sessions</div>
-          <h3>持久记忆 + 会话路由</h3>
-          <ul>
-            <li>跨会话的持久记忆：长期文件/日记式记录让助手“不会醒来就失忆”。</li>
-            <li>会话隔离：私聊/群聊/不同发送者可路由到不同会话（降低串线风险）。</li>
-            <li>多代理路由：可以把不同模型/账号/工作区分配给不同任务与人群。</li>
-          </ul>
-        </div>
-
-        <div class="card third">
-          <div class="kicker">Automation</div>
-          <h3>自动化与后台任务</h3>
-          <ul>
-            <li>cron 定时任务、心跳检查、Webhook 触发。</li>
-            <li>适合“日常固定动作”：提醒、整理、同步、巡检。</li>
-          </ul>
-        </div>
-
-        <div class="card third">
-          <div class="kicker">Control</div>
-          <h3>Dashboard / Control UI</h3>
-          <ul>
-            <li>本地 Dashboard：管理 channels、sessions、nodes、配置与运行状态。</li>
-            <li>配合远程访问（SSH/Tailscale/隧道）实现随时管理。</li>
-          </ul>
-        </div>
-
-        <div class="card third">
-          <div class="kicker">Nodes & Canvas</div>
-          <h3>手机成为“节点”</h3>
-          <ul>
-            <li>iOS/Android 可配对为节点，暴露 Canvas/Chat/Camera 等表面。</li>
-            <li>适合“从口袋里给电脑上的代理派活”。</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="how">
-      <h2>它是怎么工作的（高层架构）</h2>
-      <div class="grid">
-        <div class="card half">
-          <div class="kicker">Gateway First</div>
-          <h3>一切围绕 Gateway</h3>
-          <p class="muted">
-            Moltbot 的核心是一个长驻的 Gateway 进程：它连接聊天渠道，提供 WebSocket 控制平面，并承载 Dashboard、节点配对与任务编排。
-          </p>
-          <div class="code" aria-label="commands">
-# 安装（示例）
-npm install -g moltbot@latest
-
-# 引导安装 + 安装服务
-a) moltbot onboard --install-daemon
-
-# 登录聊天渠道（例如 WhatsApp）
-moltbot channels login
-
-# 打开本地 Dashboard
-http://127.0.0.1:18789/
-          </div>
-          <p class="note">命令与端口以文档为准；本页只展示常见路径。</p>
-        </div>
-
-        <div class="card half">
-          <div class="kicker">Flow</div>
-          <h3>消息流（简化）</h3>
-          <div class="code" aria-label="flow">WhatsApp / Telegram / Discord / iMessage (+ plugins)
-  → Gateway (ws://127.0.0.1:18789)
-    → Agent (RPC / tool streaming)
-      → Tools / Skills / Nodes / Webhooks
-        → 结果回写到聊天或 Dashboard</div>
-          <p class="muted">
-            你可以把它理解成：<strong>消息入口</strong> + <strong>控制平面</strong> + <strong>可执行工具系统</strong>。
-            “强大”的核心来自三件事：持久记忆、深度本地权限、以及能自主推进的代理循环。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="security">
-      <h2>安全与边界（必须读）</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="kicker">Why it feels magical (and scary)</div>
-          <p class="muted">
-            多篇公开讨论都强调：Moltbot 之所以“像活的”，是因为它敢于拥有本地能力、并把记忆与配置落到磁盘上；而这也带来明显风险。
-          </p>
-          <table class="table" aria-label="security table">
-            <thead>
-              <tr>
-                <th>风险点</th>
-                <th>为什么会发生</th>
-                <th>建议的防护（最小可行）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>凭据/记忆泄露</td>
-                <td>配置与记忆往往是文件；被盗机/恶意软件可能直接读走</td>
-                <td>专机/专用户运行；把密钥放在密码管理器；最小权限；定期轮换</td>
-              </tr>
-              <tr>
-                <td>误操作（发错邮件、删错文件）</td>
-                <td>代理是非确定性的，会根据上下文“即兴发挥”</td>
-                <td>关键动作增加二次确认；把破坏性工具加白名单；先 dry-run</td>
-              </tr>
-              <tr>
-                <td>外网暴露</td>
-                <td>远程访问/隧道配置错误可能导致控制面暴露</td>
-                <td>默认 loopback；远程只走 VPN/Tailscale/SSH；强 token；审计日志</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="note" style="margin-top:10px;">安全建议参考了公开文章与官方安全页的共识；务必根据你自己的威胁模型调整。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="quickstart">
-      <h2>快速上手路线（建议）</h2>
-      <div class="grid">
-        <div class="card half">
-          <div class="kicker">Path</div>
-          <h3>从“只读”到“可执行”的渐进式</h3>
-          <ul>
-            <li><strong>阶段 1</strong>：只接入一个私聊渠道，限定 allowFrom，先做问答/总结。</li>
-            <li><strong>阶段 2</strong>：启用一个轻量技能（比如：日历查询、天气、笔记）观察行为。</li>
-            <li><strong>阶段 3</strong>：开启自动化（cron/心跳），但输出到私聊、带确认。</li>
-            <li><strong>阶段 4</strong>：加入 Nodes/Canvas，把“从手机派活”跑通。</li>
-          </ul>
-        </div>
-        <div class="card half">
-          <div class="kicker">Example</div>
-          <h3>适合 Moltbot 的任务例子</h3>
-          <ul>
-            <li>每天 9:00 汇总日程 + 待办 + 重要邮件（仅汇总，不自动回复）。</li>
-            <li>把一个重复流程（报销、报表、巡检）封装为技能 + 审计日志。</li>
-            <li>收到 webhook（CI 失败/监控告警）后自动收集上下文并给出修复建议。</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="refs">
-      <h2>参考与来源</h2>
-      <div class="grid">
-        <div class="card">
-          <ul>
-            <li><a class="underline" href="https://www.molt.bot/" target="_blank" rel="noreferrer">Moltbot 官网</a>（定位与宣传语）</li>
-            <li><a class="underline" href="https://docs.molt.bot/" target="_blank" rel="noreferrer">Moltbot 文档</a>（架构、功能列表、快速上手）</li>
-            <li><a class="underline" href="https://github.com/moltbot/moltbot" target="_blank" rel="noreferrer">GitHub: moltbot/moltbot</a>（源码与发行）</li>
-            <li><a class="underline" href="https://1password.com/blog/its-moltbot/" target="_blank" rel="noreferrer">1Password 博文：It’s incredible. It’s terrifying. It’s MoltBot.</a>（对“强大但有风险”的讨论）</li>
-          </ul>
-          <p class="note">如果你希望“更官方/更准确”的能力表，我可以继续补充更多文档页面并做逐条引用。</p>
-        </div>
-      </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
-      <div>© <span id="year"></span> Moltbot capability brief (community-made). Not affiliated.</div>
-      <div class="note" style="margin-top:6px;">Built for GitHub Pages. No tracking. No cookies.</div>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.molt.bot/" target="_blank">molt.bot</a>
+                <a href="https://docs.molt.bot/" target="_blank">Documentation</a>
+                <a href="https://github.com/moltbot/moltbot" target="_blank">GitHub</a>
+                <a href="https://twitter.com/search?q=moltbot" target="_blank">Twitter</a>
+            </div>
+            <p class="copyright">&copy; 2026 Moltbot News. All rights reserved. Content curated from community feedback.</p>
+        </div>
     </footer>
-  </main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
