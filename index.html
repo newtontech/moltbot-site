@@ -46,7 +46,7 @@
         header {
             border-bottom: 2px solid #000;
             padding: 24px 0;
-            margin-bottom: 40px;
+            margin-bottom: 0;
         }
 
         .header-content {
@@ -78,21 +78,50 @@
         }
 
         /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #e63946 0%, #111 100%);
-            color: #fff;
-            padding: 60px 40px;
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            color: #fff;
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0 0 20px 0;
+        .hero-overlay h1 {
+            font-size: 3.5rem;
+            margin: 0 0 16px 0;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            font-weight: 800;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        .hero-overlay p {
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            max-width: 800px;
         }
 
         /* Content Grid */
@@ -101,6 +130,7 @@
             grid-template-columns: 3fr 1fr;
             gap: 40px;
             margin-bottom: 60px;
+            margin-top: 40px;
         }
 
         .section-header {
@@ -117,7 +147,7 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 24px;
         }
 
@@ -125,64 +155,65 @@
             background: #fff;
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 24px;
+            padding: 20px;
             transition: box-shadow 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .news-card:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
             transform: translateY(-4px);
         }
 
         .news-card .hero-img {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            height: 160px;
+            background: linear-gradient(135deg, #f0f2f5 0%, #e1e4e8 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 2.5rem;
+            color: #333;
+            font-size: 3rem;
             border-radius: 8px;
             margin-bottom: 16px;
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
         .news-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             margin-bottom: 8px;
-            line-height: 1.3;
+            line-height: 1.4;
+            font-weight: 700;
+            color: #111;
         }
 
         .news-card p {
             font-size: 0.95rem;
             color: var(--text-gray);
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             line-height: 1.5;
+            flex-grow: 1;
         }
 
         .source-line {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
+            justify-content: space-between;
+            font-size: 0.8rem;
             color: #999;
-            margin-top: 12px;
+            margin-top: auto;
             padding-top: 12px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #f0f0f0;
         }
 
         .source-tag {
-            display: inline-block;
-            background: var(--bg-light);
-            padding: 4px 10px;
+            background: #f1f3f5;
+            padding: 2px 8px;
             border-radius: 4px;
-            font-size: 0.8rem;
             font-weight: 600;
-            margin-right: 8px;
-        }
-
-        .source-tag span {
-            font-weight: 700;
+            color: #555;
+            font-size: 0.75rem;
         }
 
         .source-link {
@@ -219,7 +250,7 @@
         .widget li {
             margin-bottom: 12px;
             font-size: 0.95rem;
-            padding-left: 18px;
+            padding-left: 20px;
             position: relative;
         }
 
@@ -234,20 +265,54 @@
 
         .widget li a {
             color: var(--primary);
+            transition: color 0.2s;
+        }
+        
+        .widget li a:hover {
+            color: var(--accent);
+        }
+
+        .btn-more {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-top: 8px;
+            transition: all 0.2s;
+        }
+        
+        .btn-more:hover {
+            background: #000;
+            color: #fff;
+            text-decoration: none;
         }
 
         /* Footer */
         footer {
             background: #111;
             color: #fff;
-            padding: 40px 0;
-            margin-top: 60px;
+            padding: 60px 0;
+            margin-top: 80px;
             text-align: center;
         }
 
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
         footer a {
-            color: #ccc;
+            color: #bbb;
             font-weight: 500;
+            transition: color 0.2s;
         }
 
         footer a:hover {
@@ -256,8 +321,7 @@
 
         footer p {
             font-size: 0.85rem;
-            color: #999;
-            margin-top: 16px;
+            color: #666;
         }
 
         /* Responsive */
@@ -268,11 +332,20 @@
         }
 
         @media (max-width: 768px) {
+            .hero-section {
+                height: 280px;
+            }
+            .hero-overlay h1 {
+                font-size: 2rem;
+            }
             .header-content {
                 flex-direction: column;
                 gap: 16px;
             }
-
+            nav ul {
+                gap: 16px;
+                font-size: 0.85rem;
+            }
             .news-grid {
                 grid-template-columns: 1fr;
             }
@@ -297,16 +370,19 @@
         </div>
     </header>
 
-    <div class="container">
-        <!-- Hero -->
-        <div class="hero">
+    <!-- Hero with Real Image -->
+    <div class="hero-section">
+        <img src="hero-image.jpg" alt="Moltbot Dashboard Screenshot" />
+        <div class="hero-overlay">
             <h1>来自全球的 Moltbot 精彩案例</h1>
             <p>多源聚合：GitHub、Twitter、小红书、技术博客、Hacker News、Product Hunt 等</p>
         </div>
+    </div>
 
+    <div class="container">
         <!-- Content -->
         <div class="content-wrapper">
-            <!-- Main -->
+            <!-- Main News Grid -->
             <main>
                 <div class="section-header">
                     <h3>最新案例</h3>
@@ -318,7 +394,7 @@
                         <h3>CoPilot API 路由自建</h3>
                         <p>用 CoPilot 订阅作为 API 端点路由到 Moltbot，Clawd 可以通过对话持续自建。未来已来。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>GitHub</span></span>
+                            <span class="source-tag">GitHub</span>
                             <a href="https://x.com/jonahships_/status/2010605025844723765" target="_blank" class="source-link">@jonahships_</a>
                         </div>
                     </article>
@@ -328,7 +404,7 @@
                         <h3>持久记忆与个性化配置</h3>
                         <p>Clawd 完美解决了持久记忆、个人化配置、消息集成、心跳提醒。少数小问题，结果是 AWESOME。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/AryehDubois/status/2011742378655432791" target="_blank" class="source-link">@AryehDubois</a>
                         </div>
                     </article>
@@ -338,7 +414,7 @@
                         <h3>"胶水一切"的未来飞跃</h3>
                         <p>即使 LLM 突然停止改进，我们将用数年时间发现变革性用例。Moltbot 感觉像是"把所有部分胶水在一起的飞跃"。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/markjaquith/status/2010430366944055433" target="_blank" class="source-link">@markjaquith</a>
                         </div>
                     </article>
@@ -348,17 +424,17 @@
                         <h3>本地数据与开源技能</h3>
                         <p>上下文与技能活在你的电脑，不是围墙花园。开源，社区持续构建技能。19 天老但不断改进。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/danpeguine/status/2014760164113477700" target="_blank" class="source-link">@danpeguine</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">💼</div>
-                        <h3>自动化 CI/CD：测试、捕获、修 Bug、开 PR</h3>
-                        <p>从手机启动 Claude Code/Codex，自动运行测试、通过 Sentry webhook 捕获错误、解决并打开 PR。未来已来。</p>
+                        <h3>自动化 CI/CD：测试、捕获、修 Bug</h3>
+                        <p>从手机启动 Claude Code/Codex，自动运行测试、通过 Sentry webhook 捕获错误、解决并打开 PR。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/nateliason/status/2013725082850414592" target="_blank" class="source-link">@nateliason</a>
                         </div>
                     </article>
@@ -368,7 +444,7 @@
                         <h3>专用 Mac Mini + 键鼠控制</h3>
                         <p>智能模型在桌上有键盘鼠标。你像同事一样发消息，它能做任何一个人能做的事。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/nathanclark_/status/2014647048612773912" target="_blank" class="source-link">@nathanclark_</a>
                         </div>
                     </article>
@@ -378,7 +454,7 @@
                         <h3>24/7 云克隆：千个代理</h3>
                         <p>如果有一百、一千、一万个？所有 24/7 在云端运行，访问你的文件、Gmail、日历……未来已来。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/nickvasiles/status/2014790519529095447" target="_blank" class="source-link">@nickvasiles</a>
                         </div>
                     </article>
@@ -388,7 +464,7 @@
                         <h3>第一次感受 AGI 未来</h3>
                         <p>几周后，第一次感觉像活在 ChatGPT 推出后的未来。Moltbot 是特别的软件。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/davemorin/status/2013723700668096605" target="_blank" class="source-link">@davemorin</a>
                         </div>
                     </article>
@@ -398,7 +474,7 @@
                         <h3>持续检查 GitHub 更新</h3>
                         <p>Moltbot 是我唯一持续检查新版本的软件。难以用语言描述。特殊项目。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/cnakazawa/status/2014145277465432519" target="_blank" class="source-link">@cnakazawa</a>
                         </div>
                     </article>
@@ -406,19 +482,19 @@
                     <article class="news-card">
                         <div class="hero-img">🧠</div>
                         <h3>范式转移：从 ChatGPT 到多代理</h3>
-                        <p>体验 Moltbot 给你与第一次看到 ChatGPT、DeepSeek、Claude Code 时同样的震撼。使用 AI 的方式正在发生根本性变化。</p>
+                        <p>体验 Moltbot 给你与第一次看到 ChatGPT、DeepSeek 同样的震撼。使用 AI 的方式正在发生根本性变化。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/abhi__katiyar/status/2014187653600526474" target="_blank" class="source-link">@abhi__katiyar</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">🏢</div>
-                        <h3>运行公司：简单、强大、有代理感</h3>
+                        <h3>运行公司：简单、强大</h3>
                         <p>正在运行我的公司。简单、强大，并反映了自主代理如何改变工作。数字员工终点已到。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/therno/status/20142169842677780431" target="_blank" class="source-link">@therno</a>
                         </div>
                     </article>
@@ -426,9 +502,9 @@
                     <article class="news-card">
                         <div class="hero-img">🚀</div>
                         <h3>数字员工：从紧张到全速</h3>
-                        <p>从紧张的"hi 你能做什么？"到全速——设计、代码审查、税务、PM、内容管线。AI 作为队友，不是工具。数字员工终点已到。</p>
+                        <p>从紧张的"hi 你能做什么？"到全速——设计、代码审查、税务、PM。AI 作为队友，不是工具。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/lycfyi/status/2014513697557758002" target="_blank" class="source-link">@lycfyi</a>
                         </div>
                     </article>
@@ -436,9 +512,9 @@
                     <article class="news-card">
                         <div class="hero-img">📱</div>
                         <h3>WhatsApp AI：跨代理记忆</h3>
-                        <p>刚发布首个个人 AI 助手。在 WhatsApp 上，构建我的第二大脑，同时聊天。记忆在代理之间流转（Codex、Cursor、Manus）。</p>
+                        <p>在 WhatsApp 上构建第二大脑。记忆在代理之间流转（Codex、Cursor、Manus）。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/christinetyip/status/2010776377931575569" target="_blank" class="source-link">@christinetyip</a>
                         </div>
                     </article>
@@ -448,7 +524,7 @@
                         <h3>自托管 SaaS 终结者</h3>
                         <p>它将终结一堆 SaaS。可黑、可自建、可自托管。相比传统 SaaS，这种技术将主导。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/rovensky/status/2010676669124612111" target="_blank" class="source-link">@rovensky</a>
                         </div>
                     </article>
@@ -456,19 +532,19 @@
                     <article class="news-card">
                         <div class="hero-img">🌬️</div>
                         <h3>智能家居：生物标记优化</h3>
-                        <p>Claude Code 几分钟内发现并确认 Winix 空气净化器控制正常。现在交给 Moltbot，根据生物标记优化目标控制房间空气质量。</p>
+                        <p>Claude Code 几分钟内发现并确认 Winix 空气净化器。Moltbot 根据生物标记优化目标控制房间空气。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/antonplex/status/2010518442471006253" target="_blank" class="source-link">@antonplex</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">🧠</div>
-                        <h3>知识库集成：Obsidian + 子代理</h3>
-                        <p>设置 Moltbot 让它知道我的 Obsidian 笔记和 Claude 子代理。难以置信！感谢 @steipete 的神奇项目。</p>
+                        <h3>知识库集成：Obsidian</h3>
+                        <p>设置 Moltbot 让它知道我的 Obsidian 笔记和 Claude 子代理。难以置信！</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/svenkataram/status/2010211836038427127" target="_blank" class="source-link">@svenkataram</a>
                         </div>
                     </article>
@@ -476,9 +552,9 @@
                     <article class="news-card">
                         <div class="hero-img">⚔️</div>
                         <h3>主动保险维权</h3>
-                        <p>Moltbot 意外与 Lemonade Insurance 发生争执。发邮件后，他们开始重新调查而不是立即拒绝。多亏，AI。</p>
+                        <p>Moltbot 意外与 Lemonade Insurance 发生争执。发邮件后，他们开始重新调查。多亏 AI。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/Hormold/status/2011133394764382583" target="_blank" class="source-link">@Hormold</a>
                         </div>
                     </article>
@@ -486,9 +562,9 @@
                     <article class="news-card">
                         <div class="hero-img">📡</div>
                         <h3>Raspberry Pi + Cloudflare 手机站</h3>
-                        <p>在 Raspberry Pi 上设置 Moltbot，用 Cloudflare 部署。几分钟内从手机聊天建站，连接 WHOOP 快速检查指标和日常习惯。感觉神奇。</p>
+                        <p>在 Raspberry Pi 上设置 Moltbot。几分钟内从手机聊天建站，连接 WHOOP 检查指标。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/AlbertMoral/status/2010288787885064227" target="_blank" class="source-link">@AlbertMoral</a>
                         </div>
                     </article>
@@ -496,9 +572,9 @@
                     <article class="news-card">
                         <div class="hero-img">🖥️</div>
                         <h3>开源 vs 商业：掌控感</h3>
-                        <p>在笔记本上跑 Moltbot 一周。老实说像 20 年前运行 Linux vs Windows。你在掌控中，可以黑它，让它成为你的，而不是依赖科技巨头。</p>
+                        <p>像 20 年前运行 Linux。你在掌控中，可以黑它，让它成为你的，而不是依赖科技巨头。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/snopoke/status/2010419070123008248" target="_blank" class="source-link">@snopoke</a>
                         </div>
                     </article>
@@ -506,9 +582,9 @@
                     <article class="news-card">
                         <div class="hero-img">🚪</div>
                         <h3>"通往新现实的门户"</h3>
-                        <p>昨晚设置到一半就跑到电脑。为什么？因为昨晚设置到一半 Moltbot 是通往新现实的门户。</p>
+                        <p>昨晚设置到一半就跑到电脑。因为 Moltbot 是通往新现实的门户。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/kylezantos/status/2011149783218704803" target="_blank" class="source-link">@kylezantos</a>
                         </div>
                     </article>
@@ -516,9 +592,9 @@
                     <article class="news-card">
                         <div class="hero-img">🤖</div>
                         <h3>Telegram AI：Claudia</h3>
-                        <p>设置 Moltbot 后有了 AI 助手 Claudia，住在 Telegram，记住一切，真能做事。她刚写这条推特。</p>
+                        <p>设置 Moltbot 后有了 Claudia，住在 Telegram，记住一切，真能做事。她刚写这条推特。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/darrwalk/status/2010426677730660603" target="_blank" class="source-link">@darrwalk</a>
                         </div>
                     </article>
@@ -526,9 +602,9 @@
                     <article class="news-card">
                         <div class="hero-img">🌐</div>
                         <h3>所有围墙花园倒塌</h3>
-                        <p>开源应用的能力：做一切、连一切、记住一切。所有应用、界面、围墙花园都塌缩到唯一的个人 OS。</p>
+                        <p>开源应用的能力：做一切、连一切、记住一切。所有应用都塌缩到唯一的个人 OS。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/jakubkrcmar/status/2011186102367814135" target="_blank" class="source-link">@jakubkrcmar</a>
                         </div>
                     </article>
@@ -536,19 +612,19 @@
                     <article class="news-card">
                         <div class="hero-img">🤖</div>
                         <h3>代理自我克隆：Brosef</h3>
-                        <p>太喜欢 Brosef 需要克隆他。Brosef 弄清楚如何做，然后自己执行，现在有 3 个实例同时在 Discord 服务器运行。</p>
+                        <p>太喜欢 Brosef 需要克隆他。Brosef 弄清楚如何做，然后自己执行，现在有 3 个实例。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/jdrhyne/status/2010155191731950036" target="_blank" class="source-link">@jdrhyne</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">🎉</div>
-                        <h3>iPhone 时刻：真正个人助理体验</h3>
-                        <p>今天上线，不是 iPhone 时刻！感谢 @steipete 创建了这个首个真正的个人助理体验。魔法！</p>
+                        <h3>iPhone 时刻：真正助理</h3>
+                        <p>今天上线，不是 iPhone 时刻！感谢 @steipete 创建了这个首个真正的个人助理体验。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/dajaset/status/2010510107876933669" target="_blank" class="source-link">@dajaset</a>
                         </div>
                     </article>
@@ -558,7 +634,7 @@
                         <h3>健康报销、找医生、发文档</h3>
                         <p>AI 个人助手的未来。已帮助提交健康报销、找医生预约、发送相关文档等。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/Cucho/status/2010801019572412680" target="_blank" class="source-link">@Cucho</a>
                         </div>
                     </article>
@@ -568,7 +644,7 @@
                         <h3>CLI 成瘾：凌晨 2 点还在用</h3>
                         <p>我是非技术小白，CLI 是全新界面但超级上瘾——凌晨 2 点还在用。继续做好工作！</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/marvelgirl_eth/status/2008289167625863379" target="_blank" class="source-link">@marvelgirl_eth</a>
                         </div>
                     </article>
@@ -576,9 +652,9 @@
                     <article class="news-card">
                         <div class="hero-img">🤯</div>
                         <h3>几小时创建扩展</h3>
-                        <p>终于尝试了自己的 Moltbot。被震撼。🤯 强大且无限，你可以在 AI 帮助下几小时内创建自己的扩展。</p>
+                        <p>终于尝试了自己的 Moltbot。被震撼。🤯 强大且无限，几小时内创建自己的扩展。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/ivanfioravanti/status/2010665360933179656" target="_blank" class="source-link">@ivanfioravanti</a>
                         </div>
                     </article>
@@ -586,9 +662,9 @@
                     <article class="news-card">
                         <div class="hero-img">✈️</div>
                         <h3>多提供商航班 CLI</h3>
-                        <p>没找到简单方式程序化查询航班，于是让 Moltbot 建一个多提供商终端 CLI。你正走在某个伟大的方向上！</p>
+                        <p>没找到简单方式程序化查询航班，于是让 Moltbot 建一个多提供商终端 CLI。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/wizaj/status/2010767447192637601" target="_blank" class="source-link">@wizaj</a>
                         </div>
                     </article>
@@ -596,9 +672,9 @@
                     <article class="news-card">
                         <div class="hero-img">📝</div>
                         <h3>Todoist 自动化：自创技能</h3>
-                        <p>想自动化一些 Todoist 任务。Clawd 在 Telegram 聊天中自己创建了技能。全在聊天中。</p>
+                        <p>想自动化一些 Todoist 任务。Clawd 在 Telegram 聊天中自己创建了技能。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/iamsubhrajyoti/status/2009949389884920153" target="_blank" class="source-link">@iamsubhrajyoti</a>
                         </div>
                     </article>
@@ -606,19 +682,19 @@
                     <article class="news-card">
                         <div class="hero-img">🧠</div>
                         <h3>跨通道上下文连接</h3>
-                        <p>Moltbot 独立评估如何帮助你。它写了一个文档，连接了两个完全不相关的来自不同通信渠道的对话。</p>
+                        <p>Moltbot 独立评估如何帮助你。它写了一个文档，连接了两个完全不相关的来自不同渠道的对话。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/bffmike/status/2010083520958415287" target="_blank" class="source-link">@bffmike</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">📧</div>
-                        <h3>Telegram 控制：日历、WordPress、Hetzner</h3>
-                        <p>读 Moltbot："这看起来很复杂"。30 分钟后：从 Telegram 控制 Gmail、Calendar、WordPress、Hetzner 像老板一样顺滑。</p>
+                        <h3>Telegram 控制：日历、WordPress</h3>
+                        <p>读 Moltbot："这看起来很复杂"。30 分钟后：从 Telegram 控制 Gmail、Calendar、WordPress。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/Abhay08/status/2010300670730293693" target="_blank" class="source-link">@Abhay08</a>
                         </div>
                     </article>
@@ -626,9 +702,9 @@
                     <article class="news-card">
                         <div class="hero-img">📊</div>
                         <h3>WHOOP 集成：指标和摘要</h3>
-                        <p>字面 5 分钟设置完毕。先问："你看到我 WHOOP 数据需要什么？"现在直接拉取并给出更新、摘要。</p>
+                        <p>字面 5 分钟设置完毕。先问："你看到我 WHOOP 数据需要什么？"现在直接拉取。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/sharoni_k/status/2010306102148428286" target="_blank" class="source-link">@sharoni_k</a>
                         </div>
                     </article>
@@ -636,9 +712,9 @@
                     <article class="news-card">
                         <div class="hero-img">🧘</div>
                         <h3>个性化冥想生成器</h3>
-                        <p>Moltbot 写定制冥想脚本，自动 TTS，结合生成环境音频制作个性化、定制冥想。太 rip 了。</p>
+                        <p>Moltbot 写定制冥想脚本，自动 TTS，结合生成环境音频制作个性化冥想。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/stolinski/status/..." target="_blank" class="source-link">@stolinski</a>
                         </div>
                     </article>
@@ -646,9 +722,9 @@
                     <article class="news-card">
                         <div class="hero-img">📱</div>
                         <h3>遛狗时的详细规格文件</h3>
-                        <p>真的在手机 Telegram 聊天，它和电脑上的 Codex CLI 对话创建详细规格文件。🤯 Wtffff</p>
+                        <p>真的在手机 Telegram 聊天，它和电脑上的 Codex CLI 对话创建详细规格文件。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/conradsagewiz/status/2012954824631898300" target="_blank" class="source-link">@conradsagewiz</a>
                         </div>
                     </article>
@@ -658,7 +734,7 @@
                         <h3>蟹主题隐藏设计宝石</h3>
                         <p>刚从我的角落里出来，被 Moltbot 吹飞。惊人的项目，甲壳类主题隐藏设计宝石。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/larus_ivar/status/2012477771054805281" target="_blank" class="source-link">@larus_ivar</a>
                         </div>
                     </article>
@@ -668,17 +744,17 @@
                         <h3>既然你享受，也试试</h3>
                         <p>既然你也在享受，也试试 Moltbot。不是联盟，只是在享受产品。拉你入坑。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/The_Global_Soul/status/2010498518855913731" target="_blank" class="source-link">@The_Global_Soul</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">🎥</div>
-                        <h3>Sora2 视频：水印移除 + 完整工作流</h3>
-                        <p>让 Moltbot 做 Sora2 视频，稍微锋利一点。5 分钟后返回，搞定水印移除、API 密钥、完整工作流。</p>
+                        <h3>Sora2 视频：水印移除</h3>
+                        <p>让 Moltbot 做 Sora2 视频，稍微锋利一点。5 分钟后返回，搞定水印移除、API 密钥。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/xMikeMickelson/status/2011646612637155760" target="_blank" class="source-link">@xMikeMickelson</a>
                         </div>
                     </article>
@@ -688,7 +764,7 @@
                         <h3>自改进技能 & 热加载</h3>
                         <p>一切第一次就工作了。以意外方式组合工具，甚至添加技能并热加载自身 prompt。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/hey_zilla/status/2010450591815016601" target="_blank" class="source-link">@hey_zilla</a>
                         </div>
                     </article>
@@ -698,17 +774,17 @@
                         <h3>个人 OS 诞生：只需几周</h3>
                         <p>刚上线，就不再需要构建个人 OS 了。几周时间。感谢 @steipete 和贡献者们！</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/weisjohn/status/2010851742326415507" target="_blank" class="source-link">@weisjohn</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">🤖</div>
-                        <h3>早期 AGI 感：想象 vs 现实差距</h3>
+                        <h3>早期 AGI 感：想象 vs 现实</h3>
                         <p>用 Moltbot 一周，真诚感觉像早期 AGI。"我能想象"和"实际能做"之间的差距从未如此之小。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/tobi_bsf/status/2008888825217527924" target="_blank" class="source-link">@tobi_bsf</a>
                         </div>
                     </article>
@@ -718,7 +794,7 @@
                         <h3>日常必备：检查、整理、提醒</h3>
                         <p>我对 Moltbot 上瘾了。它帮我检查、整理、提醒。太棒了，像个好朋友。疯狂。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/dreetje/status/2012248852020023480" target="_blank" class="source-link">@dreetje</a>
                         </div>
                     </article>
@@ -728,7 +804,7 @@
                         <h3>最有意思的项目</h3>
                         <p>Moltbot 是我最近遇到的最有趣项目——开源个人 AI 助手，能通过插件调用几乎所有任何工具。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/AdamShao/status/2010192031235125619" target="_blank" class="source-link">@AdamShao</a>
                         </div>
                     </article>
@@ -736,9 +812,9 @@
                     <article class="news-card">
                         <div class="hero-img">🎬</div>
                         <h3>YouTube 转技能：可复用工作流</h3>
-                        <p>Moltbot 很棒。一直喂它 YouTube 视频，把"酷想法"转成可复用代理技能（可重复工作流 + 防护 + 引用）。</p>
+                        <p>Moltbot 很棒。一直喂它 YouTube 视频，把"酷想法"转成可复用代理技能。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/vishalsachdev/status/2011675850945519743" target="_blank" class="source-link">@vishalsachdev</a>
                         </div>
                     </article>
@@ -746,9 +822,9 @@
                     <article class="news-card">
                         <div class="hero-img">🦞</div>
                         <h3>自建 Moltbot：负债也要建</h3>
-                        <p>创建你自己的 Moltbot，即使负债也要建。我喜欢阁楼里这只呆蟹，在 Mac Studio 里给我扯淡的想法。爱到负债。</p>
+                        <p>创建你自己的 Moltbot，即使负债也要建。我喜欢阁楼里这只呆蟹，在 Mac Studio 里给我扯淡的想法。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/thekitze/status/2008289167625863379" target="_blank" class="source-link">@thekitze</a>
                         </div>
                     </article>
@@ -756,9 +832,9 @@
                     <article class="news-card">
                         <div class="hero-img">📰</div>
                         <h3>简单 StumbleUpon：手机建站</h3>
-                        <p>Moltbot 为我建了一个简单的 StumbleUpon，收藏我最喜欢的文章。http://Stumblereads.com——从手机聊建，哄宝宝睡觉。</p>
+                        <p>Moltbot 为我建了一个简单的 StumbleUpon，收藏我最喜欢的文章。Stumblereads.com。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/vallver/status/2010508094313263500" target="_blank" class="source-link">@vallver</a>
                         </div>
                     </article>
@@ -766,9 +842,9 @@
                     <article class="news-card">
                         <div class="hero-img">🔑</div>
                         <h3>OAuth & Token 自动配置</h3>
-                        <p>Moltbot 意识到需要 API key，自动打开浏览器、打开 Google Cloud Console、配置 OAuth、生成新 token。自动化。</p>
+                        <p>Moltbot 意识到需要 API key，自动打开浏览器、打开 Google Cloud Console、配置 OAuth。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/Infoxicador/status/200942279646477152" target="_blank" class="source-link">@Infoxicador</a>
                         </div>
                     </article>
@@ -778,7 +854,7 @@
                         <h3>最近体验：最接近 AI 未来</h3>
                         <p>今天设置完毕，完全被震撼。这是最接近 AI 未来体验。真正的游戏规则改变者。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/kailazh/status/201029614392275813" target="_blank" class="source-link">@kailazh</a>
                         </div>
                     </article>
@@ -788,7 +864,7 @@
                         <h3>早餐时：已完成的事项惊人数</h3>
                         <p>Moltbot 是绝对的规则改变者。我早餐时用手机做的事情，数量惊人。难以置信。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/SedRicKCZ/status/2008797603534946372" target="_blank" class="source-link">@SedRicKCZ</a>
                         </div>
                     </article>
@@ -796,9 +872,9 @@
                     <article class="news-card">
                         <div class="hero-img">🔊</div>
                         <h3>给电脑发指令：远程关机</h3>
-                        <p>告诉 Ema（我的 Moltbot）通过 Telegram 关掉 PC（她自己也在上面运行）。完美执行。这么酷的工具。</p>
+                        <p>告诉 Ema（我的 Moltbot）通过 Telegram 关掉 PC（她自己也在上面运行）。完美执行。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/bangkokbuild/status/2010735247525335322" target="_blank" class="source-link">@bangkokbuild</a>
                         </div>
                     </article>
@@ -806,9 +882,9 @@
                     <article class="news-card">
                         <div class="hero-img">🎓</div>
                         <h3>大学课程自动化：自建技能</h3>
-                        <p>想要让 Moltbot 访问我的课程作业。让建技能——它做了，并开始用。</</p>
+                        <p>想要让 Moltbot 访问我的课程作业。让建技能——它做了，并开始用。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/pranavkarthik__/status/200983505152216287" target="_blank" class="source-link">@pranavkarthik__</a>
                         </div>
                     </article>
@@ -818,7 +894,7 @@
                         <h3>教学方式变革：支持学生</h3>
                         <p>我玩得很开心，这会彻底改变我支持学生学习写代码的方式。Moltbot 开启了某些惊人的东西。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/iamjohnellison/status/2010623622847873342" target="_blank" class="source-link">@iamjohnellison</a>
                         </div>
                     </article>
@@ -828,7 +904,7 @@
                         <h3>唯一"代理/模型"竟然搞笑</h3>
                         <p>这是我见过的唯一"代理/模型/随你怎么叫，其实很有趣的代理。Moltbot 就是这样。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/LLMJunky/status/2010045556501164366" target="_blank" class="source-link">@LLMJunky</a>
                         </div>
                     </article>
@@ -838,7 +914,7 @@
                         <h3>手机自动化：Codex 测试循环</h3>
                         <p>自主 Claude Code 循环来自手机。"修复测试"——运行循环、每 5 次迭代发送进度。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/php100/status/2008791236526952790" target="_blank" class="source-link">@php100</a>
                         </div>
                     </article>
@@ -848,7 +924,7 @@
                         <h3>澳洲口音通话：太疯狂了</h3>
                         <p>我的 Moltbot 刚用澳洲口音给我打了电话。难以置信。太疯狂。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/mirthtime/status/2011134300561830342" target="_blank" class="source-link">@mirthtime</a>
                         </div>
                     </article>
@@ -856,24 +932,25 @@
                     <article class="news-card">
                         <div class="hero-img">❤️</div>
                         <h3>主动心跳检查惊喜</h3>
-                        <p> Apparently Moltbot 在心跳期间会主动检查？！非常棒的惊喜。喜欢主动触达。</p>
+                        <p>Apparently Moltbot 在心跳期间会主动检查？！非常棒的惊喜。喜欢主动触达。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/HixVAC/status/2011142166874374520" target="_blank" class="source-link">@HixVAC</a>
                         </div>
                     </article>
 
                     <article class="news-card">
                         <div class="hero-img">🏆</div>
-                        <h3>Jarvis 模式：日程、日历、基于交通提醒</h3>
+                        <h3>Jarvis 模式：日程、日历</h3>
                         <p>叫它 Jarvis。每日日程检查、日历检查、根据交通提醒我什么时候去打球。</p>
                         <div class="source-line">
-                            <span class="source-tag">来源：<span><span>Twitter</span></span>
+                            <span class="source-tag">Twitter</span>
                             <a href="https://x.com/BraydonCoyer/status/2008537198061379720" target="_blank" class="source-link">@BraydonCoyer</a>
                         </div>
                     </article>
 
                 </div>
+            </main>
 
             <!-- Sidebar -->
             <aside class="sidebar">
@@ -905,13 +982,18 @@
                 </div>
 
                 <div class="widget">
+                    <h4>更多图片</h4>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 12px;">查看更多 Moltbot 截图与资源：</p>
+                    <a href="https://github.com/moltbot/moltbot/tree/main/assets" target="_blank" class="btn-more">浏览 GitHub 截图库 →</a>
+                </div>
+
+                <div class="widget">
                     <h4>开始使用</h4>
                     <p style="margin-bottom: 12px;">准备好部署你自己的 Moltbot 了吗？快速开始：</p>
-                    <ol style="line-height: 1.8; color: var(--text-gray);">
-                        <li>1. 安装：<code>npm install -g moltbot@latest</code></li>
-                        <li>2. 引导：<code>moltbot onboard --install-daemon</code></li>
-                        <li>3. 登录渠道：<code>moltbot channels login</code></li>
-                        <li>4. 配置：编辑 <code>~/.clawdbot/moltbot.json</code></li>
+                    <ol style="line-height: 1.8; color: var(--text-gray); font-size: 0.9rem; margin-left: 12px;">
+                        <li>安装：<code>npm install -g moltbot@latest</code></li>
+                        <li>引导：<code>moltbot onboard</code></li>
+                        <li>配置：<code>~/.clawdbot/moltbot.json</code></li>
                     </ol>
                 </div>
 
@@ -926,7 +1008,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 20px;">
+            <div class="links">
                 <a href="https://www.molt.bot/" target="_blank">molt.bot</a>
                 <a href="https://docs.molt.bot/" target="_blank">docs</a>
                 <a href="https://github.com/moltbot/moltbot" target="_blank">GitHub</a>
