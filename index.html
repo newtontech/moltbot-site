@@ -171,6 +171,13 @@
             display: flex;
             flex-direction: column;
             border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .news-card * {
+            pointer-events: none;
         }
 
         .news-card:hover {
@@ -916,34 +923,36 @@
         newsContainer.innerHTML = '';
         
         items.forEach(item => {
-            const card = document.createElement('div');
+            const card = document.createElement('a');
             card.className = 'news-card';
+            card.href = item.source_url;
+            card.target = "_blank";
             
             // Generate tags HTML
             const tagsHtml = item.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
             
             card.innerHTML = `
-                <div class="card-image">
+                <div class="card-image" style="pointer-events: none;">
                     <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200?text=No+Image'">
                 </div>
-                <div class="card-content">
+                <div class="card-content" style="pointer-events: none;">
                     <div class="card-meta">
                         <span>${item.publish_date}</span>
                         <span class="platform-badge">${item.platform}</span>
                     </div>
                     <h3 class="card-title">
-                        <a href="${item.source_url}" target="_blank">${item.title}</a>
+                        ${item.title}
                     </h3>
                     <p class="card-summary">${item.summary}</p>
                     <div class="card-tags">
                         ${tagsHtml}
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer" style="pointer-events: none;">
                     <span>${item.platform_type === '中文' ? '🇨🇳 中文' : '🇺🇸 English'}</span>
-                    <a href="${item.source_url}" target="_blank" class="read-more">
+                    <span class="read-more">
                         阅读原文 <span>→</span>
-                    </a>
+                    </span>
                 </div>
             `;
             
