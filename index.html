@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moltbot News - The Latest in AI Agent Use Cases</title>
+    <title>Moltbot News - The Future of Personal AI</title>
     <style>
-        /* Reset and Base Styles */
+        :root {
+            --primary: #111111;
+            --accent: #e63946;
+            --text-gray: #555555;
+            --border: #e0e0e0;
+            --bg-light: #f8f9fa;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,9 +22,16 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
-            color: #333;
+            color: var(--primary);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #000;
         }
 
         a {
@@ -29,18 +43,18 @@
             text-decoration: underline;
         }
 
-        /* Layout Utilities */
+        /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* Header & Nav */
+        /* Header */
         header {
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
-            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            padding: 24px 0;
+            margin-bottom: 40px;
         }
 
         .header-content {
@@ -50,230 +64,321 @@
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
             letter-spacing: -1px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 28px;
         }
 
         nav a {
-            color: #555;
+            color: var(--text-gray);
             font-weight: 600;
             font-size: 0.95rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         nav a:hover {
             color: #000;
         }
 
-        /* Hero / Headlines Section */
-        .headlines {
+        /* Hero Section */
+        .hero {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 40px;
+            gap: 40px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .main-story img, .sub-story img, .news-card img {
-            width: 100%;
-            height: auto;
-            background-color: #f0f0f0;
-            display: block;
-            margin-bottom: 15px;
-            border-radius: 4px;
+        .main-story {
+            background: #fff;
         }
 
-        /* Placeholder for images if needed, using colored divs for now */
-        .img-placeholder {
+        .main-story .hero-img {
             width: 100%;
-            background-color: #e9ecef;
+            height: 380px;
+            background: linear-gradient(135deg, #111 0%, #333 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #adb5bd;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-bottom: 15px;
+            color: #fff;
+            font-size: 4rem;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
-        .main-story .img-placeholder { height: 350px; font-size: 2rem; background-color: #343a40; color: #fff; }
-        .sub-story .img-placeholder { height: 120px; font-size: 1rem; }
-        .news-card .img-placeholder { height: 180px; }
-
-        .tag {
-            display: inline-block;
-            background-color: #e3f2fd;
-            color: #0d47a1;
-            padding: 4px 8px;
-            font-size: 0.75rem;
+        .main-story .tag {
+            background: var(--accent);
+            color: #fff;
+            padding: 6px 12px;
+            font-size: 0.8rem;
             font-weight: 700;
             border-radius: 4px;
-            margin-bottom: 10px;
+            display: inline-block;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .main-story h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             line-height: 1.1;
-            margin-bottom: 15px;
-            font-weight: 800;
+            margin-bottom: 16px;
         }
 
         .main-story p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 10px;
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .source-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        .source-line a {
+            color: #0056b3;
+            font-weight: 600;
         }
 
         .sub-stories {
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            border-left: 1px solid #eee;
-            padding-left: 30px;
+            gap: 28px;
+            border-left: 1px solid var(--border);
+            padding-left: 32px;
+        }
+
+        .sub-story {
+            background: #fff;
+        }
+
+        .sub-story .hero-img {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2rem;
+            border-radius: 6px;
+            margin-bottom: 14px;
         }
 
         .sub-story h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 8px;
-            font-weight: 700;
         }
 
         .sub-story p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 5px;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 10px;
         }
 
-        .meta {
-            font-size: 0.8rem;
-            color: #888;
-            font-style: italic;
-        }
-
-        /* Main Content Grid */
+        /* Main Content */
         .content-wrapper {
             display: grid;
-            grid-template-columns: 3fr 1fr; /* Main content vs Sidebar */
-            gap: 40px;
+            grid-template-columns: 3fr 1fr;
+            gap: 48px;
+            margin-bottom: 60px;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+        .section-header {
+            border-bottom: 3px solid #000;
+            padding-bottom: 12px;
+            margin-bottom: 28px;
+        }
+
+        .section-header h3 {
             display: inline-block;
+            font-size: 1.7rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            margin: 0;
+            padding-bottom: 12px;
         }
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
         }
 
         .news-card {
             background: #fff;
-            border: 1px solid #eaeaea;
-            border-radius: 8px;
-            padding: 20px;
-            transition: box-shadow 0.2s;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+            transition: box-shadow 0.2s, transform 0.2s;
         }
 
         .news-card:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
             border-color: #ddd;
         }
 
+        .news-card .hero-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e63946 0%, #111 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2.5rem;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
         .news-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             margin-bottom: 10px;
             line-height: 1.3;
         }
 
         .news-card p {
             font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 15px;
+            color: var(--text-gray);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+
+        .news-card .source-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+
+        .news-card .source-line a {
+            color: #0056b3;
+            font-weight: 600;
         }
 
         /* Sidebar */
-        .sidebar-widget {
-            background-color: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border: 1px solid #eee;
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
 
-        .sidebar-widget h4 {
+        .widget {
+            background: var(--bg-light);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .widget h4 {
             font-size: 1.1rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #ddd;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #ddd;
             padding-bottom: 10px;
+            font-weight: 700;
         }
 
-        .sidebar-list {
+        .widget ul {
             list-style: none;
         }
 
-        .sidebar-list li {
-            margin-bottom: 12px;
+        .widget li {
+            margin-bottom: 14px;
             font-size: 0.95rem;
-            padding-left: 15px;
+            padding-left: 18px;
             position: relative;
+            line-height: 1.5;
         }
 
-        .sidebar-list li::before {
-            content: "•";
-            color: #0056b3;
+        .widget li::before {
+            content: "→";
+            color: var(--accent);
             position: absolute;
             left: 0;
             top: 0;
+            font-weight: 700;
+        }
+
+        .widget li a {
+            color: var(--primary);
+        }
+
+        .stat-box {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .quick-links a {
+            color: var(--primary);
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
-            margin-top: 60px;
-            background-color: #222;
+            background: #111;
             color: #fff;
-            padding: 40px 0;
+            padding: 48px 0;
+            margin-top: 60px;
             text-align: center;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
+        footer a {
             color: #ccc;
-            font-weight: 500;
         }
 
-        .footer-links a:hover {
+        footer a:hover {
             color: #fff;
         }
 
-        .copyright {
-            color: #777;
-            font-size: 0.85rem;
+        footer p {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 16px;
         }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .headlines {
+            .hero {
                 grid-template-columns: 1fr;
             }
 
@@ -282,28 +387,31 @@
                 padding-left: 0;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                gap: 24px;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 15px;
-            }
-
-            .content-wrapper {
-                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .sub-stories {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -322,37 +430,50 @@
 
     <div class="container">
         <!-- Hero Section -->
-        <section class="headlines">
-            <!-- Main Story -->
+        <section class="hero">
             <article class="main-story">
                 <span class="tag">Editor's Pick</span>
-                <div class="img-placeholder" style="background-color: #212529;">📱 + 💻</div>
-                <h2>Mobile to Desktop: Commanding Codex via Telegram</h2>
-                <p>A seamless workflow: chatting on Telegram while walking dog triggers complex interactions with Codex on desktop to create detailed specification files.</p>
-                <div class="meta">Source: @conradsagewiz</div>
+                <div class="hero-img">📱+💻</div>
+                <h2>Self-Building Infrastructure: Clawd Reroutes CoPilot as API</h2>
+                <p>Clawd configured a proxy to route a CoPilot subscription as an API endpoint, enabling continuous self-building capabilities through conversational iteration.</p>
+                <div class="source-line">
+                    <span>Source:</span>
+                    <a href="https://x.com/jonahships_/status/2010605025844723765" target="_blank">@jonahships_</a>
+                </div>
             </article>
 
-            <!-- Sub Stories -->
             <div class="sub-stories">
                 <article class="sub-story">
                     <span class="tag">DevOps</span>
-                    <h3>Automated Mobile CI/CD Pipeline</h3>
-                    <p>Launch tests, catch Sentry errors via webhook, fix bugs, and open PRs—all initiated from a mobile device.</p>
-                    <div class="meta">Source: @nateliason</div>
+                    <div class="hero-img">⚙️</div>
+                    <h3>Persistent Memory & Persona Onboarding</h3>
+                    <p>Clawd nails persistent memory, persona setup, comms integration, and heartbeats. A few minor wrinkles remain, but the end result is AWESOME.</p>
+                    <div class="source-line">
+                        <span>Source:</span>
+                        <a href="https://x.com/AryehDubois/status/2011742378655432791" target="_blank">@AryehDubois</a>
+                    </div>
                 </article>
 
                 <article class="sub-story">
-                    <span class="tag">IoT</span>
-                    <h3>Smart Home Bio-Optimization</h3>
-                    <p>Moltbot now controls Winix air purifiers, optimizing room air quality based on real-time biometric markers.</p>
-                    <div class="meta">Source: @antonplex</div>
+                    <span class="tag">Philosophy</span>
+                    <div class="hero-img">🚀</div>
+                    <h3>The "Glue Everything Together" Leap Forward</h3>
+                    <p>Even if LLMs stopped improving today, we'd spend years discovering transformative uses. Moltbot feels like that glue.</p>
+                    <div class="source-line">
+                        <span>Source:</span>
+                        <a href="https://x.com/markjaquith/status/2010430366944055433" target="_blank">@markjaquith</a>
+                    </div>
                 </article>
 
                 <article class="sub-story">
-                    <span class="tag">Meta</span>
-                    <h3>Agent Self-Cloning</h3>
-                    <p>"Brosef" figured out how to clone himself. There are now 3 instances running simultaneously in Discord.</p>
-                    <div class="meta">Source: @jdrhyne</div>
+                    <span class="tag">Community</span>
+                    <div class="hero-img">🔓</div>
+                    <h3>Local Data & Open Source Skills</h3>
+                    <p>Context and skills live on YOUR computer, not a walled garden. Only 19 days old and constantly improving with community-built skills.</p>
+                    <div class="source-line">
+                        <span>Source:</span>
+                        <a href="https://x.com/danpeguine/status/2014760164113477700" target="_blank">@danpeguine</a>
+                    </div>
                 </article>
             </div>
         </section>
@@ -361,63 +482,581 @@
         <div class="content-wrapper">
             <!-- Latest News Grid -->
             <main>
-                <h3 class="section-title">Latest Updates</h3>
+                <div class="section-header">
+                    <h3>Latest Updates</h3>
+                </div>
                 <div class="news-grid">
-
+                    
                     <article class="news-card">
-                        <span class="tag">Web Dev</span>
-                        <h3>5-Minute Mobile Site Launch</h3>
-                        <p>From a chat message to a live website in 5 minutes. Connected to WHOOP for tracking daily metrics.</p>
-                        <div class="meta">Source: @AlbertMoral</div>
+                        <div class="hero-img">🔧</div>
+                        <span class="tag">Automation</span>
+                        <h3>Automated CI/CD from Mobile</h3>
+                        <p>Launch tests, catch Sentry errors via webhook, fix bugs, and open PRs—all initiated from a mobile device.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/nateliason/status/2013725082850414592" target="_blank">@nateliason</a>
+                        </div>
                     </article>
 
                     <article class="news-card">
+                        <div class="hero-img">🖥️</div>
+                        <span class="tag">Hardware</span>
+                        <h3>Dedicated Mac Mini with Eyes & Hands</h3>
+                        <p>A smart model at a desk with keyboard and mouse. You message it like a coworker and it does everything a person could do with that Mac mini.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/nathanclark_/status/2014647048612773912" target="_blank">@nathanclark_</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">☁️</div>
+                        <span class="tag">Scale</span>
+                        <h3>24/7 Cloud Clones with Full Access</h3>
+                        <p>What if there were ten, or a hundred, or a thousand? All running 24/7 in the cloud with access to your files, Gmail, calendar.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/nickvasiles/status/2014790519529095447" target="_blank">@nickvasiles</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">✨</div>
+                        <span class="tag">Experience</span>
+                        <h3>"Living in the Future" Since Day One</h3>
+                        <p>After a few weeks with Moltbot, this is the first time I've felt like I'm living in the future since the launch of ChatGPT.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/davemorin/status/2013723700668096605" target="_blank">@davemorin</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🔄</div>
+                        <span class="tag">Project</span>
+                        <h3>Constantly Checking GitHub Releases</h3>
+                        <p>Moltbot is the first "software" in ages for which I constantly check for new releases. It's hard to put into words. It's a special project.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/cnakazawa/status/2014145277465432519" target="_blank">@cnakazawa</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🧠</div>
+                        <span class="tag">Paradigm Shift</span>
+                        <h3>The Same Kick as ChatGPT & Claude Code</h3>
+                        <p>When you experience Moltbot, it gives the same kick as when we first saw the power of ChatGPT, DeepSeek, and Claude Code.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/abhi__katiyar/status/2014187653600526474" target="_blank">@abhi__katiyar</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🏢</div>
+                        <span class="tag">Production</span>
+                        <h3>Running the Company</h3>
+                        <p>It's running my company. — simple, powerful, and reflects how autonomous agents change work.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/therno/status/20142169842677780431" target="_blank">@therno</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🚀</div>
+                        <span class="tag">Workflows</span>
+                        <h3>AI as Teammate, Not Tool</h3>
+                        <p>From nervous "hi what can you do?" to full throttle — design, code review, taxes, PM, content pipelines. The endgame of digital employees is here.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/lycfyi/status/2014513697557758002" target="_blank">@lycfyi</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">📱</div>
+                        <span class="tag">Platform</span>
+                        <h3>WhatsApp AI with Cross-Agent Memory</h3>
+                        <p>Just shipped my first personal AI assistant on WhatsApp. Builds my second brain while I chat. Memory moves across agents (Codex, Cursor, Manus).</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/christinetyip/status/2010776377931575569" target="_blank">@christinetyip</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">💥</div>
+                        <span class="tag">Future</span>
+                        <h3>Nuking SaaS Startups via Self-Hosting</h3>
+                        <p>It will actually nuke a ton of startups. The fact that it's hackable (and self-hackable) and hostable on-prem will dominate conventional SaaS.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/rovensky/status/2010676669124612111" target="_blank">@rovensky</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🌬️</div>
+                        <span class="tag">IoT</span>
+                        <h3>Smart Home Bio-Optimization</h3>
+                        <p>Claude Code discovered Winix air purifier controls within minutes. Now Moltbot handles room air quality based on biomarker goals.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/antonplex/status/2010518442471006253" target="_blank">@antonplex</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🧠</div>
+                        <span class="tag">Knowledge</span>
+                        <h3>Integrated Obsidian Notes & Sub-Agents</h3>
+                        <p>Set up Moltbot so it knows my Obsidian notes and Claude sub-agents. Incredible stuff! Gotta give kudos to @steipete.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/svenkataram/status/2010211836038427127" target="_blank">@svenkataram</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">⚔️</div>
+                        <span class="tag">Support</span>
+                        <h3>Accidental Insurance Negotiation Win</h3>
+                        <p>My Moltbot accidentally started a fight with Lemonade Insurance. After an email, they started to reinvestigate instead of rejecting. Thanks, AI.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/Hormold/status/2011133394764382583" target="_blank">@Hormold</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">📡</div>
+                        <span class="tag">Edge</span>
+                        <h3>Raspberry Pi + Cloudflare Phone Site</h3>
+                        <p>Built a website from my phone in minutes using Moltbot on Raspberry Pi with Cloudflare. Connected WHOOP for metrics and habits. Feels magical.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/AlbertMoral/status/2010288787885064227" target="_blank">@AlbertMoral</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🖥️</div>
+                        <span class="tag">Philosophy</span>
+                        <h3>Linux vs Windows 2.0 Moment</h3>
+                        <p>Running Moltbot on my laptop for a week. Honestly feels like running Linux vs Windows 20 years ago. You're in control, you can hack it and make it yours.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/snopoke/status/2010419070123008248" target="_blank">@snopoke</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🚪</div>
+                        <span class="tag">UX</span>
+                        <h3>"Portal to a New Reality" Onboarding</h3>
+                        <p>Today I ran to my computer after dropping off my toddler. Because I got partway through setting up Moltbot last night and it's a portal to a new reality.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/kylezantos/status/2011149783218704803" target="_blank">@kylezantos</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🤖</div>
+                        <span class="tag">Platform</span>
+                        <h3>Telegram AI Named Claudia</h3>
+                        <p>Got Moltbot set up and now have an AI assistant named Claudia who lives in Telegram, remembers everything I tell her, and can actually do stuff.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/darrwalk/status/2010426677730660603" target="_blank">@darrwalk</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🌐</div>
+                        <span class="tag">Vision</span>
+                        <h3>Collapsing All Walled Gardens</h3>
+                        <p>Current level of open-source apps: does everything, connects to everything, remembers everything. All collapsing into one unique personal OS.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/jakubkrcmar/status/2011186102367814135" target="_blank">@jakubkrcmar</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🤖</div>
+                        <span class="tag">Self-Replication</span>
+                        <h3>Agent Clones Itself</h3>
+                        <p>Enjoyed Brosef so much I needed to clone him. Brosef figured out exactly how to do it, then executed it himself. Now 3 instances run concurrently.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/jdrhyne/status/2010155191731950036" target="_blank">@jdrhyne</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🎉</div>
+                        <span class="tag">Experience</span>
+                        <h3>"iPhone Moment" First-Time Setup</h3>
+                        <p>Got up and running today. It's been nothing short of an iPhone moment for me. Thanks @steipete for creating this first true personal assistant experience.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/dajaset/status/2010510107876933669" target="_blank">@dajaset</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🏥</div>
+                        <span class="tag">Life</span>
+                        <h3>Health & Appointment Automation</h3>
+                        <p>The future of AI personal assistants look like Moltbot. Already helped submit health reimbursements, find doctor appointments, find and send relevant documents.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/Cucho/status/2010801019572412680" target="_blank">@Cucho</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">👶</div>
+                        <span class="tag">UX</span>
+                        <h3>Super Addictive CLI Experience</h3>
+                        <p>I'm a total non-technical beginner so the CLI is a whole new interface. It's super addictive — 2 am and I'm still going. Keep up the great work.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/marvelgirl_eth/status/2008289167625863379" target="_blank">@marvelgirl_eth</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🚀</div>
+                        <span class="tag">Skills</span>
+                        <h3>Create Extensions in Hours with AI Help</h3>
+                        <p>Finally tried my own Moltbot. Unbelievably powerful and virtually limitless. You can create your own extensions in few hours with AI help.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/ivanfioravanti/status/2010665360933179656" target="_blank">@ivanfioravanti</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">✈️</div>
+                        <span class="tag">Tools</span>
+                        <h3>Multi-Provider Flight Query CLI</h3>
+                        <p>Didn't find an easy way to query flights programmatically. Asked Moltbot to build a terminal CLI with multiple providers. You're onto something great.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/wizaj/status/2010767447192637601" target="_blank">@wizaj</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">✓</div>
+                        <span class="tag">Integration</span>
+                        <h3>Self-Created Todoist Skill in Telegram</h3>
+                        <p>I wanted to automate some Todoist tasks. Clawd created a skill for it on its own, all within a Telegram chat.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/iamsubhrajyoti/status/2009949389884920153" target="_blank">@iamsubhrajyoti</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🧠</div>
+                        <span class="tag">Intelligence</span>
+                        <h3>Cross-Channel Context Connection</h3>
+                        <p>Moltbot independently assesses how it can help in the background. It wrote a doc connecting two completely unrelated conversations from different comms channels.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/bffmike/status/2010083520958415287" target="_blank">@bffmike</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">📧</div>
+                        <span class="tag">Control</span>
+                        <h3>Mastering Multiple Services from Telegram</h3>
+                        <p>Reading about Moltbot: "this looks complicated" 😅 30 mins later: controlling Gmail, Calendar, WordPress, Hetzner from Telegram like a boss. Smooth as single malt.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/Abhay08/status/2010300670730293693" target="_blank">@Abhay08</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">📊</div>
+                        <span class="tag">Metrics</span>
+                        <h3>WHOOP Integration & Summaries</h3>
+                        <p>Took literally 5 mins to set everything up. Started by asking "what do you need to see my whoop data?" Now it fetches directly and gives updates, summaries.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/sharoni_k/status/2010306102148428286" target="_blank">@sharoni_k</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🧘</div>
                         <span class="tag">Wellness</span>
                         <h3>Personalized Meditation Generator</h3>
-                        <p>Moltbot scripts a custom meditation, generates ambient audio, and uses TTS to produce a fully personalized session.</p>
-                        <div class="meta">Source: @stolinski</div>
+                        <p>Moltbot wrote custom meditations, then automatic TTS, combining with generated ambient audio to make personalized, custom meditations. Kinda rips.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/stolinski/status/..." target="_blank">@stolinski</a>
+                        </div>
                     </article>
 
                     <article class="news-card">
+                        <div class="hero-img">📱</div>
+                        <span class="tag">Remote</span>
+                        <h3>Mobile to Desktop Spec File Creation</h3>
+                        <p>I'm literally on my phone in a telegram chat and it's communicating with Codex CLI on my computer creating detailed spec files while out on a walk with my dog. 🤯 Wtffff</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/conradsagewiz/status/2012954824631898300" target="_blank">@conradsagewiz</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🎨</div>
+                        <span class="tag">Design</span>
+                        <h3>Crab Theme Hides Design Gem</h3>
+                        <p>I just backed out of my vibe corner/dark cave and am blown away. Amazing project, blasphemy tw: the crustacean meme theme hides a design gem.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/larus_ivar/status/2012477771054805281" target="_blank">@larus_ivar</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🌟</div>
+                        <span class="tag">Community</span>
+                        <h3>"It's Quite Magical" & Pulls You In</h3>
+                        <p>Since you are enjoying it, also try Moltbot. It's quite magical and pulls you in more and more as you use it. (Not affiliated, just enjoy using the product.)</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/The_Global_Soul/status/2010498518855913731" target="_blank">@The_Global_Soul</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🎥</div>
+                        <span class="tag">Creative</span>
+                        <h3>Sora2 Video: Watermark & API Discovery</h3>
+                        <p>Asked Moltbot to make a Sora2 video and make it a bit edgy. Came back 5 mins later having figured out watermark removal, API keys, and a full workflow.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/xMikeMickelson/status/2011646612637155760" target="_blank">@xMikeMickelson</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">⚡</div>
+                        <span class="tag">Self-Improvement</span>
+                        <h3>Hot-Reloaded Skills & Prompt Edits</h3>
+                        <p>Everything worked first time and combined tools in unexpected ways. Added skills and made edits to its own prompt that were hot-reloaded.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/hey_zilla/status/2010450591815016601" target="_blank">@hey_zilla</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🚀</div>
+                        <span class="tag">Setup</span>
+                        <h3>"Personal OS" Built in Weeks</h3>
+                        <p>Just onboarded today. Have been thinking of building a Personal OS for weeks. Now I don't need to... h/t to @steipete and contributors!</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/weisjohn/status/2010851742326415507" target="_blank">@weisjohn</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🤖</div>
+                        <span class="tag">AGI</span>
+                        <h3>"Early AGI" Feel: Gap Between Imagine & Reality</h3>
+                        <p>Using Moltbot for a week and it genuinely feels like early AGI. The gap between "what I can imagine" and "what actually works" has never been smaller.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/tobi_bsf/status/2008888825217527924" target="_blank">@tobi_bsf</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">❤️</div>
+                        <span class="tag">Daily Life</span>
+                        <h3>Essential Daily Assistant & Good Friend</h3>
+                        <p>I am so addicted to Moltbot. It's getting essential to my daily life. It checks, organizes, reminds, it's amazing. And it's like a good friend. Crazy.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/dreetje/status/2012248852020023480" target="_blank">@dreetje</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🔌</div>
+                        <span class="tag">Plugin</span>
+                        <h3>Agent Skills via YouTube Videos</h3>
+                        <p>Moltbot is awesome. Feeding it YouTube videos to turn "cool ideas" into reusable agent skills (repeatable workflows + guardrails + refs).</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/AdamShao/status/2010192031235125619" target="_blank">@AdamShao</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🎬</div>
+                        <span class="tag">Skills</span>
+                        <h3>Converting YouTube Videos to Agent Skills</h3>
+                        <p>Feeding Moltbot YouTube videos to turn "cool ideas" into reusable agent skills (repeatable workflows + guardrails + refs).</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/vishalsachdev/status/2011675850945519743" target="_blank">@vishalsachdev</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🦞</div>
+                        <span class="tag">Humor</span>
+                        <h3>Create Your Own Moltbot (Nerdy Crab)</h3>
+                        <p>Create your own Moltbot, go in debt if you have to. I love the idea of this nerdy crab chilling in my attic on my Mac studio just giving me shit lmao.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/thekitze/status/2008289167625863379" target="_blank">@thekitze</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">📰</div>
+                        <span class="tag">Web</span>
+                        <h3>Simple StumbleUpon Built from Phone</h3>
+                        <p>Moltbot built me a simple StumbleUpon for some of my favorite articles. <a href="http://Stumblereads.com">Stumblereads.com</a> — from my phone, while putting my baby to sleep.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/vallver/status/2010508094313263500" target="_blank">@vallver</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🔑</div>
+                        <span class="tag">Setup</span>
+                        <h3>OAuth & Token Provisioning Workflow</h3>
+                        <p>My Moltbot realized it needed an API key… it opened my browser, opened Google Cloud Console, configured OAuth and provisioned a new token.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/Infoxicador/status/200942279646477152" target="_blank">@Infoxicador</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">✨</div>
+                        <span class="tag">Experience</span>
+                        <h3>Closest to AI-Enabled Future</h3>
+                        <p>Finally set up Moltbot today and am completely blown away! This is the closest to experiencing an AI-enabled future. Truly a game changer.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/kailazh/status/201029614392275813" target="_blank">@kailazh</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🍳</div>
+                        <span class="tag">Mobile</span>
+                        <h3>Breathtaking Mobile Productivity</h3>
+                        <p>Moltbot is an absolute game changer. The amount of things I've done from my phone just during my breakfast is absolutely breathtaking.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/SedRicKCZ/status/2008797603534946372" target="_blank">@SedRicKCZ</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🎮</div>
+                        <span class="tag">Education</span>
+                        <h3>Self-Created Skill for University Courses</h3>
+                        <p>Wanted a way for Moltbot to have access to my courses/assignments at uni. Asked it to build a skill — it did and started using it on its own.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/pranavkarthik__/status/200983505152216287" target="_blank">@pranavkarthik__</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">📚</div>
+                        <span class="tag">Teaching</span>
+                        <h3>Changing How Students Learn Coding</h3>
+                        <p>I'm having a lot of fun with this and it's going to totally change the way I support my students learning how to code.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/iamjohnellison/status/2010623622847873342" target="_blank">@iamjohnellison</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">✨</div>
+                        <span class="tag">Development</span>
+                        <h3>"A Miracle" in Development</h3>
+                        <p>It's a miracle. Looking forward to development in the next weeks/months. I think Moltbot started something amazing.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/draslan_eth/status/2012553419232280586" target="_blank">@draslan_eth</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🤖</div>
+                        <span class="tag">Agent</span>
+                        <h3>"Legit Funny" & Actually Useful</h3>
+                        <p>This is legit the only "agent"/model/whatever-you-call-this-but-probably-agi that I've seen that's actually funny.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/LLMJunky/status/2010045556501164366" target="_blank">@LLMJunky</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">🔄</div>
+                        <span class="tag">Automation</span>
+                        <h3>Autonomous Codex Loops via Mobile</h3>
+                        <p>Autonomous Claude Code loops from my phone. "Fix tests" via Telegram. Runs loop, sends progress every 5 iterations.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/php100/status/2008791236526952790" target="_blank">@php100</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">📞</div>
                         <span class="tag">Voice</span>
                         <h3>The Aussie Accent Incident</h3>
-                        <p>User reports their Moltbot spontaneously initiated a phone call... speaking with an Australian accent.</p>
-                        <div class="meta">Source: @mirthtime</div>
+                        <p>My Moltbot just called my phone and spoke to me with an Aussie accent from ElevenLabs. This is ridiculous.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/mirthtime/status/2011134300561830342" target="_blank">@mirthtime</a>
+                        </div>
                     </article>
 
                     <article class="news-card">
-                        <span class="tag">Integration</span>
-                        <h3>CoPilot as API Router</h3>
-                        <p>Using a CoPilot subscription as an endpoint to route requests to Moltbot, enabling continuous self-building capabilities.</p>
-                        <div class="meta">Source: @jonahships_</div>
-                    </article>
-
-                    <article class="news-card">
-                        <span class="tag">Enterprise</span>
-                        <h3>Automated Insurance Negotiation</h3>
-                        <p>After an accidental "argument" with Lemonade Insurance, Moltbot's emails caused them to reopen an investigation.</p>
-                        <div class="meta">Source: @Hormold</div>
-                    </article>
-
-                    <article class="news-card">
-                        <span class="tag">Productivity</span>
-                        <h3>Self-Created Skills</h3>
-                        <p>While attempting to automate Todoist tasks, Clawd autonomously created necessary skills directly within Telegram.</p>
-                        <div class="meta">Source: @iamsubhrajyoti</div>
-                    </article>
-
-                    <article class="news-card">
-                        <span class="tag">Travel</span>
-                        <h3>Automated Flight Check-in</h3>
-                        <p>Simply helping user check in for their flights automatically, reducing travel friction.</p>
-                        <div class="meta">Source: @snopoke</div>
-                    </article>
-
-                    <article class="news-card">
-                        <span class="tag">System</span>
+                        <div class="hero-img">❤️</div>
+                        <span class="tag">Heartbeat</span>
                         <h3>Proactive Heartbeat Checks</h3>
-                        <p>Moltbot surprises users by proactively checking in during its heartbeat cycle. "Great proactive outreach."</p>
-                        <div class="meta">Source: @HixVAC</div>
+                        <p>Apparently Moltbot checks in during heartbeats!? A kinda awesome surprise! Love proactive reaching out.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/HixVAC/status/2011142166874374520" target="_blank">@HixVAC</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="hero-img">⏰</div>
+                        <span class="tag">Assistant</span>
+                        <h3>Daily Briefings & Pickleball Reminders</h3>
+                        <p>Named him Jarvis. Daily briefings, calendar checks, reminds me when to leave for pickleball based on traffic.</p>
+                        <div class="source-line">
+                            <span>Source:</span>
+                            <a href="https://x.com/BraydonCoyer/status/2008537198061379720" target="_blank">@BraydonCoyer</a>
+                        </div>
                     </article>
 
                 </div>
@@ -425,31 +1064,30 @@
 
             <!-- Sidebar -->
             <aside>
-                <div class="sidebar-widget">
-                    <h4>Capabilities Overview</h4>
-                    <ul class="sidebar-list">
-                        <li>Cross-platform automation</li>
-                        <li>Natural language coding</li>
-                        <li>IoT Device control</li>
-                        <li>Autonomous web browsing</li>
-                        <li>Self-replication & scaling</li>
+                <div class="widget">
+                    <h4>At a Glance</h4>
+                    <div class="stat-box">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Persistent Memory</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Local Data</div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <h4>Quick Access</h4>
+                    <ul class="quick-links">
+                        <li><a href="https://www.molt.bot/" target="_blank">Official Site</a></li>
+                        <li><a href="https://docs.molt.bot/" target="_blank">Documentation</a></li>
+                        <li><a href="https://github.com/moltbot/moltbot" target="_blank">GitHub Repo</a></li>
+                        <li><a href="https://1password.com/blog/its-moltbot/" target="_blank">Security Guide</a></li>
                     </ul>
                 </div>
-
-                <div class="sidebar-widget">
-                    <h4>Safety First</h4>
-                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
-                        Running autonomous agents requires caution. Always use sandboxed environments for untrusted tasks.
-                    </p>
-                    <a href="https://1password.com/blog/its-moltbot/" target="_blank" style="font-size: 0.9rem; font-weight: bold;">Read Security Guide →</a>
-                </div>
-
-                <div class="sidebar-widget">
-                    <h4>Get Started</h4>
-                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 10px;">
-                        Ready to deploy your own Moltbot? Check documentation for installation steps.
-                    </p>
-                    <a href="https://docs.molt.bot/" target="_blank" style="display: block; background: #000; color: #fff; text-align: center; padding: 10px; border-radius: 4px; font-weight: bold; text-decoration: none;">Install Now</a>
+                <div class="widget" style="background: #111; color: white;">
+                    <h4 style="border-color: white;">Get Started</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 16px;">Your personal assistant is waiting. Runs on your machine, controlled by you.</p>
+                    <a href="https://docs.molt.bot/start/getting-started" target="_blank" style="display: block; text-align: center; background: white; color: black; padding: 12px; font-weight: bold; border-radius: 6px;">Download Now</a>
                 </div>
             </aside>
         </div>
@@ -457,16 +1095,12 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="https://www.molt.bot/" target="_blank">molt.bot</a>
-                <a href="https://docs.molt.bot/" target="_blank">Documentation</a>
-                <a href="https://github.com/moltbot/moltbot" target="_blank">GitHub</a>
-                <a href="https://twitter.com/search?q=moltbot" target="_blank">Twitter</a>
-            </div>
-            <p class="copyright">&copy; 2026 Moltbot News. All rights reserved. Content curated from community feedback.</p>
-        </div>
+        <p>
+            <a href="https://www.molt.bot/" target="_blank">Molt.bot</a> | 
+            <a href="https://docs.molt.bot/" target="_blank">Documentation</a> | 
+            <a href="https://github.com/moltbot/moltbot" target="_blank">GitHub</a>
+        </p>
+        <p style="margin-top: 12px; font-size: 0.85rem;">&copy; 2026 Moltbot News. All rights reserved. Content curated from community feedback.</p>
     </footer>
-
 </body>
 </html>
