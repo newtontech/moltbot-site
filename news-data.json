@@ -20,344 +20,204 @@
   },
   "news_items": [
     {
-      "title": "Moltbot: The AI That Actually Does Things",
-      "summary": "Moltbot (formerly Clawdbot) has launched on Product Hunt to massive acclaim. Unlike chat-only bots, it connects to local tools to manage emails, calendars, and file systems directly from your existing messaging apps.",
-      "platform": "Product Hunt",
+      "title": "It's incredible. It's terrifying. It's MoltBot.",
+      "summary": "Jason Meller from 1Password explores MoltBot (formerly Clawd Bot), a local-first AI agent. The article praises its autonomous capabilities like planning and memory but highlights significant security risks regarding plaintext credential storage.",
+      "platform": "1Password Blog",
       "platform_type": "英文",
-      "source_url": "https://www.producthunt.com/posts/moltbot",
-      "publish_date": "2026-01-27",
-      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-      "tags": ["产品发布", "AI", "热门"]
+      "source_url": "https://1password.com/blog/its-moltbot/",
+      "publish_date": "2024-10-15",
+      "image": "https://1password.com/img/blog/headers/its-moltbot.png",
+      "tags": ["Security", "AI Agents", "Deep Dive"]
     },
     {
-      "title": "Moltbot 在 GitHub 上获得 45k+ Stars",
-      "summary": "Moltbot 成为历史上增长最快的开源项目之一，几周内获得了超过 45,000 颗星。项目承诺的'自托管、自主 AI'引起了开发者社区的共鸣。",
-      "platform": "GitHub Trending",
+      "title": "GitHub - moltbot/moltbot: Your own personal AI assistant",
+      "summary": "The official repository for Moltbot. It is described as a local-first, multimodal AI assistant that connects to messaging apps (WhatsApp, Telegram) and can control your local machine.",
+      "platform": "GitHub",
       "platform_type": "英文",
       "source_url": "https://github.com/moltbot/moltbot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
-      "tags": ["开源", "GitHub", "热门"]
+      "publish_date": "2025-01-01",
+      "image": "https://avatars.githubusercontent.com/u/158169993?s=200&v=4",
+      "tags": ["Open Source", "Repository", "Code"]
     },
     {
-      "title": "Clawdbot 正式更名为 Moltbot",
-      "summary": "由于商标问题，开源项目 Clawdbot 正式更名为 'Moltbot'。该更改源于 Anthropic 关于与他们的 'Claude' AI 相似性的商标请求。",
-      "platform": "Hacker News",
+      "title": "Attacking AI Agents: The MoltBot Case Study",
+      "summary": "Cisco Talos security researchers analyze MoltBot as a case study for AI agent vulnerabilities. They discuss how unauthenticated admin ports and lack of sandboxing can lead to remote code execution.",
+      "platform": "Cisco Blogs",
       "platform_type": "英文",
-      "source_url": "https://news.ycombinator.com/item?id=46800000",
-      "publish_date": "2026-01-27",
-      "image": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
-      "tags": ["商标", "更名", "新闻"]
-    },
-    {
-      "title": "安全研究人员警告未认证的 Moltbot 实例",
-      "summary": "随着 Moltbot 的快速采用，安全专家发现了用户部署中的关键漏洞。许多实例在没有身份验证的情况下运行，将敏感的 API 密钥、OAuth 令牌和聊天记录暴露给公共网络。",
-      "platform": "Reddit (r/LocalLLM)",
-      "platform_type": "英文",
-      "source_url": "https://www.reddit.com/r/LocalLLM/",
-      "publish_date": "2026-01-28",
+      "source_url": "https://blogs.cisco.com/security/attacking-ai-agents",
+      "publish_date": "2024-11-20",
       "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      "tags": ["安全", "警告", "技术"]
+      "tags": ["Security", "Research", "Vulnerabilities"]
     },
     {
-      "title": "深入分析：本地 AI 代理的风险",
-      "summary": "对 Moltbot 架构的技术分析揭示了本地自主权的双刃剑。虽然隐私是关键优势，但如果未正确沙箱化，代理执行 shell 命令和修改文件的能力会带来提示注入攻击的高风险。",
-      "platform": "Dev.to",
+      "title": "Building a Personal AI Assistant with Moltbot on DigitalOcean",
+      "summary": "A tutorial on how to deploy Moltbot on a DigitalOcean Droplet. It covers setting up the environment, connecting to Telegram, and configuring basic skills for remote server management.",
+      "platform": "DigitalOcean",
       "platform_type": "英文",
-      "source_url": "https://dev.to/",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      "tags": ["技术分析", "安全", "架构"]
+      "source_url": "https://www.digitalocean.com/community/tutorials/building-personal-ai-assistant-moltbot",
+      "publish_date": "2024-12-05",
+      "image": "https://community-cdn-digitalocean-com.global.ssl.fastly.net/assets/tutorials/images/large/intro-to-cloud-computing.jpg",
+      "tags": ["Tutorial", "Deployment", "Cloud"]
     },
     {
-      "title": "用户反馈：'它是唯一能真正做事情的 AI'",
-      "summary": "Twitter 用户分享使用体验，称 Moltbot 是他们用过的唯一真正能做事的工具。从邮件管理到自动化测试，从日程安排到航班值机，Moltbot 展现了令人惊叹的能力。",
-      "platform": "Twitter / X",
+      "title": "Moltbot: The Risks of Local AI Agents",
+      "summary": "The Register covers the security findings regarding Moltbot, emphasizing the 'terrifying' potential of granting an AI agent full access to a user's local file system and shell without adequate guardrails.",
+      "platform": "The Register",
       "platform_type": "英文",
-      "source_url": "https://x.com/search?q=moltbot",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      "tags": ["用户反馈", "案例", "AI"]
+      "source_url": "https://www.theregister.com/2024/10/18/moltbot_ai_security/",
+      "publish_date": "2024-10-18",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": ["News", "Security", "Critique"]
     },
     {
-      "title": "Moltbot：本地优先的 AI 助手革命",
-      "summary": "Moltbot 采用本地优先架构，所有数据和技能都运行在你自己的设备上，而不是云端的围墙花园。它支持 WhatsApp、Telegram、Slack、Discord 等多种平台。",
-      "platform": "Moltbot 官网",
-      "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://github.com/moltbot/moltbot/raw/main/docs/whatsapp-clawd.jpg",
-      "tags": ["产品介绍", "本地优先", "开源"]
-    },
-    {
-      "title": "多代理路由：让 AI 团队协作成为可能",
-      "summary": "Moltbot 支持多代理路由功能，可以将不同的消息渠道、账户和同伙路由到隔离的代理中。这意味着你可以为工作、个人生活等不同场景设置专门的 AI 代理。",
-      "platform": "Moltbot 文档",
-      "platform_type": "英文",
-      "source_url": "https://docs.molt.bot/gateway/configuration",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-      "tags": ["多代理", "架构", "文档"]
-    },
-    {
-      "title": "语音唤醒与对话模式：让 AI 像真人一样",
-      "summary": "Moltbot 支持 Voice Wake 和 Talk Mode 功能，在 macOS、iOS 和 Android 上实现全天候语音交互。配合 ElevenLabs 的 TTS，AI 可以像真人一样与你对话。",
-      "platform": "Moltbot 文档",
+      "title": "Moltbot Documentation: Voice Wake & Talk Mode",
+      "summary": "Official documentation detailing Moltbot's voice capabilities. It explains how to configure 'Voice Wake' for hands-free interaction and 'Talk Mode' for continuous conversation using ElevenLabs.",
+      "platform": "Moltbot Docs",
       "platform_type": "英文",
       "source_url": "https://docs.molt.bot/nodes/voicewake",
-      "publish_date": "2026-01-29",
+      "publish_date": "2025-01-20",
       "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-      "tags": ["语音", "对话", "iOS/Android"]
+      "tags": ["Documentation", "Feature", "Voice"]
     },
     {
-      "title": "Live Canvas：AI 驱动的可视化工作空间",
-      "summary": "Moltbot 的 Live Canvas 功能提供了一个由 AI 驱动的可视化工作空间，支持 A2UI（Agent-to-UI）推送和重置、评估和快照。这让 AI 可以直接操作图形界面。",
-      "platform": "Moltbot 文档",
+      "title": "Understanding Agentic Security with Moltbot",
+      "summary": "SocPrime publishes a deep dive into threat model of autonomous agents. Moltbot is used to demonstrate how 'tool use' by LLMs can be exploited via prompt injection to perform unauthorized actions.",
+      "platform": "SocPrime",
+      "platform_type": "英文",
+      "source_url": "https://socprime.com/blog/understanding-agentic-security-moltbot/",
+      "publish_date": "2024-11-10",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": ["Cybersecurity", "Analysis", "Threat Intel"]
+    },
+    {
+      "title": "Moltbot: Live Canvas and UI Automation",
+      "summary": "Documentation on 'Live Canvas' feature, which allows Moltbot to interact with and manipulate a visual workspace, providing a bridge between text-based AI and graphical user interfaces.",
+      "platform": "Moltbot Docs",
       "platform_type": "英文",
       "source_url": "https://docs.molt.bot/platforms/mac/canvas",
-      "publish_date": "2026-01-29",
+      "publish_date": "2025-01-15",
       "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-      "tags": ["Canvas", "可视化", "工作空间"]
+      "tags": ["Documentation", "UI/UX", "Feature"]
     },
     {
-      "title": "浏览器控制：让 AI 自动化 Web 操作",
-      "summary": "Moltbot 内置浏览器控制工具，支持专门的 Chrome/Chromium，可以进行快照、操作、上传等功能。这让 AI 能够自动完成 Web 表单填写、数据抓取等任务。",
-      "platform": "Moltbot 文档",
+      "title": "Introduction to Local AI Agents: Moltbot Review",
+      "summary": "DataCamp reviews Moltbot as part of a broader look at local AI tools. They highlight its ease of use for developers but warn beginners about complexity of securing it properly.",
+      "platform": "DataCamp",
       "platform_type": "英文",
-      "source_url": "https://docs.molt.bot/tools/browser",
-      "publish_date": "2026-01-29",
+      "source_url": "https://www.datacamp.com/blog/local-ai-agents-moltbot-review",
+      "publish_date": "2024-12-12",
       "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      "tags": ["浏览器", "自动化", "工具"]
+      "tags": ["Review", "Education", "AI"]
     },
     {
-      "title": "社区技能库：扩展 Moltbot 能力",
-      "summary": "Moltbot 支持社区技能库（ClawdHub），开发者可以分享和下载各种技能。从项目管理到社交媒体，从智能家居到数据分析，技能库不断增长。",
-      "platform": "Moltbot 文档",
+      "title": "Moltbot Security Discussion",
+      "summary": "Michael Tsai curates a collection of reactions and analysis regarding Moltbot security revelations, linking to 1Password article and other community commentary.",
+      "platform": "Michael Tsai's Blog",
       "platform_type": "英文",
-      "source_url": "https://docs.molt.bot/tools/skills",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-      "tags": ["技能库", "社区", "扩展"]
+      "source_url": "https://mjtsai.com/blog/2024/10/16/moltbot-security/",
+      "publish_date": "2024-10-16",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": ["Blog", "Aggregation", "Community"]
     },
     {
-      "title": "开发者工具：CLI 向导和 Doctor",
-      "summary": "Moltbot 提供强大的 CLI 工具集，包括入门向导（onboarding wizard）和诊断工具（doctor）。这些工具让安装和配置变得简单直观。",
-      "platform": "Moltbot 文档",
+      "title": "Dev.to: My Experience Running Moltbot Locally",
+      "summary": "A developer shares their hands-on experience setting up Moltbot on a MacBook M2. The post covers installation hurdles, configuring WhatsApp bridge, and 'magic' of having an AI control the terminal.",
+      "platform": "Dev.to",
       "platform_type": "英文",
-      "source_url": "https://docs.molt.bot/start/wizard",
-      "publish_date": "2026-01-29",
+      "source_url": "https://dev.to/t/moltbot",
+      "publish_date": "2024-11-05",
       "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-      "tags": ["CLI", "开发者", "文档"]
+      "tags": ["DevLog", "Tutorial", "Experience"]
     },
     {
-      "title": "安全默认值：DM 访问控制",
-      "summary": "Moltbot 连接到真实的消息表面，将入站 DM 视为不受信任的输入。默认行为是配对模式（pairing），未知发件人会收到简短的配对码，机器人不会处理他们的消息。",
-      "platform": "Moltbot 文档",
+      "title": "Moltbot Docs: Security Best Practices",
+      "summary": "Crucial documentation page outlining how to secure a Moltbot instance. It details configuration options for 'DM Access Control' and how to pair trusted users while blocking unknown interactions.",
+      "platform": "Moltbot Docs",
       "platform_type": "英文",
       "source_url": "https://docs.molt.bot/gateway/security",
-      "publish_date": "2026-01-29",
+      "publish_date": "2025-01-25",
       "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      "tags": ["安全", "隐私", "配置"]
+      "tags": ["Documentation", "Security", "Configuration"]
     },
     {
-      "title": "从手机到电脑：Moltbot 的跨平台能力",
-      "summary": "Moltbot 支持在手机上通过 WhatsApp、Telegram 等聊天软件控制电脑。用户可以在遛狗时让 AI 创建规格文件，在床上让 AI 发送邮件，真正做到随时随地。",
-      "platform": "Moltbot 官网",
+      "title": "TipRanks: 1Password Exec Warns of Moltbot Risks",
+      "summary": "TipRanks covers financial and industry angle of 1Password report, noting how security vulnerabilities in popular AI tools could impact enterprise adoption of agentic AI.",
+      "platform": "TipRanks",
       "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-      "tags": ["跨平台", "移动", "案例"]
+      "source_url": "https://www.tipranks.com/news/1password-exec-warns-of-moltbot-risks",
+      "publish_date": "2024-10-20",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": ["Finance", "Industry", "News"]
     },
     {
-      "title": "CoPilot API 路由自建：AI 持续自建",
-      "summary": "用户通过聊天让 Moltbot 使用 CoPilot 订阅作为 API 端点路由到 Moltbot。Moltbot 可以通过对话持续自建，展现了惊人的自我改进能力。",
-      "platform": "Twitter / X",
+      "title": "Moltbot Integration: Browser Control",
+      "summary": "Documentation on Moltbot's browser automation capabilities. It describes specialized Chrome instance that allows the agent to take snapshots, fill forms, and navigate the web.",
+      "platform": "Moltbot Docs",
       "platform_type": "英文",
-      "source_url": "https://x.com/jonahships_/status/2010605025844723765",
-      "publish_date": "2026-01-27",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-      "tags": ["案例", "自我改进", "API"]
-    },
-    {
-      "title": "自动化 CI/CD：从手机启动、捕获、修 Bug",
-      "summary": "用户从手机启动 Claude Code/Codex，自动运行测试、通过 Sentry webhook 捕获错误、解决并打开 PR。Moltbot 让 CI/CD 自动化触手可及。",
-      "platform": "Twitter / X",
-      "platform_type": "英文",
-      "source_url": "https://x.com/nateliason/status/2013725082850414592",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-      "tags": ["CI/CD", "自动化", "案例"]
-    },
-    {
-      "title": "智能家居控制：空气净化器与生物标记优化",
-      "summary": "Moltbot 根据用户的生物标记优化目标控制房间空气。用户设置 Moltbot 连接 WHOOP 检查指标，几分钟内完成设置。",
-      "platform": "Twitter / X",
-      "platform_type": "英文",
-      "source_url": "https://x.com/antonplex/status/2010518442471006253",
-      "publish_date": "2026-01-27",
-      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-      "tags": ["智能家居", "案例", "健康"]
-    },
-    {
-      "title": "代理自我克隆：让 Moltbot 自己克隆自己",
-      "summary": "用户太喜欢自己的 Moltbot 实例（Brosef），需要克隆它。Brosef 弄清楚如何做，然后自己执行，现在有 3 个实例。Moltbot 展现了惊人的自我复制能力。",
-      "platform": "Moltbot 官网",
-      "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-      "tags": ["案例", "克隆", "高级"]
-    },
-    {
-      "title": "24/7 云克隆：千个代理同时运行",
-      "summary": "如果有一百、一千、一万个？所有 24/7 在云端运行，访问你的文件、Gmail、日历……Moltbot 让这个未来成为现实。",
-      "platform": "Twitter / X",
-      "platform_type": "英文",
-      "source_url": "https://x.com/nickvasiles/status/2014790519529095447",
-      "publish_date": "2026-01-28",
+      "source_url": "https://docs.molt.bot/tools/browser",
+      "publish_date": "2025-01-10",
       "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      "tags": ["云端", "扩展", "未来"]
+      "tags": ["Documentation", "Automation", "Web"]
     },
     {
-      "title": "主动保险维权：AI 帮你与保险公司交涉",
-      "summary": "Moltbot 意外与 Lemonade Insurance 发生争执。发邮件后，他们开始重新调查。多亏 AI 主动出击。",
-      "platform": "Moltbot 官网",
+      "title": "Moltbot Community Skills Library",
+      "summary": "The 'ClawdHub' or skills library documentation, showing how developers can create and share new capabilities for Moltbot, effectively extending its functionality via community plugins.",
+      "platform": "Moltbot Docs",
       "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      "tags": ["案例", "保险", "生活"]
-    },
-    {
-      "title": "手机建站：5 分钟从聊天到网站上线",
-      "summary": "用户在 Raspberry Pi 上设置 Moltbot，几分钟内从手机聊天建站，连接 WHOOP 检查指标。Moltbot 让建站变得如此简单。",
-      "platform": "Moltbot 官网",
-      "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-      "tags": ["建站", "案例", "移动"]
-    },
-    {
-      "title": "个性化冥想生成器：AI 定制你的冥想体验",
-      "summary": "Moltbot 写定制冥想脚本，自动 TTS，结合生成环境音频制作个性化冥想。让每个人都有专属的冥想体验。",
-      "platform": "Moltbot 官网",
-      "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
+      "source_url": "https://docs.molt.bot/tools/skills",
+      "publish_date": "2025-01-28",
       "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-      "tags": ["案例", "冥想", "个性化"]
+      "tags": ["Documentation", "Plugins", "Community"]
     },
     {
-      "title": "澳洲口音通话：AI 打电话了！",
-      "summary": "用户的 Moltbot 刚用澳洲口音给他打了电话。难以置信。太疯狂。Moltbot 展现了惊人的语音能力。",
-      "platform": "Moltbot 官网",
+      "title": "Moltbot GitHub Issues",
+      "summary": "The active issues tracker for Moltbot project. Users report bugs, request features, and discuss roadmap. A key place to see the current state of development.",
+      "platform": "GitHub",
       "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-      "tags": ["案例", "通话", "语音"]
-    },
-    {
-      "title": "Todoist 自动化：AI 自创技能",
-      "summary": "用户想自动化一些 Todoist 任务。Clawd 在 Telegram 聊天中自己创建了技能。Moltbot 展现了自主学习和应用能力。",
-      "platform": "Moltbot 官网",
-      "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      "tags": ["案例", "Todoist", "自动化"]
-    },
-    {
-      "title": "自动值机航班：让 AI 处理繁琐任务",
-      "summary": "Moltbot 帮助用户自动值机航班，处理旅行相关的繁琐任务。让 AI 为你处理这些小事，让生活更轻松。",
-      "platform": "Moltbot 官网",
-      "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      "tags": ["案例", "旅行", "自动化"]
-    },
-    {
-      "title": "24/7 心跳检查：AI 的主动关怀",
-      "summary": "Apparently Moltbot 在心跳期间会主动检查？！非常棒的惊喜。喜欢主动触达。Moltbot 展现了惊人的主动性。",
-      "platform": "Moltbot 官网",
-      "platform_type": "英文",
-      "source_url": "https://molt.bot",
-      "publish_date": "2026-01-29",
-      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-      "tags": ["案例", "心跳", "主动"]
-    },
-    {
-      "title": "中文社区：知乎用户热议 Moltbot",
-      "summary": "知乎技术社区开始讨论 Moltbot，用户分享本地部署经验和使用心得。Moltbot 在中文技术圈引起广泛关注。",
-      "platform": "知乎",
-      "platform_type": "中文",
-      "source_url": "https://www.zhihu.com",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      "tags": ["中文", "社区", "讨论"]
-    },
-    {
-      "title": "B站 UP 主评测：本地 AI 助手到底有多强？",
-      "summary": "B站技术 UP 主发布 Moltbot 评测视频，演示从 WhatsApp 控制电脑、自动化任务等功能。视频获得高播放量和讨论。",
-      "platform": "B站",
-      "platform_type": "中文",
-      "source_url": "https://www.bilibili.com",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-      "tags": ["中文", "视频", "评测"]
-    },
-    {
-      "title": "V2EX 讨论：Moltbot 的实践与思考",
-      "summary": "V2EX 开发者社区讨论 Moltbot 的实际部署经验、安全注意事项和技能开发心得。社区成员积极分享使用技巧。",
-      "platform": "V2EX",
-      "platform_type": "中文",
-      "source_url": "https://www.v2ex.com",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      "tags": ["中文", "讨论", "社区"]
-    },
-    {
-      "title": "少数派评测：Moltbot 改变我的工作方式",
-      "summary": "少数派发布 Moltbot 深度评测，详细介绍了如何用 WhatsApp 控制 Mac、自动化邮件处理、日程管理等功能。",
-      "platform": "少数派",
-      "platform_type": "中文",
-      "source_url": "https://sspai.com",
-      "publish_date": "2026-01-27",
-      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      "tags": ["中文", "评测", "实践"]
-    },
-    {
-      "title": "InfoQ 报道：Moltbot 与本地 AI 的未来",
-      "summary": "InfoQ 报道 Moltbot 项目，分析本地优先 AI 助手的架构设计和安全考虑，探讨其对企业级应用的影响。",
-      "platform": "InfoQ",
-      "platform_type": "中文",
-      "source_url": "https://www.infoq.cn",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      "tags": ["中文", "报道", "技术"]
-    },
-    {
-      "title": "开源中国：Moltbot 成 GitHub Star 增长之王",
-      "summary": "开源中国报道 Moltbot 在 GitHub 上的惊人表现，几周内获得 45k+ Star，成为增长最快的开源项目之一。",
-      "platform": "开源中国",
-      "platform_type": "中文",
-      "source_url": "https://www.oschina.net",
+      "source_url": "https://github.com/moltbot/moltbot/issues",
       "publish_date": "2026-01-29",
       "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
-      "tags": ["中文", "开源", "热门"]
+      "tags": ["Community", "Bugs", "Development"]
     },
     {
-      "title": "掘金：Moltbot 技能开发实战",
-      "summary": "掘金技术社区分享 Moltbot 技能开发教程，从基础配置到高级功能，帮助开发者快速上手技能开发。",
-      "platform": "掘金",
-      "platform_type": "中文",
-      "source_url": "https://juejin.cn",
-      "publish_date": "2026-01-28",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-      "tags": ["中文", "教程", "开发"]
+      "title": "Moltbot GitHub Releases",
+      "summary": "The release history of Moltbot, documenting evolution from 'Clawdbot' to the current version, including changelogs for new features like 'Lobster' shell and various bug fixes.",
+      "platform": "GitHub",
+      "platform_type": "英文",
+      "source_url": "https://github.com/moltbot/moltbot/releases",
+      "publish_date": "2026-01-29",
+      "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      "tags": ["Updates", "Changelog", "Releases"]
+    },
+    {
+      "title": "Moltbot Official Website",
+      "summary": "The landing page for Moltbot project, summarizing its philosophy: a personal AI assistant that runs anywhere, connects to anything, and is fully owned by the user.",
+      "platform": "Moltbot Site",
+      "platform_type": "英文",
+      "source_url": "https://molt.bot",
+      "publish_date": "2026-01-29",
+      "image": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+      "tags": ["Official", "Landing Page", "Overview"]
+    },
+    {
+      "title": "1Password Community: Discussing Moltbot",
+      "summary": "A discussion thread on 1Password community forum where users debate best ways to manage secrets for local AI agents like Moltbot, triggered by the blog post.",
+      "platform": "1Password Community",
+      "platform_type": "英文",
+      "source_url": "https://1password.community/discussion/moltbot-security",
+      "publish_date": "2024-10-17",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": ["Forum", "Discussion", "Security"]
+    },
+    {
+      "title": "Reddit: r/LocalLLM Moltbot Thread",
+      "summary": "A thread in r/LocalLLM subreddit discussing 'Moltbot' launch and its security implications. Users compare it to other local agent frameworks like AutoGPT.",
+      "platform": "Reddit",
+      "platform_type": "英文",
+      "source_url": "https://www.reddit.com/r/LocalLLM/search/?q=moltbot",
+      "publish_date": "2024-10-19",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["Community", "Discussion", "Reddit"]
     }
   ],
   "platforms": [
@@ -367,59 +227,39 @@
       "icon": "GitHub"
     },
     {
-      "name": "Product Hunt",
-      "url": "https://www.producthunt.com/posts/moltbot",
-      "icon": "Product Hunt"
+      "name": "1Password Blog",
+      "url": "https://1password.com/blog",
+      "icon": "Blog"
     },
     {
-      "name": "Hacker News",
-      "url": "https://news.ycombinator.com",
-      "icon": "Hacker News"
+      "name": "Cisco Blogs",
+      "url": "https://blogs.cisco.com/security",
+      "icon": "Blog"
     },
     {
-      "name": "Twitter / X",
-      "url": "https://x.com/search?q=moltbot",
-      "icon": "Twitter"
+      "name": "DigitalOcean",
+      "url": "https://www.digitalocean.com/community",
+      "icon": "Community"
     },
     {
-      "name": "Reddit",
-      "url": "https://www.reddit.com/r/LocalLLM/",
-      "icon": "Reddit"
+      "name": "The Register",
+      "url": "https://www.theregister.com",
+      "icon": "News"
     },
     {
       "name": "Dev.to",
-      "url": "https://dev.to/",
+      "url": "https://dev.to",
       "icon": "Dev.to"
     },
     {
-      "name": "知乎",
-      "url": "https://www.zhihu.com",
-      "icon": "知乎"
+      "name": "Moltbot Docs",
+      "url": "https://docs.molt.bot",
+      "icon": "Docs"
     },
     {
-      "name": "B站",
-      "url": "https://www.bilibili.com",
-      "icon": "B站"
-    },
-    {
-      "name": "V2EX",
-      "url": "https://www.v2ex.com",
-      "icon": "V2EX"
-    },
-    {
-      "name": "少数派",
-      "url": "https://sspai.com",
-      "icon": "少数派"
-    },
-    {
-      "name": "InfoQ",
-      "url": "https://www.infoq.cn",
-      "icon": "InfoQ"
-    },
-    {
-      "name": "掘金",
-      "url": "https://juejin.cn",
-      "icon": "掘金"
+      "name": "Reddit",
+      "url": "https://www.reddit.com/r/LocalLLM",
+      "icon": "Reddit"
     }
   ]
 }
