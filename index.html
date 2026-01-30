@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moltbot News</title>
+    <title>Moltbot - News & Skills</title>
     <style>
         :root {
             --primary-color: #333;
             --accent-color: #0066cc;
+            --accent-gradient: linear-gradient(135deg, #0066cc 0%, #00d2ff 100%);
             --bg-color: #f9f9f9;
             --card-bg: #ffffff;
             --text-color: #333;
             --text-light: #666;
             --border-color: #eee;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --radius: 12px;
+            --radius-lg: 16px;
         }
 
         * {
@@ -29,16 +31,17 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            padding-bottom: 4rem;
         }
 
-        /* Header */
+        /* Header & Tabs */
         header {
             background-color: var(--card-bg);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 1rem 0;
+            padding: 0.5rem 0;
         }
 
         .container {
@@ -63,26 +66,28 @@
             gap: 10px;
         }
 
-        .filters {
+        .nav-tabs {
             display: flex;
-            gap: 10px;
+            gap: 20px;
         }
 
-        .filter-btn {
-            padding: 8px 16px;
-            border: 1px solid var(--border-color);
-            background: transparent;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+        .nav-tab {
+            padding: 15px 10px;
+            font-size: 1rem;
+            font-weight: 600;
             color: var(--text-light);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
         }
 
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
+        .nav-tab:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-tab.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
         }
 
         /* Hero Section */
@@ -97,7 +102,7 @@
         .hero-inner {
             display: flex;
             align-items: center;
-            padding: 4rem 20px;
+            padding: 3rem 20px;
             max-width: 1200px;
             margin: 0 auto;
             gap: 40px;
@@ -108,13 +113,16 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             line-height: 1.2;
+            background: linear-gradient(90deg, #333, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: 2rem;
             max-width: 600px;
@@ -131,20 +139,46 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: background-color 0.3s;
+
+        /* Sub-Header Filters */
+        .sub-header {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        
-        .btn:hover {
-            background-color: #0052a3;
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
         }
 
         /* Main Layout */
@@ -152,10 +186,13 @@
             display: grid;
             grid-template-columns: 1fr 300px;
             gap: 30px;
-            margin-bottom: 4rem;
         }
 
-        /* News Grid */
+        /* VIEW: News */
+        #news-view {
+            display: block;
+        }
+
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -176,17 +213,13 @@
             cursor: pointer;
         }
 
-        .news-card * {
-            pointer-events: none;
-        }
-
         .news-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
 
         .card-image {
-            height: 200px;
+            height: 180px;
             overflow: hidden;
             position: relative;
         }
@@ -217,7 +250,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .platform-badge {
             display: inline-block;
             padding: 2px 8px;
@@ -227,35 +260,30 @@
         }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 10px;
             font-weight: 700;
             line-height: 1.4;
         }
 
-        .card-title a {
-            color: var(--text-color);
-            text-decoration: none;
-        }
-
-        .card-title a:hover {
-            color: var(--accent-color);
-        }
-
         .card-summary {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-light);
             margin-bottom: 15px;
             flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-        
+
         .card-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
             margin-top: auto;
         }
-        
+
         .tag {
             font-size: 0.75rem;
             background-color: #eef2f6;
@@ -264,29 +292,192 @@
             border-radius: 12px;
         }
 
-        .card-footer {
-            padding: 15px 20px;
-            border-top: 1px solid var(--border-color);
+        /* VIEW: Skills (Plugins) */
+        #skills-view {
+            display: none;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Gradient Border Hack */
+        .skill-card::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #e0e0e0, #ffffff);
+            transition: background 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1), 0 0 15px rgba(0, 102, 204, 0.1);
+        }
+
+        .skill-card:hover::before {
+            background: var(--accent-gradient);
+        }
+
+        .skill-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            background: #f0f7ff;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .skill-titles {
+            flex: 1;
+        }
+
+        .skill-title-zh {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #222;
+        }
+
+        .skill-title-en {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-family: monospace;
+            margin-top: 2px;
+        }
+
+        .skill-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .feature-check {
+            color: #00cc66;
+            font-weight: bold;
+        }
+
+        .use-case-box {
+            background: #f8f9fa;
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 15px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 20px;
+        }
+
+        .use-case-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .use-case-text {
+            font-size: 0.85rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .skill-footer {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .github-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            background: #24292e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .github-btn:hover {
+            background: #000;
+        }
+
+        .install-box {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.8rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.85rem;
+            cursor: pointer;
+            position: relative;
         }
 
-        .read-more {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .read-more:hover {
-            text-decoration: underline;
+        .install-box:active {
+            transform: scale(0.98);
         }
 
-        /* Sidebar */
+        .install-cmd {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .copy-icon {
+            opacity: 0.6;
+        }
+
+        /* Sidebar & Shared */
         .sidebar-section {
             background: var(--card-bg);
             padding: 20px;
@@ -324,17 +515,16 @@
         .link-list a:hover {
             color: var(--accent-color);
         }
-        
+
         .platform-icon {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #eee;
-            border-radius: 4px;
-            font-size: 10px;
-            color: #666;
+            background-color: #f0f0f0;
+            border-radius: 6px;
+            font-size: 12px;
         }
 
         .tag-cloud {
@@ -358,13 +548,29 @@
             color: var(--text-color);
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--card-bg);
-            padding: 40px 0;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            color: var(--text-light);
+        .cat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        
+        .cat-item:last-child {
+            border-bottom: none;
+        }
+
+        .cat-item:hover .cat-name {
+            color: var(--accent-color);
+        }
+
+        .cat-count {
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: #666;
         }
 
         /* Responsive */
@@ -372,30 +578,13 @@
             .main-grid {
                 grid-template-columns: 1fr;
             }
-            
             .hero-inner {
                 flex-direction: column-reverse;
                 text-align: center;
                 padding: 2rem 20px;
             }
-            
-            .hero p {
-                margin: 0 auto 2rem;
-            }
-            
-            .hero-image {
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
+            .hero p { margin: 0 auto 2rem; }
+            .hero-image { margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -404,12 +593,11 @@
 <header>
     <div class="container header-content">
         <a href="#" class="logo">
-            <span style="font-size: 1.8rem;">🤖</span> Moltbot News
+            <span style="font-size: 1.8rem;">🦞</span> Moltbot
         </a>
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">全部</button>
-            <button class="filter-btn" data-filter="中文">中文</button>
-            <button class="filter-btn" data-filter="英文">English</button>
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="switchTab('news')">新闻动态</div>
+            <div class="nav-tab" onclick="switchTab('skills')">技能插件</div>
         </div>
     </div>
 </header>
@@ -419,7 +607,11 @@
         <div class="hero-text">
             <h1 id="hero-title">Loading...</h1>
             <p id="hero-desc">Loading...</p>
-            <a href="#" id="hero-cta" class="btn" target="_blank">View on GitHub</a>
+            <div style="display: flex; gap: 10px; justify-content: flex-start;" id="hero-btns">
+                <a href="#" id="hero-cta" class="filter-btn" style="background: var(--accent-color); color: white; border: none; padding: 10px 20px;">
+                    View on GitHub
+                </a>
+            </div>
         </div>
         <div class="hero-image">
             <img id="hero-img" src="" alt="Moltbot Hero">
@@ -427,66 +619,97 @@
     </div>
 </div>
 
-<div class="container main-grid">
-    <main>
-        <div class="news-grid" id="news-container">
-            <!-- News items will be injected here -->
-        </div>
-    </main>
-    
-    <aside>
-        <div class="sidebar-section">
-            <h3 class="sidebar-title">关注平台</h3>
-            <ul class="link-list" id="platforms-list">
-                <!-- Platforms will be injected here -->
-            </ul>
-        </div>
-        
-        <div class="sidebar-section">
-            <h3 class="sidebar-title">项目链接</h3>
-            <ul class="link-list" id="project-links">
-                <!-- Links will be injected here -->
-            </ul>
-        </div>
-        
-        <div class="sidebar-section">
-            <h3 class="sidebar-title">热门标签</h3>
-            <div class="tag-cloud" id="tag-cloud">
-                <!-- Tags will be injected here -->
+<div class="container">
+    <div class="main-grid">
+        <main>
+            <!-- NEWS VIEW -->
+            <div id="news-view">
+                <div class="sub-header">
+                    <h2 class="section-title">最新动态</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" onclick="filterNews('all', this)">全部</button>
+                        <button class="filter-btn" onclick="filterNews('中文', this)">中文</button>
+                        <button class="filter-btn" onclick="filterNews('英文', this)">English</button>
+                    </div>
+                </div>
+                <div class="news-grid" id="news-container">
+                    <!-- News items injected here -->
+                </div>
             </div>
-        </div>
-    </aside>
+
+            <!-- SKILLS VIEW -->
+            <div id="skills-view">
+                <div class="sub-header">
+                    <h2 class="section-title">技能插件库</h2>
+                    <div class="filters" id="skill-filters">
+                        <button class="filter-btn active" onclick="filterSkills('all', this)">全部</button>
+                        <!-- Skill categories injected here -->
+                    </div>
+                </div>
+                <div class="skills-grid" id="skills-container">
+                    <!-- Skill items injected here -->
+                </div>
+            </div>
+        </main>
+        
+        <aside>
+            <div id="news-sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">关注平台</h3>
+                    <ul class="link-list" id="platforms-list"></ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">热门标签</h3>
+                    <div class="tag-cloud" id="tag-cloud"></div>
+                </div>
+            </div>
+
+            <div id="skills-sidebar" style="display: none;">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">技能分类</h3>
+                    <div id="categories-list"></div>
+                </div>
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">如何安装</h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                        在 Moltbot 终端中运行安装命令即可添加新技能。
+                    </p>
+                    <div class="install-box">
+                        <code>molt install &lt;skill-name&gt;</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">项目链接</h3>
+                <ul class="link-list" id="project-links"></ul>
+            </div>
+        </aside>
+    </div>
 </div>
 
 <footer>
-    <div class="container">
+    <div class="container" style="text-align: center; color: #999; padding: 40px 0;">
         <p>&copy; 2026 Moltbot Project. Open Source AI Assistant.</p>
     </div>
 </footer>
 
 <script>
-    // Embed data directly to ensure it works without a server
-    const data = {
-  "project_info": {
-    "name": "Moltbot",
-    "description": "An open-source, local-first AI assistant that runs on your own devices and performs autonomous tasks.",
-    "github_url": "https://github.com/moltbot/moltbot",
-    "official_site": "https://molt.bot",
-    "docs_url": "https://docs.molt.bot"
-  },
-  "images": {
-    "hero": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
-    "whatsapp": "https://github.com/moltbot/moltbot/raw/main/docs/whatsapp-clawd.jpg",
-    "ai_assistant": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-    "coding": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    "technology": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-    "robot": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
-    "mobile_control": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
-    "security": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    "github": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
-    "productivity": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
-  },
-  "news_items": [
+    // Data Injection
+    const db = {
+      "news": {
+        "project_info": {
+            "name": "Moltbot",
+            "description": "An open-source, local-first AI assistant that runs on your own devices and performs autonomous tasks.",
+            "github_url": "https://github.com/moltbot/moltbot",
+            "official_site": "https://molt.bot",
+            "docs_url": "https://docs.molt.bot"
+        },
+        "images": {
+            "hero": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+            "ai_assistant": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
+        },
+        "news_items": [
     {
       "title": "It's incredible. It's terrifying. It's MoltBot.",
       "summary": "Jason Meller from 1Password explores MoltBot (formerly Clawd Bot), a local-first AI agent. The article praises its autonomous capabilities like planning and memory but highlights significant security risks regarding plaintext credential storage.",
@@ -687,202 +910,371 @@
       "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
       "tags": ["Community", "Discussion", "Reddit"]
     }
-  ],
-  "platforms": [
-    {
-      "name": "GitHub",
-      "url": "https://github.com/moltbot/moltbot",
-      "icon": "GitHub"
-    },
-    {
-      "name": "1Password Blog",
-      "url": "https://1password.com/blog",
-      "icon": "Blog"
-    },
-    {
-      "name": "Cisco Blogs",
-      "url": "https://blogs.cisco.com/security",
-      "icon": "Blog"
-    },
-    {
-      "name": "DigitalOcean",
-      "url": "https://www.digitalocean.com/community",
-      "icon": "Community"
-    },
-    {
-      "name": "The Register",
-      "url": "https://www.theregister.com",
-      "icon": "News"
-    },
-    {
-      "name": "Dev.to",
-      "url": "https://dev.to",
-      "icon": "Dev.to"
-    },
-    {
-      "name": "Moltbot Docs",
-      "url": "https://docs.molt.bot",
-      "icon": "Docs"
-    },
-    {
-      "name": "Reddit",
-      "url": "https://www.reddit.com/r/LocalLLM",
-      "icon": "Reddit"
-    }
-  ]
-};
+        ],
+        "platforms": [
+          { "name": "GitHub", "url": "https://github.com/moltbot/moltbot" },
+          { "name": "1Password Blog", "url": "https://1password.com/blog" },
+          { "name": "Cisco Blogs", "url": "https://blogs.cisco.com/security" },
+          { "name": "DigitalOcean", "url": "https://www.digitalocean.com/community" },
+          { "name": "The Register", "url": "https://www.theregister.com" },
+          { "name": "Dev.to", "url": "https://dev.to" },
+          { "name": "Moltbot Docs", "url": "https://docs.molt.bot" },
+          { "name": "Reddit", "url": "https://www.reddit.com/r/LocalLLM" }
+        ]
+      },
+      "skills": {
+        "skills": [
+          {
+            "name": "bear-notes",
+            "title": "Bear Notes 集成",
+            "description": "在 macOS 上通过 grizzly CLI 创建、搜索和管理 Bear 笔记。支持创建带标签的笔记、追加文本和读取笔记内容。",
+            "author": "Tyler Wince (grizzly)",
+            "github_url": "https://github.com/tylerwince/grizzly",
+            "install_cmd": "molt install bear-notes",
+            "category": "生产力",
+            "features": ["创建带标题和标签的笔记", "向现有笔记追加文本", "按标签或内容搜索笔记", "通过 x-callback-url 读取笔记"],
+            "use_case": "快速将会议记录或想法记录到 Bear，无需离开终端。",
+            "icon": "📝"
+          },
+          {
+            "name": "tavily-search",
+            "title": "Tavily 智能搜索",
+            "description": "通过 Tavily API 进行 AI 优化的网络搜索。返回清洁、相关的内容，专门为 AI 代理设计。",
+            "author": "Tavily AI",
+            "github_url": "https://github.com/tavily-ai/tavily-js",
+            "install_cmd": "molt install tavily-search",
+            "category": "AI/LLM",
+            "features": ["AI 优化的搜索结果", "深度研究模式用于复杂查询", "新闻主题过滤", "从 URL 提取内容"],
+            "use_case": "研究最新事件或技术文档，标准搜索返回噪音太大时使用。",
+            "icon": "🔍"
+          },
+          {
+            "name": "things-mac",
+            "title": "Things 3 任务管理",
+            "description": "在 macOS 上全面管理 Things 3。添加待办事项、管理项目、搜索任务和查看今日列表。",
+            "author": "Ossian Hempel",
+            "github_url": "https://github.com/ossianhempel/things3-cli",
+            "install_cmd": "molt install things-mac",
+            "category": "生产力",
+            "features": ["添加带截止日期和标签的任务", "读取'今日'和'即将到来'列表", "搜索任务和项目", "修改现有任务"],
+            "use_case": "在处理其他上下文时，通过语音或聊天将任务添加到 Things 3。",
+            "icon": "✅"
+          },
+          {
+            "name": "sonoscli",
+            "title": "Sonos 音箱控制",
+            "description": "在本地网络控制 Sonos 音箱。播放/暂停、改变音量、分组音箱和管理队列。",
+            "author": "Peter Steinberger",
+            "github_url": "https://github.com/steipete/sonoscli",
+            "install_cmd": "molt install sonoscli",
+            "category": "智能家居",
+            "features": ["发现本地音箱", "控制播放和音量", "分组/取消分组音箱", "从 Spotify 搜索和播放"],
+            "use_case": "直接从代理界面控制家庭音响系统。",
+            "icon": "🔊"
+          },
+          {
+            "name": "autofillin",
+            "title": "浏览器自动化填充",
+            "description": "Moltbot 的高级浏览器自动化技能。能够填充表单、导航复杂工作流程和提取数据。",
+            "author": "ClawdHub 社区",
+            "github_url": "https://github.com/moltbot/moltbot",
+            "install_cmd": "molt install autofillin",
+            "category": "浏览器自动化",
+            "features": ["表单填充和提交", "页面导航和截图", "数据提取", "会话管理"],
+            "use_case": "自动化重复性网络任务，如填写时间表或日报。",
+            "icon": "🌐"
+          },
+          {
+            "name": "cursor-agent",
+            "title": "Cursor 编辑器集成",
+            "description": "与 Cursor 编辑器功能集成，允许代理在 IDE 上下文中协助代码导航和编辑。",
+            "author": "ClawdHub 社区",
+            "github_url": "https://github.com/moltbot/moltbot",
+            "install_cmd": "molt install cursor-agent",
+            "category": "开发",
+            "features": ["代码上下文理解", "编辑器导航", "代码片段插入", "重构辅助"],
+            "use_case": "在 Cursor 环境中直接与代理结对编程。",
+            "icon": "💻"
+          },
+          {
+            "name": "deep-research",
+            "title": "深度研究代理",
+            "description": "多步骤研究代理技能，分解复杂主题、执行多次搜索并合成综合报告。",
+            "author": "ClawdHub 社区",
+            "github_url": "https://github.com/moltbot/moltbot",
+            "install_cmd": "molt install deep-research",
+            "category": "AI/LLM",
+            "features": ["迭代式搜索规划", "来源验证", "长格式内容合成", "引用管理"],
+            "use_case": "生成市场趋势或技术主题的深度报告。",
+            "icon": "📊"
+          },
+          {
+            "name": "opencode-controller",
+            "title": "OpenCode 控制",
+            "description": "提供代码执行和环境管理的低级控制，适合高级开发工作流程。",
+            "author": "ClawdHub 社区",
+            "github_url": "https://github.com/moltbot/moltbot",
+            "install_cmd": "molt install opencode-controller",
+            "category": "开发",
+            "features": ["进程管理", "环境变量控制", "脚本执行", "输出监控"],
+            "use_case": "编排复杂的构建管道或本地开发服务器设置。",
+            "icon": "⚙️"
+          },
+          {
+            "name": "todoist",
+            "title": "Todoist 集成",
+            "description": "功能齐全的 Todoist 集成。使用自然语言管理任务、项目和标签。",
+            "author": "社区",
+            "github_url": "https://github.com/Doist/todoist-api-python",
+            "install_cmd": "molt install todoist",
+            "category": "生产力",
+            "features": ["自然语言任务添加", "项目和标签管理", "优先级设置", "截止日期安排"],
+            "use_case": "使用对话快速管理任务列表和组织工作。",
+            "icon": "📋"
+          },
+          {
+            "name": "blogwatcher",
+            "title": "博客监控",
+            "description": "监控指定博客和 RSS 源的新内容，为用户总结更新。",
+            "author": "ClawdHub 社区",
+            "github_url": "https://github.com/moltbot/moltbot",
+            "install_cmd": "molt install blogwatcher",
+            "category": "生产力",
+            "features": ["RSS 源监控", "新文章提醒", "内容总结", "主题过滤"],
+            "use_case": "自动跟上行业新闻和喜欢的技术博客。",
+            "icon": "📰"
+          },
+          {
+            "name": "refactor-suggest",
+            "title": "重构建议",
+            "description": "分析代码并根据最佳实践和现代模式建议重构改进。",
+            "author": "ClawdHub 社区",
+            "github_url": "https://github.com/moltbot/moltbot",
+            "install_cmd": "molt install refactor-suggest",
+            "category": "开发",
+            "features": ["代码质量分析", "模式识别", "重构提案", "安全检查"],
+            "use_case": "提高代码库质量并减少技术债务。",
+            "icon": "🔧"
+          }
+        ],
+        "categories": [
+          { "name": "生产力", "icon": "⚡", "count": 4, "description": "提升日常工作效率的工具" },
+          { "name": "AI/LLM", "icon": "🤖", "count": 2, "description": "AI 驱动的研究和搜索" },
+          { "name": "开发", "icon": "💻", "count": 3, "description": "代码和开发工具" },
+          { "name": "智能家居", "icon": "🏠", "count": 1, "description": "控制家庭设备" },
+          { "name": "浏览器自动化", "icon": "🌐", "count": 1, "description": "自动化网络任务" }
+        ]
+      }
+    };
 
     // DOM Elements
     const newsContainer = document.getElementById('news-container');
+    const skillsContainer = document.getElementById('skills-container');
     const platformsList = document.getElementById('platforms-list');
     const projectLinks = document.getElementById('project-links');
     const tagCloud = document.getElementById('tag-cloud');
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const categoriesList = document.getElementById('categories-list');
+    const skillFilters = document.getElementById('skill-filters');
+    
+    // View Management
+    const newsView = document.getElementById('news-view');
+    const skillsView = document.getElementById('skills-view');
+    const newsSidebar = document.getElementById('news-sidebar');
+    const skillsSidebar = document.getElementById('skills-sidebar');
+    const tabs = document.querySelectorAll('.nav-tab');
 
-    // Initialize
     document.addEventListener('DOMContentLoaded', () => {
         renderHero();
-        renderNews(data.news_items);
+        renderNews(db.news.news_items);
+        renderSkills(db.skills.skills);
         renderPlatforms();
         renderProjectLinks();
         renderTagCloud();
-        setupFilters();
+        renderCategories();
+        
+        // Initial view
+        switchTab('news');
     });
 
-    // Render Hero
-    function renderHero() {
-        document.getElementById('hero-title').textContent = data.project_info.name;
-        document.getElementById('hero-desc').textContent = data.project_info.description;
-        document.getElementById('hero-cta').href = data.project_info.github_url;
-        // Use a random nice image for hero or specific hero image if available
-        document.getElementById('hero-img').src = data.images.hero || data.images.ai_assistant;
+    function switchTab(tabName) {
+        tabs.forEach((t, index) => {
+            if (tabName === 'news' && index === 0) t.classList.add('active');
+            else if (tabName === 'skills' && index === 1) t.classList.add('active');
+            else t.classList.remove('active');
+        });
+
+        if (tabName === 'news') {
+            newsView.style.display = 'block';
+            skillsView.style.display = 'none';
+            newsSidebar.style.display = 'block';
+            skillsSidebar.style.display = 'none';
+            
+            // Restore hero for news
+            document.getElementById('hero-title').textContent = db.news.project_info.name;
+            document.getElementById('hero-desc').textContent = db.news.project_info.description;
+        } else {
+            newsView.style.display = 'none';
+            skillsView.style.display = 'block';
+            newsSidebar.style.display = 'none';
+            skillsSidebar.style.display = 'block';
+
+            // Change hero for skills
+            document.getElementById('hero-title').textContent = "Moltbot Skill Store";
+            document.getElementById('hero-desc').textContent = "Extend your agent with community-powered capabilities. From browser automation to smart home control.";
+        }
     }
 
-    // Render News
+    // --- Render Functions ---
+
+    function renderHero() {
+        document.getElementById('hero-title').textContent = db.news.project_info.name;
+        document.getElementById('hero-desc').textContent = db.news.project_info.description;
+        document.getElementById('hero-cta').href = db.news.project_info.github_url;
+        document.getElementById('hero-img').src = db.news.images.hero || db.news.images.ai_assistant;
+    }
+
     function renderNews(items) {
         newsContainer.innerHTML = '';
-        
         items.forEach(item => {
             const card = document.createElement('a');
             card.className = 'news-card';
             card.href = item.source_url;
             card.target = "_blank";
-            
-            // Generate tags HTML
-            const tagsHtml = item.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
-            
+            const tagsHtml = item.tags.slice(0, 3).map(tag => `<span class="tag">#${tag}</span>`).join('');
             card.innerHTML = `
-                <div class="card-image" style="pointer-events: none;">
-                    <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200?text=No+Image'">
-                </div>
-                <div class="card-content" style="pointer-events: none;">
-                    <div class="card-meta">
-                        <span>${item.publish_date}</span>
-                        <span class="platform-badge">${item.platform}</span>
-                    </div>
-                    <h3 class="card-title">
-                        ${item.title}
-                    </h3>
+                <div class="card-image"><img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200?text=News'"></div>
+                <div class="card-content">
+                    <div class="card-meta"><span>${item.publish_date}</span><span class="platform-badge">${item.platform}</span></div>
+                    <h3 class="card-title">${item.title}</h3>
                     <p class="card-summary">${item.summary}</p>
-                    <div class="card-tags">
-                        ${tagsHtml}
-                    </div>
-                </div>
-                <div class="card-footer" style="pointer-events: none;">
-                    <span>${item.platform_type === '中文' ? '🇨🇳 中文' : '🇺🇸 English'}</span>
-                    <span class="read-more">
-                        阅读原文 <span>→</span>
-                    </span>
+                    <div class="card-tags">${tagsHtml}</div>
                 </div>
             `;
-            
             newsContainer.appendChild(card);
         });
     }
 
-    // Render Platforms Sidebar
+    function renderSkills(items) {
+        skillsContainer.innerHTML = '';
+        items.forEach(skill => {
+            const card = document.createElement('div');
+            card.className = 'skill-card';
+            
+            const featuresHtml = skill.features.slice(0, 3).map(f => 
+                `<li class="feature-item"><span class="feature-check">✓</span> ${f}</li>`
+            ).join('');
+
+            card.innerHTML = `
+                <div class="skill-header">
+                    <div class="skill-icon">${skill.icon}</div>
+                    <div class="skill-titles">
+                        <div class="skill-title-zh">${skill.title}</div>
+                        <div class="skill-title-en">${skill.name}</div>
+                    </div>
+                </div>
+                <p class="skill-desc">${skill.description}</p>
+                <ul class="feature-list">${featuresHtml}</ul>
+                <div class="use-case-box">
+                    <div class="use-case-title">💡 Use Case</div>
+                    <div class="use-case-text">"${skill.use_case}"</div>
+                </div>
+                <div class="skill-footer">
+                    <a href="${skill.github_url}" target="_blank" class="github-btn">
+                        <span>GitHub</span>
+                    </a>
+                    <div class="install-box" onclick="copyInstall('${skill.install_cmd}', this)">
+                        <div class="install-cmd">$ ${skill.install_cmd}</div>
+                        <span class="copy-icon">📋</span>
+                    </div>
+                </div>
+            `;
+            skillsContainer.appendChild(card);
+        });
+    }
+
     function renderPlatforms() {
-        data.platforms.slice(0, 8).forEach(platform => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <a href="${platform.url}" target="_blank">
-                    <span class="platform-icon">${platform.name.charAt(0)}</span>
-                    ${platform.name}
-                </a>
-            `;
-            platformsList.appendChild(li);
+        platformsList.innerHTML = '';
+        db.news.platforms.slice(0, 6).forEach(p => {
+            platformsList.innerHTML += `<li><a href="${p.url}" target="_blank"><span class="platform-icon">${p.name[0]}</span>${p.name}</a></li>`;
         });
     }
 
-    // Render Project Links
     function renderProjectLinks() {
-        const links = [
-            { name: "Official Website", url: data.project_info.official_site },
-            { name: "Documentation", url: data.project_info.docs_url },
-            { name: "GitHub Repository", url: data.project_info.github_url }
-        ];
-
-        links.forEach(link => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <a href="${link.url}" target="_blank">
-                    <span class="platform-icon">🔗</span>
-                    ${link.name}
-                </a>
-            `;
-            projectLinks.appendChild(li);
-        });
+        projectLinks.innerHTML = `
+            <li><a href="${db.news.project_info.official_site}" target="_blank"><span class="platform-icon">🌐</span> Official Site</a></li>
+            <li><a href="${db.news.project_info.docs_url}" target="_blank"><span class="platform-icon">📚</span> Docs</a></li>
+            <li><a href="${db.news.project_info.github_url}" target="_blank"><span class="platform-icon">🐙</span> GitHub</a></li>
+        `;
     }
 
-    // Render Tag Cloud
     function renderTagCloud() {
         const tags = new Set();
-        data.news_items.forEach(item => {
-            item.tags.forEach(tag => tags.add(tag));
-        });
+        db.news.news_items.forEach(i => i.tags.forEach(t => tags.add(t)));
+        tagCloud.innerHTML = Array.from(tags).slice(0, 10).map(t => 
+            `<a href="#" class="tag-cloud-item" onclick="filterNewsByTag('${t}')">${t}</a>`
+        ).join('');
+    }
 
-        Array.from(tags).slice(0, 15).forEach(tag => {
-            const a = document.createElement('a');
-            a.href = "#";
-            a.className = 'tag-cloud-item';
-            a.textContent = tag;
-            // Simple filter on click (optional enhancement)
-            a.onclick = (e) => {
-                e.preventDefault();
-                // Reset active filter buttons
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                
-                // Filter news by tag
-                const filtered = data.news_items.filter(item => item.tags.includes(tag));
-                renderNews(filtered);
-            };
-            tagCloud.appendChild(a);
+    function renderCategories() {
+        // Sidebar list
+        categoriesList.innerHTML = db.skills.categories.map(c => 
+            `<div class="cat-item" onclick="filterSkills('${c.name}', null)">
+                <span class="cat-name">${c.icon} ${c.name}</span>
+                <span class="cat-count">${c.count}</span>
+            </div>`
+        ).join('');
+
+        // Top filter buttons (append to existing 'All')
+        const filterContainer = document.getElementById('skill-filters');
+        // Clear existing except 'All'
+        filterContainer.innerHTML = '<button class="filter-btn active" onclick="filterSkills(\'all\', this)">全部</button>';
+        
+        db.skills.categories.forEach(c => {
+            filterContainer.innerHTML += `<button class="filter-btn" onclick="filterSkills('${c.name}', this)">${c.icon} ${c.name}</button>`;
         });
     }
 
-    // Setup Filters
-    function setupFilters() {
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active state
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+    // --- Logic Functions ---
 
-                // Filter data
-                const filterType = btn.getAttribute('data-filter');
-                let filteredData;
+    function filterNews(type, btn) {
+        document.querySelectorAll('#news-view .filter-btn').forEach(b => b.classList.remove('active'));
+        if(btn) btn.classList.add('active');
 
-                if (filterType === 'all') {
-                    filteredData = data.news_items;
-                } else {
-                    filteredData = data.news_items.filter(item => item.platform_type === filterType);
-                }
+        if (type === 'all') renderNews(db.news.news_items);
+        else renderNews(db.news.news_items.filter(i => i.platform_type === type));
+    }
 
-                renderNews(filteredData);
+    function filterNewsByTag(tag) {
+        renderNews(db.news.news_items.filter(i => i.tags.includes(tag)));
+    }
+
+    function filterSkills(category, btn) {
+        // Update top buttons
+        const btns = document.querySelectorAll('#skills-view .filter-btn');
+        btns.forEach(b => b.classList.remove('active'));
+        
+        // Match button text content if btn provided, otherwise find it
+        if (btn) {
+            btn.classList.add('active');
+        } else {
+            // If triggered from sidebar, try to highlight corresponding top filter
+            btns.forEach(b => {
+                if(b.textContent.includes(category)) b.classList.add('active');
             });
+        }
+
+        if (category === 'all') renderSkills(db.skills.skills);
+        else renderSkills(db.skills.skills.filter(s => s.category === category));
+    }
+
+    function copyInstall(cmd, el) {
+        navigator.clipboard.writeText(cmd).then(() => {
+            const original = el.innerHTML;
+            el.innerHTML = '<div class="install-cmd" style="color: #4caf50; text-align: center; width: 100%;">Copied!</div>';
+            setTimeout(() => el.innerHTML = original, 1500);
         });
     }
-</script>
 
+</script>
 </body>
 </html>
