@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moltbot - AI Assistant Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette */
+            --primary: #2d3436;
+            --accent: #6c5ce7;
+            --accent-gradient: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-secondary: #636e72;
+            --border: #dfe6e9;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --glow: 0 0 20px rgba(108, 92, 231, 0.3);
+
+            /* Layout */
+            --container-width: 1200px;
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Header & Nav --- */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-icon {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            background: #f1f2f6;
+            padding: 4px;
+            border-radius: 99px;
+        }
+
+        .tab-btn {
+            border: none;
+            background: transparent;
+            padding: 8px 24px;
+            border-radius: 99px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn.active {
+            background: var(--card-bg);
+            color: var(--accent);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- Main Layout --- */
+        main {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 20px;
+            min-height: 80vh;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        .view-section {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Unified Card Style (News & Showcase) --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .unified-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            height: 100%;
+        }
+
+        .unified-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(108, 92, 231, 0.3);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-media {
+            height: 200px;
+            overflow: hidden;
+            background: #eee;
+            position: relative;
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .unified-card:hover .card-media img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .card-summary {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid #f1f2f6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .action-btn {
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+        
+        .action-btn:hover {
+            gap: 10px;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .mini-tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            background: #f1f2f6;
+            border-radius: 4px;
+            color: #636e72;
+        }
+
+        /* --- Code Snippet Variant --- */
+        .code-preview {
+            background: #2d3436;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #dfe6e9;
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+        }
+        .code-preview::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #ff7675, #fab1a0, #ffeaa7, #55efc4, #74b9ff, #a29bfe);
+        }
+
+        /* --- Skills Section (Glassmorphism) --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            position: relative;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            color: white;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+            /* Gradient Backgrounds */
+            background: linear-gradient(120deg, #2d3436 0%, #000000 100%);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Specific Gradients per category for variety */
+        .skill-card[data-cat="生产力"] { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .skill-card[data-cat="AI/LLM"] { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .skill-card[data-cat="开发"] { background: linear-gradient(135deg, #434343 0%, #000000 100%); }
+        .skill-card[data-cat="智能家居"] { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .skill-card[data-cat="浏览器自动化"] { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
+
+        .glass-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        .skill-card:hover .glass-overlay {
+            opacity: 1;
+        }
+
+        .skill-content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .skill-icon {
+            font-size: 3.5rem;
+            line-height: 1;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .skill-title-group h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .skill-name-en {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            background: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .skill-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            min-height: 3em;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 25px;
+            background: rgba(0,0,0,0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .feature-item:last-child { margin-bottom: 0; }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        .skill-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .install-box {
+            flex: 1;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .install-box:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .gh-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background 0.2s;
+        }
+        .gh-btn:hover { background: rgba(255,255,255,0.4); }
+
+        /* Filter Chips */
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-chip {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .filter-chip:hover, .filter-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; height: auto; padding: 15px 0; gap: 15px; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <span class="brand-icon">🦞</span> Moltbot
+            </a>
+            <nav class="tabs">
+                <button class="tab-btn active" onclick="setTab('news')">新闻资讯</button>
+                <button class="tab-btn" onclick="setTab('skills')">技能插件</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- NEWS & SHOWCASE TAB -->
+        <section id="news-section" class="view-section active">
+            <div class="section-header">
+                <h2 class="section-title">最新动态 & 案例</h2>
+                <div class="filter-bar">
+                    <button class="filter-chip active" onclick="filterNews('all', this)">全部</button>
+                    <button class="filter-chip" onclick="filterNews('news', this)">📰 新闻</button>
+                    <button class="filter-chip" onclick="filterNews('showcase', this)">✨ 案例</button>
+                    <button class="filter-chip" onclick="filterNews('code', this)">💻 代码</button>
+                </div>
+            </div>
+
+            <div class="card-grid" id="news-grid">
+                <!-- Content injected via JS -->
+            </div>
+        </section>
+
+        <!-- SKILLS TAB -->
+        <section id="skills-section" class="view-section">
+            <div class="section-header">
+                <h2 class="section-title">技能插件库</h2>
+                <div class="filter-bar" id="skill-filters">
+                    <!-- Filters injected via JS -->
+                </div>
+            </div>
+
+            <div class="skills-grid" id="skills-grid">
+                <!-- Content injected via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright © 2026 newtontech. Moltbot 私有项目新闻站</p>
+    </footer>
+
+    <script>
+        // --- DATA INJECTION START ---
+        const db = {
+            news: {
+  "project_info": {
+    "name": "Moltbot",
+    "description": "An open-source, local-first AI assistant that runs on your own devices and performs autonomous tasks.",
+    "github_url": "https://github.com/moltbot/moltbot",
+    "official_site": "https://molt.bot",
+    "docs_url": "https://docs.molt.bot"
+  },
+  "images": {
+    "hero": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+    "whatsapp": "https://github.com/moltbot/moltbot/raw/main/docs/whatsapp-clawd.jpg",
+    "ai_assistant": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    "coding": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    "technology": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+    "robot": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+    "mobile_control": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+    "security": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    "github": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+    "productivity": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
+  },
+  "news_items": [
+    {
+      "title": "It's incredible. It's terrifying. It's MoltBot.",
+      "summary": "Jason Meller from 1Password explores MoltBot (formerly Clawd Bot), a local-first AI agent. The article praises its autonomous capabilities like planning and memory but highlights significant security risks regarding plaintext credential storage.",
+      "platform": "1Password Blog",
+      "platform_type": "英文",
+      "source_url": "https://1password.com/blog/its-moltbot/",
+      "publish_date": "2024-10-15",
+      "image": "https://1password.com/img/blog/headers/its-moltbot.png",
+      "tags": [
+        "Security",
+        "AI Agents",
+        "Deep Dive"
+      ]
+    },
+    {
+      "title": "GitHub - moltbot/moltbot: Your own personal AI assistant",
+      "summary": "The official repository for Moltbot. It is described as a local-first, multimodal AI assistant that connects to messaging apps (WhatsApp, Telegram) and can control your local machine.",
+      "platform": "GitHub",
+      "platform_type": "英文",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "publish_date": "2025-01-01",
+      "image": "https://avatars.githubusercontent.com/u/158169993?s=200&v=4",
+      "tags": [
+        "Open Source",
+        "Repository",
+        "Code"
+      ]
+    },
+    {
+      "title": "Attacking AI Agents: The MoltBot Case Study",
+      "summary": "Cisco Talos security researchers analyze MoltBot as a case study for AI agent vulnerabilities. They discuss how unauthenticated admin ports and lack of sandboxing can lead to remote code execution.",
+      "platform": "Cisco Blogs",
+      "platform_type": "英文",
+      "source_url": "https://blogs.cisco.com/security/attacking-ai-agents",
+      "publish_date": "2024-11-20",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "Security",
+        "Research",
+        "Vulnerabilities"
+      ]
+    },
+    {
+      "title": "Building a Personal AI Assistant with Moltbot on DigitalOcean",
+      "summary": "A tutorial on how to deploy Moltbot on a DigitalOcean Droplet. It covers setting up the environment, connecting to Telegram, and configuring basic skills for remote server management.",
+      "platform": "DigitalOcean",
+      "platform_type": "英文",
+      "source_url": "https://www.digitalocean.com/community/tutorials/building-personal-ai-assistant-moltbot",
+      "publish_date": "2024-12-05",
+      "image": "https://community-cdn-digitalocean-com.global.ssl.fastly.net/assets/tutorials/images/large/intro-to-cloud-computing.jpg",
+      "tags": [
+        "Tutorial",
+        "Deployment",
+        "Cloud"
+      ]
+    },
+    {
+      "title": "Moltbot: The Risks of Local AI Agents",
+      "summary": "The Register covers the security findings regarding Moltbot, emphasizing the 'terrifying' potential of granting an AI agent full access to a user's local file system and shell without adequate guardrails.",
+      "platform": "The Register",
+      "platform_type": "英文",
+      "source_url": "https://www.theregister.com/2024/10/18/moltbot_ai_security/",
+      "publish_date": "2024-10-18",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "News",
+        "Security",
+        "Critique"
+      ]
+    },
+    {
+      "title": "Moltbot Documentation: Voice Wake & Talk Mode",
+      "summary": "Official documentation detailing Moltbot's voice capabilities. It explains how to configure 'Voice Wake' for hands-free interaction and 'Talk Mode' for continuous conversation using ElevenLabs.",
+      "platform": "Moltbot Docs",
+      "platform_type": "英文",
+      "source_url": "https://docs.molt.bot/nodes/voicewake",
+      "publish_date": "2025-01-20",
+      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+      "tags": [
+        "Documentation",
+        "Feature",
+        "Voice"
+      ]
+    },
+    {
+      "title": "Understanding Agentic Security with Moltbot",
+      "summary": "SocPrime publishes a deep dive into threat model of autonomous agents. Moltbot is used to demonstrate how 'tool use' by LLMs can be exploited via prompt injection to perform unauthorized actions.",
+      "platform": "SocPrime",
+      "platform_type": "英文",
+      "source_url": "https://socprime.com/blog/understanding-agentic-security-moltbot/",
+      "publish_date": "2024-11-10",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "Cybersecurity",
+        "Analysis",
+        "Threat Intel"
+      ]
+    },
+    {
+      "title": "Moltbot: Live Canvas and UI Automation",
+      "summary": "Documentation on 'Live Canvas' feature, which allows Moltbot to interact with and manipulate a visual workspace, providing a bridge between text-based AI and graphical user interfaces.",
+      "platform": "Moltbot Docs",
+      "platform_type": "英文",
+      "source_url": "https://docs.molt.bot/platforms/mac/canvas",
+      "publish_date": "2025-01-15",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "Documentation",
+        "UI/UX",
+        "Feature"
+      ]
+    },
+    {
+      "title": "Introduction to Local AI Agents: Moltbot Review",
+      "summary": "DataCamp reviews Moltbot as part of a broader look at local AI tools. They highlight its ease of use for developers but warn beginners about complexity of securing it properly.",
+      "platform": "DataCamp",
+      "platform_type": "英文",
+      "source_url": "https://www.datacamp.com/blog/local-ai-agents-moltbot-review",
+      "publish_date": "2024-12-12",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "Review",
+        "Education",
+        "AI"
+      ]
+    },
+    {
+      "title": "Moltbot Security Discussion",
+      "summary": "Michael Tsai curates a collection of reactions and analysis regarding Moltbot security revelations, linking to 1Password article and other community commentary.",
+      "platform": "Michael Tsai's Blog",
+      "platform_type": "英文",
+      "source_url": "https://mjtsai.com/blog/2024/10/16/moltbot-security/",
+      "publish_date": "2024-10-16",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "Blog",
+        "Aggregation",
+        "Community"
+      ]
+    },
+    {
+      "title": "Dev.to: My Experience Running Moltbot Locally",
+      "summary": "A developer shares their hands-on experience setting up Moltbot on a MacBook M2. The post covers installation hurdles, configuring WhatsApp bridge, and 'magic' of having an AI control the terminal.",
+      "platform": "Dev.to",
+      "platform_type": "英文",
+      "source_url": "https://dev.to/t/moltbot",
+      "publish_date": "2024-11-05",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "DevLog",
+        "Tutorial",
+        "Experience"
+      ]
+    },
+    {
+      "title": "Moltbot Docs: Security Best Practices",
+      "summary": "Crucial documentation page outlining how to secure a Moltbot instance. It details configuration options for 'DM Access Control' and how to pair trusted users while blocking unknown interactions.",
+      "platform": "Moltbot Docs",
+      "platform_type": "英文",
+      "source_url": "https://docs.molt.bot/gateway/security",
+      "publish_date": "2025-01-25",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "Documentation",
+        "Security",
+        "Configuration"
+      ]
+    },
+    {
+      "title": "TipRanks: 1Password Exec Warns of Moltbot Risks",
+      "summary": "TipRanks covers financial and industry angle of 1Password report, noting how security vulnerabilities in popular AI tools could impact enterprise adoption of agentic AI.",
+      "platform": "TipRanks",
+      "platform_type": "英文",
+      "source_url": "https://www.tipranks.com/news/1password-exec-warns-of-moltbot-risks",
+      "publish_date": "2024-10-20",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "Finance",
+        "Industry",
+        "News"
+      ]
+    },
+    {
+      "title": "Moltbot Integration: Browser Control",
+      "summary": "Documentation on Moltbot's browser automation capabilities. It describes specialized Chrome instance that allows the agent to take snapshots, fill forms, and navigate the web.",
+      "platform": "Moltbot Docs",
+      "platform_type": "英文",
+      "source_url": "https://docs.molt.bot/tools/browser",
+      "publish_date": "2025-01-10",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "Documentation",
+        "Automation",
+        "Web"
+      ]
+    },
+    {
+      "title": "Moltbot Community Skills Library",
+      "summary": "The 'ClawdHub' or skills library documentation, showing how developers can create and share new capabilities for Moltbot, effectively extending its functionality via community plugins.",
+      "platform": "Moltbot Docs",
+      "platform_type": "英文",
+      "source_url": "https://docs.molt.bot/tools/skills",
+      "publish_date": "2025-01-28",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      "tags": [
+        "Documentation",
+        "Plugins",
+        "Community"
+      ]
+    },
+    {
+      "title": "Moltbot GitHub Issues",
+      "summary": "The active issues tracker for Moltbot project. Users report bugs, request features, and discuss roadmap. A key place to see the current state of development.",
+      "platform": "GitHub",
+      "platform_type": "英文",
+      "source_url": "https://github.com/moltbot/moltbot/issues",
+      "publish_date": "2026-01-29",
+      "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      "tags": [
+        "Community",
+        "Bugs",
+        "Development"
+      ]
+    },
+    {
+      "title": "Moltbot GitHub Releases",
+      "summary": "The release history of Moltbot, documenting evolution from 'Clawdbot' to the current version, including changelogs for new features like 'Lobster' shell and various bug fixes.",
+      "platform": "GitHub",
+      "platform_type": "英文",
+      "source_url": "https://github.com/moltbot/moltbot/releases",
+      "publish_date": "2026-01-29",
+      "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      "tags": [
+        "Updates",
+        "Changelog",
+        "Releases"
+      ]
+    },
+    {
+      "title": "Moltbot Official Website",
+      "summary": "The landing page for Moltbot project, summarizing its philosophy: a personal AI assistant that runs anywhere, connects to anything, and is fully owned by the user.",
+      "platform": "Moltbot Site",
+      "platform_type": "英文",
+      "source_url": "https://molt.bot",
+      "publish_date": "2026-01-29",
+      "image": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+      "tags": [
+        "Official",
+        "Landing Page",
+        "Overview"
+      ]
+    },
+    {
+      "title": "1Password Community: Discussing Moltbot",
+      "summary": "A discussion thread on 1Password community forum where users debate best ways to manage secrets for local AI agents like Moltbot, triggered by the blog post.",
+      "platform": "1Password Community",
+      "platform_type": "英文",
+      "source_url": "https://1password.community/discussion/moltbot-security",
+      "publish_date": "2024-10-17",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "Forum",
+        "Discussion",
+        "Security"
+      ]
+    },
+    {
+      "title": "Reddit: r/LocalLLM Moltbot Thread",
+      "summary": "A thread in r/LocalLLM subreddit discussing 'Moltbot' launch and its security implications. Users compare it to other local agent frameworks like AutoGPT.",
+      "platform": "Reddit",
+      "platform_type": "英文",
+      "source_url": "https://www.reddit.com/r/LocalLLM/search/?q=moltbot",
+      "publish_date": "2024-10-19",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "Community",
+        "Discussion",
+        "Reddit"
+      ]
+    }
+  ],
+  "platforms": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/moltbot/moltbot",
+      "icon": "GitHub"
+    },
+    {
+      "name": "1Password Blog",
+      "url": "https://1password.com/blog",
+      "icon": "Blog"
+    },
+    {
+      "name": "Cisco Blogs",
+      "url": "https://blogs.cisco.com/security",
+      "icon": "Blog"
+    },
+    {
+      "name": "DigitalOcean",
+      "url": "https://www.digitalocean.com/community",
+      "icon": "Community"
+    },
+    {
+      "name": "The Register",
+      "url": "https://www.theregister.com",
+      "icon": "News"
+    },
+    {
+      "name": "Dev.to",
+      "url": "https://dev.to",
+      "icon": "Dev.to"
+    },
+    {
+      "name": "Moltbot Docs",
+      "url": "https://docs.molt.bot",
+      "icon": "Docs"
+    },
+    {
+      "name": "Reddit",
+      "url": "https://www.reddit.com/r/LocalLLM",
+      "icon": "Reddit"
+    }
+  ]
+},
+            skills: {
+  "skills": [
+    {
+      "name": "bear-notes",
+      "title": "Bear Notes 集成",
+      "description": "在 macOS 上通过 grizzly CLI 创建、搜索和管理 Bear 笔记。支持创建带标签的笔记、追加文本和读取笔记内容。",
+      "author": "Tyler Wince (grizzly)",
+      "github_url": "https://github.com/tylerwince/grizzly",
+      "install_cmd": "molt install bear-notes",
+      "category": "生产力",
+      "features": [
+        "创建带标题和标签的笔记",
+        "向现有笔记追加文本",
+        "按标签或内容搜索笔记",
+        "通过 x-callback-url 读取笔记"
+      ],
+      "use_case": "快速将会议记录或想法记录到 Bear，无需离开终端。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+      "tags": [
+        "笔记",
+        "macOS",
+        "Bear",
+        "生产力"
+      ],
+      "icon": "📝"
+    },
+    {
+      "name": "tavily-search",
+      "title": "Tavily 智能搜索",
+      "description": "通过 Tavily API 进行 AI 优化的网络搜索。返回清洁、相关的内容，专门为 AI 代理设计。",
+      "author": "Tavily AI",
+      "github_url": "https://github.com/tavily-ai/tavily-js",
+      "install_cmd": "molt install tavily-search",
+      "category": "AI/LLM",
+      "features": [
+        "AI 优化的搜索结果",
+        "深度研究模式用于复杂查询",
+        "新闻主题过滤",
+        "从 URL 提取内容"
+      ],
+      "use_case": "研究最新事件或技术文档，标准搜索返回噪音太大时使用。",
+      "stars": "76+",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "搜索",
+        "AI",
+        "研究",
+        "网络"
+      ],
+      "icon": "🔍"
+    },
+    {
+      "name": "things-mac",
+      "title": "Things 3 任务管理",
+      "description": "在 macOS 上全面管理 Things 3。添加待办事项、管理项目、搜索任务和查看今日列表。",
+      "author": "Ossian Hempel",
+      "github_url": "https://github.com/ossianhempel/things3-cli",
+      "install_cmd": "molt install things-mac",
+      "category": "生产力",
+      "features": [
+        "添加带截止日期和标签的任务",
+        "读取\"今日\"和\"即将到来\"列表",
+        "搜索任务和项目",
+        "修改现有任务（移动、完成）"
+      ],
+      "use_case": "在处理其他上下文时，通过语音或聊天将任务添加到 Things 3。",
+      "stars": "200+",
+      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+      "tags": [
+        "待办",
+        "Things3",
+        "macOS",
+        "生产力"
+      ],
+      "icon": "✅"
+    },
+    {
+      "name": "sonoscli",
+      "title": "Sonos 音箱控制",
+      "description": "在本地网络控制 Sonos 音箱。播放/暂停、改变音量、分组音箱和管理队列。",
+      "author": "Peter Steinberger",
+      "github_url": "https://github.com/steipete/sonoscli",
+      "install_cmd": "molt install sonoscli",
+      "category": "智能家居",
+      "features": [
+        "发现本地音箱",
+        "控制播放和音量",
+        "分组/取消分组音箱",
+        "从 Spotify 搜索和播放（通过 SMAPI）"
+      ],
+      "use_case": "直接从代理界面控制家庭音响系统。",
+      "stars": "150+",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      "tags": [
+        "Sonos",
+        "音频",
+        "智能家居",
+        "音乐"
+      ],
+      "icon": "🔊"
+    },
+    {
+      "name": "autofillin',
+      "title": "浏览器自动化填充",
+      "description": "Moltbot 的高级浏览器自动化技能。能够填充表单、导航复杂工作流程和提取数据。",
+      "author": "ClawdHub 社区",
+      "github_url": "https://github.com/moltbot/moltbot",
+      "install_cmd": "molt install autofillin",
+      "category": "浏览器自动化",
+      "features": [
+        "表单填充和提交",
+        "页面导航和截图",
+        "数据提取",
+        "会话管理"
+      ],
+      "use_case": "自动化重复性网络任务，如填写时间表或日报。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "自动化",
+        "浏览器",
+        "Chrome",
+        "网络"
+      ],
+      "icon": "🌐"
+    },
+    {
+      "name": "cursor-agent",
+      "title": "Cursor 编辑器集成",
+      "description": "与 Cursor 编辑器功能集成，允许代理在 IDE 上下文中协助代码导航和编辑。",
+      "author": "ClawdHub 社区",
+      "github_url": "https://github.com/moltbot/moltbot",
+      "install_cmd": "molt install cursor-agent",
+      "category": "开发",
+      "features": [
+        "代码上下文理解",
+        "编辑器导航",
+        "代码片段插入",
+        "重构辅助"
+      ],
+      "use_case": "在 Cursor 环境中直接与代理结对编程。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "编码",
+        "编辑器",
+        "Cursor",
+        "IDE"
+      ],
+      "icon": "💻"
+    },
+    {
+      "name": "deep-research",
+      "title": "深度研究代理",
+      "description": "多步骤研究代理技能，分解复杂主题、执行多次搜索并合成综合报告。",
+      "author": "ClawdHub 社区",
+      "github_url": "https://github.com/moltbot/moltbot",
+      "install_cmd": "molt install deep-research",
+      "category": "AI/LLM",
+      "features": [
+        "迭代式搜索规划",
+        "来源验证",
+        "长格式内容合成",
+        "引用管理"
+      ],
+      "use_case": "生成市场趋势或技术主题的深度报告。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "研究",
+        "AI",
+        "报告",
+        "分析"
+      ],
+      "icon": "📊"
+    },
+    {
+      "name": "opencode-controller",
+      "title": "OpenCode 控制",
+      "description": "提供代码执行和环境管理的低级控制，适合高级开发工作流程。",
+      "author": "ClawdHub 社区",
+      "github_url": "https://github.com/moltbot/moltbot",
+      "install_cmd": "molt install opencode-controller",
+      "category": "开发",
+      "features": [
+        "进程管理",
+        "环境变量控制",
+        "脚本执行",
+        "输出监控"
+      ],
+      "use_case": "编排复杂的构建管道或本地开发服务器设置。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "DevOps",
+        "控制",
+        "系统",
+        "终端"
+      ],
+      "icon": "⚙️"
+    },
+    {
+      "name": "todoist",
+      "title": "Todoist 集成",
+      "description": "功能齐全的 Todoist 集成。使用自然语言管理任务、项目和标签。",
+      "author": "社区",
+      "github_url": "https://github.com/Doist/todoist-api-python",
+      "install_cmd": "molt install todoist",
+      "category": "生产力",
+      "features": [
+        "自然语言任务添加",
+        "项目和标签管理",
+        "优先级设置",
+        "截止日期安排"
+      ],
+      "use_case": "使用对话快速管理任务列表和组织工作。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+      "tags": [
+        "任务管理",
+        "Todoist",
+        "生产力"
+      ],
+      "icon": "📋"
+    },
+    {
+      "name": "blogwatcher",
+      "title": "博客监控",
+      "description": "监控指定博客和 RSS 源的新内容，为用户总结更新。",
+      "author": "ClawdHub 社区",
+      "github_url": "https://github.com/moltbot/moltbot",
+      "install_cmd": "molt install blogwatcher",
+      "category": "生产力",
+      "features": [
+        "RSS 源监控",
+        "新文章提醒",
+        "内容总结",
+        "主题过滤"
+      ],
+      "use_case": "自动跟上行业新闻和喜欢的技术博客。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "RSS",
+        "新闻",
+        "博客",
+        "阅读"
+      ],
+      "icon": "📰"
+    },
+    {
+      "name": "refactor-suggest",
+      "title": "重构建议",
+      "description": "分析代码并根据最佳实践和现代模式建议重构改进。",
+      "author": "ClawdHub 社区",
+      "github_url": "https://github.com/moltbot/moltbot",
+      "install_cmd": "molt install refactor-suggest",
+      "category": "开发",
+      "features": [
+        "代码质量分析",
+        "模式识别",
+        "重构提案",
+        "安全检查"
+      ],
+      "use_case": "提高代码库质量并减少技术债务。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "代码",
+        "重构",
+        "质量",
+        "开发"
+      ],
+      "icon": "🔧"
+    }
+  ],
+  "categories": [
+    {
+      "name": "生产力",
+      "icon": "⚡",
+      "count": 4,
+      "description": "提升日常工作效率的工具"
+    },
+    {
+      "name": "AI/LLM",
+      "icon": "🤖",
+      "count": 2,
+      "description": "AI 驱动的研究和搜索"
+    },
+    {
+      "name": "开发",
+      "icon": "💻",
+      "count": 3,
+      "description": "代码和开发工具"
+    },
+    {
+      "name": "智能家居",
+      "icon": "🏠",
+      "count": 1,
+      "description": "控制家庭设备"
+    },
+    {
+      "name": "浏览器自动化",
+      "icon": "🌐",
+      "count": 1,
+      "description": "自动化网络任务"
+    }
+  ]
+},
+            showcase: {
+  "use_cases": [
+    {
+      "title": "本地优先的自主 AI 助手",
+      "description": "Moltbot 在你的设备上本地运行，连接到 WhatsApp 和 iMessage 等消息应用来执行任务，无需将数据发送到云端，确保隐私和所有权。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "生产力",
+      "image": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+      "icon": "🏠"
+    },
+    {
+      "title": "智能家居控制（Sonos）",
+      "description": "直接从代理界面控制本地 Sonos 音箱。功能包括发现、音量控制、分组和从 Spotify 等服务播放音乐。",
+      "source_url": "https://github.com/steipete/sonoscli",
+      "category": "智能家居",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      "icon": "🔊"
+    },
+    {
+      "title": "浏览器自动化（AutoFillIn）",
+      "description": "使用由 AI 代理控制的专用 Chrome 实例自动化复杂的网络工作流程，如表单填充、文件上传和数据提取。",
+      "source_url": "https://docs.molt.bot/tools/browser",
+      "category": "自动化",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "icon": "🌐"
+    },
+    {
+      "title": "深度研究代理",
+      "description": "多步骤研究代理技能，分解复杂主题、使用 Tavily API 执行迭代搜索、验证来源并合成综合报告。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "研究",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "icon": "📊"
+    },
+    {
+      "title": "IDE 集成（Cursor）",
+      "description": "与 Cursor 编辑器功能无缝集成，允许代理在开发环境中协助代码导航、重构和上下文感知编辑。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "开发",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "icon": "💻"
+    }
+  ],
+  "code_snippets": [
+    {
+      "title": "Tavily 搜索脚本（Node.js）",
+      "description": "使用 Tavily API 执行 AI 优化网络搜索的脚本，支持不同的搜索深度和主题。",
+      "source_url": "skills/tavily-search/scripts/search.mjs",
+      "category": "搜索",
+      "icon": "🔍",
+      "code": "#!/usr/bin/env node\nconst body = {\n  api_key: apiKey,\n  query: query,\n  search_depth: searchDepth,\n  topic: topic,\n  max_results: Math.max(1, Math.min(n, 20)),\n  include_answer: true,\n  include_raw_content: false,\n};\n\nconst resp = await fetch(\"https://api.tavily.com/search\", {\n  method: \"POST\",\n  headers: { \"Content-Type\": \"application/json\" },\n  body: JSON.stringify(body),\n});"
+    },
+    {
+      "title": "CodexBar 成本分析（Python）",
+      "description": "Python 实用程序，用于从 CodexBar 日志分析和报告本地 LLM 使用成本，支持按提供商和模型过滤。",
+      "source_url": "skills/model-usage/scripts/model_usage.py",
+      "category": "实用工具",
+      "icon": "📊",
+      "code": "def run_codexbar_cost(provider: str) -> List[Dict[str, Any]]:\n    cmd = [\"codexbar\", \"cost\", \"--format\", \"json\", \"--provider\", provider]\n    try:\n        output = subprocess.check_output(cmd, text=True)\n    except FileNotFoundError:\n        raise RuntimeError(\"codexbar not found on PATH. Install CodexBar CLI first.\")\n    return json.loads(output)"
+    },
+    {
+      "title": "AutoFillIn Chrome 启动器（Bash）",
+      "description": "Shell 脚本，用于安全地启动带有远程调试端口的 Google Chrome 以进行自动化任务，处理 macOS 和 Linux 的环境检查。",
+      "source_url": "skills/autofillin/scripts/autofillin.sh",
+      "category": "自动化",
+      "icon": "🚀",
+      "code": "start_chrome_safe() {\n    local url=\"${\\1:-about:blank}\"\n    info \"Starting Chrome in debug mode...\"\n    bash \"$SCRIPT_DIR/start-chrome.sh\" \"$url\"\n    local exit_code=$?\n    if [ $exit_code -ne 0 ]; then\n        # ... recovery logic\n    fi\n    return 0\n}"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Moltbot GitHub 头部",
+      "description": "显示 Moltbot 界面概念的官方项目头部。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "界面",
+      "image": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+      "icon": "🖥️"
+    },
+    {
+      "title": "WhatsApp 集成",
+      "description": "Moltbot 通过 WhatsApp 运行的概念视图。",
+      "source_url": "https://docs.molt.bot",
+      "category": "移动端",
+      "image": "https://github.com/moltbot/moltbot/raw/main/docs/whatsapp-clawd.jpg",
+      "icon": "📱"
+    },
+    {
+      "title": "代码编辑上下文",
+      "description": "Moltbot 在编码环境中协助的表示。",
+      "source_url": "https://molt.bot",
+      "category": "开发",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "icon": "💻"
+    },
+    {
+      "title": "Bear Notes 技能",
+      "description": "Bear Notes 生产力集成的视觉表示。",
+      "source_url": "https://github.com/tylerwince/grizzly",
+      "category": "生产力",
+      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+      "icon": "📝"
+    }
+  ],
+  "news_links": [
+    {
+      "title": "Moltbot: 真正做事的 AI",
+      "description": "Product Hunt 发布报道，突出 Moltbot 连接到本地工具和自主管理文件/邮件的能力。",
+      "source_url": "https://www.producthunt.com/posts/moltbot",
+      "category": "产品发布",
+      "date": "2026-01-27",
+      "icon": "🚀"
+    },
+    {
+      "title": "太不可思议了。太可怕了。这是 MoltBot。",
+      "description": "1Password 的安全专注评论，探索了本地优先 AI 代理的风险和功能。",
+      "source_url": "https://1password.com/blog/its-moltbot/",
+      "category": "安全分析",
+      "date": "2024-10-15",
+      "icon": "🔒"
+    },
+    {
+      "title": "Clawdbot 更名为 Moltbot",
+      "description": "关于项目因商标讨论从 Clawdbot 更名为 Moltbot 的新闻。",
+      "source_url": "https://news.ycombinator.com/item?id=moltbot-rename",
+      "category": "项目更新",
+      "date": "2026-01-27",
+      "icon": "🔄"
+    },
+    {
+      "title": "攻击 AI 代理：MoltBot 案例研究",
+      "description": "Cisco Talos 关于 AI 代理漏洞的研究，使用 Moltbot 作为远程代码执行风险的主要案例研究。",
+      "source_url": "https://blogs.cisco.com/security/attacking-ai-agents",
+      "category": "安全研究",
+      "date": "2024-11-20",
+      "icon": "🛡️"
+    },
+    {
+      "title": "使用 Moltbot 构建个人 AI 助手",
+      "description": "DigitalOcean 教程，关于将 Moltbot 部署到云端 droplet 以进行远程服务器管理。",
+      "source_url": "https://www.digitalocean.com/community/tutorials/building-personal-ai-assistant-moltbot",
+      "category": "教程",
+      "date": "2024-12-05",
+      "icon": "☁️"
+    }
+  ]
+}
+        };
+        // --- DATA INJECTION END ---
+
+        // State
+        const state = {
+            activeTab: 'news',
+            newsFilter: 'all',
+            skillFilter: 'all'
+        };
+
+        // DOM
+        const els = {
+            tabs: document.querySelectorAll('.tab-btn'),
+            sections: document.querySelectorAll('.view-section'),
+            newsGrid: document.getElementById('news-grid'),
+            skillsGrid: document.getElementById('skills-grid'),
+            skillFilters: document.getElementById('skill-filters'),
+            filterChips: document.querySelectorAll('.filter-chip')
+        };
+
+        // --- RENDERERS ---
+
+        function renderNewsGrid() {
+            els.newsGrid.innerHTML = '';
+            const allItems = [];
+
+            // 1. News Items
+            db.news.news_items.forEach(item => {
+                allItems.push({
+                    type: 'news',
+                    date: item.publish_date,
+                    data: item
+                });
+            });
+
+            // 2. Use Cases & Showcase
+            db.showcase.use_cases.forEach(item => {
+                allItems.push({ type: 'showcase', date: '2026-01-01', data: item }); // Mock date for sort
+            });
+
+             // 3. Code (optional to mix in, but maybe keep separate? For now mixing all non-code)
+            // Let's filter based on state.newsFilter
+            
+            let filtered = allItems;
+            if (state.newsFilter === 'news') filtered = allItems.filter(i => i.type === 'news');
+            if (state.newsFilter === 'showcase') filtered = allItems.filter(i => i.type === 'showcase');
+            if (state.newsFilter === 'code') {
+                // Special case for code
+                renderCodeSnippets();
+                return; 
+            }
+
+            // Render
+            filtered.forEach(item => {
+                const card = document.createElement('article');
+                card.className = 'unified-card';
+                
+                const d = item.data;
+                const isNews = item.type === 'news';
+                
+                // Image handling
+                let imgUrl = d.image || 'https://via.placeholder.com/400x200';
+                
+                const badgeText = isNews ? d.platform : 'Use Case';
+                
+                card.innerHTML = `
+                    <div class="card-badge">${badgeText}</div>
+                    <div class="card-media">
+                        <img src="${imgUrl}" alt="${d.title}" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        ${isNews ? `<div class="card-date">📅 ${d.publish_date}</div>` : ''}
+                        <h3 class="card-title">${d.title}</h3>
+                        <p class="card-summary">${d.description || d.summary}</p>
+                        <div class="card-footer">
+                            <div class="tag-group">
+                                ${(d.tags || [d.category]).slice(0,3).map(t => `<span class="mini-tag">#${t}</span>`).join('')}
+                            </div>
+                            <a href="${d.source_url}" target="_blank" class="action-btn">
+                                Open Link <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                els.newsGrid.appendChild(card);
+            });
+        }
+
+        function renderCodeSnippets() {
+            els.newsGrid.innerHTML = '';
+            db.showcase.code_snippets.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'unified-card';
+                card.innerHTML = `
+                    <div class="code-preview">
+                        <pre><code>${escapeHtml(item.code)}</code></pre>
+                    </div>
+                    <div class="card-content" style="flex: 0;">
+                        <h3 class="card-title" style="font-size: 1rem;">${item.icon} ${item.title}</h3>
+                        <p class="card-summary" style="font-size: 0.85rem;">${item.description}</p>
+                    </div>
+                `;
+                els.newsGrid.appendChild(card);
+            });
+        }
+
+        function renderSkillsGrid() {
+            // 1. Filters
+            if(els.skillFilters.innerHTML.trim() === '') {
+                els.skillFilters.innerHTML = `<button class="filter-chip active" onclick="filterSkills('all', this)">All</button>`;
+                db.skills.categories.forEach(cat => {
+                    els.skillFilters.innerHTML += `<button class="filter-chip" onclick="filterSkills('${cat.name}', this)">${cat.icon} ${cat.name}</button>`;
+                });
+            }
+
+            // 2. Content
+            els.skillsGrid.innerHTML = '';
+            const items = state.skillFilter === 'all' 
+                ? db.skills.skills 
+                : db.skills.skills.filter(s => s.category === state.skillFilter);
+
+            items.forEach(skill => {
+                const card = document.createElement('div');
+                card.className = 'skill-card';
+                card.setAttribute('data-cat', skill.category);
+                
+                const featuresHtml = skill.features.slice(0, 3)
+                    .map(f => `<li class="feature-item"><span class="check-icon">✓</span> ${f}</li>`)
+                    .join('');
+
+                card.innerHTML = `
+                    <div class="glass-overlay"></div>
+                    <div class="skill-content-wrapper">
+                        <div class="skill-header">
+                            <div class="skill-icon">${skill.icon}</div>
+                            <div class="skill-title-group">
+                                <h3>${skill.title}</h3>
+                                <span class="skill-name-en">${skill.name}</span>
+                            </div>
+                        </div>
+                        <p class="skill-desc">${skill.description}</p>
+                        
+                        <ul class="feature-list">
+                            ${featuresHtml}
+                        </ul>
+
+                        <div class="skill-actions">
+                            <div class="install-box" onclick="copyText('${skill.install_cmd}', this)">
+                                <span>$ ${skill.install_cmd}</span>
+                                <span class="copy-icon">📋</span>
+                            </div>
+                            <a href="${skill.github_url}" target="_blank" class="gh-btn">
+                                <svg height="20" viewBox="0 0 16 16" version="1.1" width="20" aria-hidden="true" style="fill:currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                els.skillsGrid.appendChild(card);
+            });
+        }
+
+        // --- ACTIONS ---
+
+        function setTab(tabName) {
+            state.activeTab = tabName;
+            
+            // Update Nav
+            els.tabs.forEach(t => t.classList.remove('active'));
+            document.querySelector(`.tab-btn[onclick="setTab('${tabName}')"]`).classList.add('active');
+
+            // Update View
+            els.sections.forEach(s => s.classList.remove('active'));
+            if(tabName === 'news') document.getElementById('news-section').classList.add('active');
+            else document.getElementById('skills-section').classList.add('active');
+        }
+
+        function filterNews(type, btn) {
+            state.newsFilter = type;
+            document.querySelectorAll('#news-section .filter-chip').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderNewsGrid();
+        }
+
+        function filterSkills(cat, btn) {
+            state.skillFilter = cat;
+            document.querySelectorAll('#skills-section .filter-chip').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderSkillsGrid();
+        }
+
+        function copyText(text, el) {
+            navigator.clipboard.writeText(text).then(() => {
+                const original = el.innerHTML;
+                el.innerHTML = '<span>Copied!</span> <span>✅</span>';
+                setTimeout(() => el.innerHTML = original, 1500);
+            });
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        // --- INIT ---
+        renderNewsGrid();
+        renderSkillsGrid();
+
+    </script>
+</body>
+</html>
