@@ -1,0 +1,146 @@
+{
+  "use_cases": [
+    {
+      "title": "本地优先的自主 AI 助手",
+      "description": "Moltbot 在你的设备上本地运行，连接到 WhatsApp 和 iMessage 等消息应用来执行任务，无需将数据发送到云端，确保隐私和所有权。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "生产力",
+      "image": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+      "icon": "🏠"
+    },
+    {
+      "title": "智能家居控制（Sonos）",
+      "description": "直接从代理界面控制本地 Sonos 音箱。功能包括发现、音量控制、分组和从 Spotify 等服务播放音乐。",
+      "source_url": "https://github.com/steipete/sonoscli",
+      "category": "智能家居",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      "icon": "🔊"
+    },
+    {
+      "title": "浏览器自动化（AutoFillIn）",
+      "description": "使用由 AI 代理控制的专用 Chrome 实例自动化复杂的网络工作流程，如表单填充、文件上传和数据提取。",
+      "source_url": "https://docs.molt.bot/tools/browser",
+      "category": "自动化",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "icon": "🌐"
+    },
+    {
+      "title": "深度研究代理",
+      "description": "多步骤研究代理技能，分解复杂主题、使用 Tavily API 执行迭代搜索、验证来源并合成综合报告。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "研究",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "icon": "📊"
+    },
+    {
+      "title": "IDE 集成（Cursor）",
+      "description": "与 Cursor 编辑器功能无缝集成，允许代理在开发环境中协助代码导航、重构和上下文感知编辑。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "开发",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "icon": "💻"
+    }
+  ],
+  "code_snippets": [
+    {
+      "title": "Tavily 搜索脚本（Node.js）",
+      "description": "使用 Tavily API 执行 AI 优化网络搜索的脚本，支持不同的搜索深度和主题。",
+      "source_url": "skills/tavily-search/scripts/search.mjs",
+      "category": "搜索",
+      "icon": "🔍",
+      "code": "#!/usr/bin/env node\nconst body = {\n  api_key: apiKey,\n  query: query,\n  search_depth: searchDepth,\n  topic: topic,\n  max_results: Math.max(1, Math.min(n, 20)),\n  include_answer: true,\n  include_raw_content: false,\n};\n\nconst resp = await fetch(\"https://api.tavily.com/search\", {\n  method: \"POST\",\n  headers: { \"Content-Type\": \"application/json\" },\n  body: JSON.stringify(body),\n});"
+    },
+    {
+      "title": "CodexBar 成本分析（Python）",
+      "description": "Python 实用程序，用于从 CodexBar 日志分析和报告本地 LLM 使用成本，支持按提供商和模型过滤。",
+      "source_url": "skills/model-usage/scripts/model_usage.py",
+      "category": "实用工具",
+      "icon": "📊",
+      "code": "def run_codexbar_cost(provider: str) -> List[Dict[str, Any]]:\n    cmd = [\"codexbar\", \"cost\", \"--format\", \"json\", \"--provider\", provider]\n    try:\n        output = subprocess.check_output(cmd, text=True)\n    except FileNotFoundError:\n        raise RuntimeError(\"codexbar not found on PATH. Install CodexBar CLI first.\")\n    return json.loads(output)"
+    },
+    {
+      "title": "AutoFillIn Chrome 启动器（Bash）",
+      "description": "Shell 脚本，用于安全地启动带有远程调试端口的 Google Chrome 以进行自动化任务，处理 macOS 和 Linux 的环境检查。",
+      "source_url": "skills/autofillin/scripts/autofillin.sh",
+      "category": "自动化",
+      "icon": "🚀",
+      "code": "start_chrome_safe() {\n    local url=\"${1:-about:blank}\"\n    info \"Starting Chrome in debug mode...\"\n    bash \"$SCRIPT_DIR/start-chrome.sh\" \"$url\"\n    local exit_code=$?\n    if [ $exit_code -ne 0 ]; then\n        # ... recovery logic\n    fi\n    return 0\n}"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Moltbot GitHub 头部",
+      "description": "显示 Moltbot 界面概念的官方项目头部。",
+      "source_url": "https://github.com/moltbot/moltbot",
+      "category": "界面",
+      "image": "https://raw.githubusercontent.com/moltbot/moltbot/main/README-header.png",
+      "icon": "🖥️"
+    },
+    {
+      "title": "WhatsApp 集成",
+      "description": "Moltbot 通过 WhatsApp 运行的概念视图。",
+      "source_url": "https://docs.molt.bot",
+      "category": "移动端",
+      "image": "https://github.com/moltbot/moltbot/raw/main/docs/whatsapp-clawd.jpg",
+      "icon": "📱"
+    },
+    {
+      "title": "代码编辑上下文",
+      "description": "Moltbot 在编码环境中协助的表示。",
+      "source_url": "https://molt.bot",
+      "category": "开发",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "icon": "💻"
+    },
+    {
+      "title": "Bear Notes 技能",
+      "description": "Bear Notes 生产力集成的视觉表示。",
+      "source_url": "https://github.com/tylerwince/grizzly",
+      "category": "生产力",
+      "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+      "icon": "📝"
+    }
+  ],
+  "news_links": [
+    {
+      "title": "Moltbot: 真正做事的 AI",
+      "description": "Product Hunt 发布报道，突出 Moltbot 连接到本地工具和自主管理文件/邮件的能力。",
+      "source_url": "https://www.producthunt.com/posts/moltbot",
+      "category": "产品发布",
+      "date": "2026-01-27",
+      "icon": "🚀"
+    },
+    {
+      "title": "太不可思议了。太可怕了。这是 MoltBot。",
+      "description": "1Password 的安全专注评论，探索了本地优先 AI 代理的风险和功能。",
+      "source_url": "https://1password.com/blog/its-moltbot/",
+      "category": "安全分析",
+      "date": "2024-10-15",
+      "icon": "🔒"
+    },
+    {
+      "title": "Clawdbot 更名为 Moltbot",
+      "description": "关于项目因商标讨论从 Clawdbot 更名为 Moltbot 的新闻。",
+      "source_url": "https://news.ycombinator.com/item?id=moltbot-rename",
+      "category": "项目更新",
+      "date": "2026-01-27",
+      "icon": "🔄"
+    },
+    {
+      "title": "攻击 AI 代理：MoltBot 案例研究",
+      "description": "Cisco Talos 关于 AI 代理漏洞的研究，使用 Moltbot 作为远程代码执行风险的主要案例研究。",
+      "source_url": "https://blogs.cisco.com/security/attacking-ai-agents",
+      "category": "安全研究",
+      "date": "2024-11-20",
+      "icon": "🛡️"
+    },
+    {
+      "title": "使用 Moltbot 构建个人 AI 助手",
+      "description": "DigitalOcean 教程，关于将 Moltbot 部署到云端 droplet 以进行远程服务器管理。",
+      "source_url": "https://www.digitalocean.com/community/tutorials/building-personal-ai-assistant-moltbot",
+      "category": "教程",
+      "date": "2024-12-05",
+      "icon": "☁️"
+    }
+  ]
+}
