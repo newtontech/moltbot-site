@@ -1575,8 +1575,10 @@
 
         // --- INIT ---
         document.addEventListener('DOMContentLoaded', () => {
-            renderNews();
+            // 技能插件需要JavaScript渲染
             renderSkills();
+            // 新闻卡片已有静态HTML，不需要自动渲染
+            // 只在用户使用过滤器时才渲染
         });
     </script>
 </body>
