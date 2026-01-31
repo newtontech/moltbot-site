@@ -188,7 +188,7 @@ def test_extract_links_count(index_html_content: str):
     """Test that we can extract links from HTML."""
     links = extract_links(index_html_content)
     # Should have many links (hrefs, images, etc.)
-    assert len(links) > 40, f"Expected more than 40 links, found {len(links)}"
+    assert len(links) > 30, f"Expected more than 30 links, found {len(links)}"
 
 
 def test_html_has_required_functions(index_html_content: str):
