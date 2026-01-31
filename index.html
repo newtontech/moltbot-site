@@ -1435,11 +1435,11 @@
             grid.innerHTML = '';
             
             items.forEach(item => {
-                const shouldShow = filter === 'all' || 
+                const shouldShow = filter === 'all' ||
                     (filter === 'news' && item.platform_type.includes('英文') && item.tags?.includes('发布')) ||
-                    (filter === 'showcase' && (item.tags?.includes('案例') || item.tags?.includes('体验')) ||
-                    (filter === 'code' && (item.tags?.includes('教程') || item.tags?.includes('开发')) ||
-                    (filter === 'screenshot' && (item.tags?.includes('截图') || item.tags?.includes('界面')));
+                    ((filter === 'showcase' && (item.tags?.includes('案例') || item.tags?.includes('体验'))) ||
+                    (filter === 'code' && (item.tags?.includes('教程') || item.tags?.includes('开发'))) ||
+                    (filter === 'screenshot' && (item.tags?.includes('截图') || item.tags?.includes('界面'))));
                 
                 if (!shouldShow) return;
                 
@@ -1550,7 +1550,7 @@
         function filterSkills(category, btn) {
             currentSkillFilter = category;
             
-            document.querySelectorAll('.skill-filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.skill-filter-btn').forEach(button => button.classList.remove('active'));
             btn.classList.add('active');
             
             renderSkills(category);
