@@ -12,7 +12,19 @@ function renderSkills(filter = 'all', data) {
     const grid = document.getElementById('skills-grid');
     if (!grid) return;
 
-    const items = data?.skills?.skills || [];
+    // Support both data formats: {skills: [...]} and {skills: {skills: [...]}}
+    let items = [];
+    if (data?.skills?.skills) {
+        // Format: {skills: {skills: [...], categories: {...}}}
+        items = data.skills.skills;
+    } else if (data?.skills && Array.isArray(data.skills)) {
+        // Format: {skills: [...]}
+        items = data.skills;
+    } else if (Array.isArray(data)) {
+        // Format: [...]
+        items = data;
+    }
+
     const filtered = filter === 'all' ? items : items.filter(s => s.category === filter);
 
     grid.innerHTML = '';

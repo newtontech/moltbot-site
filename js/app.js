@@ -44,14 +44,73 @@ function setupFilterHandlers() {
 }
 
 // --- INITIAL RENDER ---
-function renderInitialView() {
-    // Skills need JavaScript rendering
-    if (typeof renderSkills === 'function') {
-        renderSkills(currentSkillFilter);
-    }
+async function renderInitialView() {
+    try {
+        // Load all data using dataLoader
+        const allData = await dataLoader.loadAll();
 
-    // News cards have static HTML, no initial render needed
-    // They are only rendered when filters are applied
+        // Update global data object with loaded data
+        if (typeof data !== 'undefined') {
+            data.news = {
+                project_info: allData.config?.site || {},
+                news_items: allData.news.items || []
+            };
+            data.skills = {
+                skills: allData.skills.skills || [],
+                categories: allData.skills.categories || {}
+            };
+        }
+
+        // Also update data.news to include items for backward compatibility
+        if (typeof data !== 'undefined' && allData.news) {
+            data.news.items = allData.news.items || [];
+        }
+
+        // Render news with loaded data
+        if (typeof renderNews === 'function') {
+            renderNews(currentNewsFilter);
+        }
+
+        // Render skills with loaded data
+        if (typeof renderSkills === 'function') {
+            renderSkills(currentSkillFilter, allData.skills);
+        }
+
+        console.log('Data loaded successfully:', {
+            newsCount: allData.news.count,
+            skillsCount: allData.skills.count
+        });
+    } catch (error) {
+        console.error('Failed to load data:', error);
+
+        // Show error message
+        const newsGrid = document.getElementById('news-grid');
+        const skillsGrid = document.getElementById('skills-grid');
+
+        if (newsGrid) {
+            newsGrid.innerHTML = `
+                <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
+                    <div>数据加载失败</div>
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">
+                        ${error.message}
+                    </div>
+                </div>
+            `;
+        }
+
+        if (skillsGrid) {
+            skillsGrid.innerHTML = `
+                <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
+                    <div>数据加载失败</div>
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">
+                        ${error.message}
+                    </div>
+                </div>
+            `;
+        }
+    }
 }
 
 // --- TAB SWITCHING ---
@@ -71,11 +130,14 @@ function filterNews(filter, btn) {
 
     // Update filter button states
     document.querySelectorAll('#news-section .filter-chip').forEach(chip => chip.classList.remove('active'));
-    btn.classList.add('active');
+    if (btn) {
+        btn.classList.add('active');
+    }
 
-    // Re-render news with new filter
+    // Re-render news with new filter (using global data object)
     if (typeof renderNews === 'function') {
-        renderNews(filter);
+        const newsData = typeof data !== 'undefined' ? data.news : null;
+        renderNews(filter, newsData);
     }
 }
 
@@ -85,11 +147,14 @@ function filterSkills(category, btn) {
 
     // Update filter button states
     document.querySelectorAll('.skill-filter-btn').forEach(button => button.classList.remove('active'));
-    btn.classList.add('active');
+    if (btn) {
+        btn.classList.add('active');
+    }
 
-    // Re-render skills with new filter
+    // Re-render skills with new filter (using global data object)
     if (typeof renderSkills === 'function') {
-        renderSkills(category);
+        const skillsData = typeof data !== 'undefined' ? data.skills : null;
+        renderSkills(category, skillsData);
     }
 }
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Load Test</title>
+</head>
+<body>
+    <h1>Data Load Test</h1>
+    <div id="output"></div>
+
+    <script>
+        // Simulate dataLoader behavior
+        class DataLoader {
+            constructor() {
+                this.basePath = '/data';
+            }
+
+            async loadJSON(path) {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return await response.json();
+            }
+
+            async loadAll() {
+                try {
+                    const [newsData, skillsData] = await Promise.all([
+                        this.loadJSON(`${this.basePath}/news/2026-01.json`),
+                        this.loadJSON(`skills-data.json`)
+                    ]);
+
+                    return {
+                        news: {
+                            items: newsData.news_items || []
+                        },
+                        skills: {
+                            skills: [],
+                            categories: {}
+                        }
+                    };
+                } catch (error) {
+                    console.error('Failed to load data:', error);
+                    return {
+                        news: { items: [] },
+                        skills: { skills: [], categories: {} },
+                        error: error.message
+                    };
+                }
+            }
+        }
+
+        // Test loading
+        const dataLoader = new DataLoader();
+
+        dataLoader.loadAll().then(data => {
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <h2>Data Loaded Successfully!</h2>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+            `;
+            console.log('Data loaded:', data);
+        }).catch(error => {
+            const output = document.getElementById('output');
+            output.innerHTML = `
+                <h2>Error Loading Data</h2>
+                <pre>${error.message}</pre>
+            `;
+            console.error('Error:', error);
+        });
+    </script>
+</body>
+</html>
