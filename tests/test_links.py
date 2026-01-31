@@ -210,8 +210,9 @@ def test_link_count_minimum(index_html_content: str):
     """Test that HTML has minimum number of links."""
     links = extract_all_links(index_html_content)
 
-    # Should have at least 20 links total
-    assert len(links) >= 20, f"Expected at least 20 links, found {len(links)}"
+    # New architecture: Fewer links in HTML since content is in JSON files
+    # Expect at least 10 links (fonts, CSS, JS, footer links)
+    assert len(links) >= 10, f"Expected at least 10 links, found {len(links)}"
 
 
 def test_has_css_resource_links(index_html_content: str):
@@ -221,34 +222,22 @@ def test_has_css_resource_links(index_html_content: str):
 
 
 def test_news_card_links(index_html_content: str):
-    """Test that news cards have proper links."""
-    # Check for news card links to external sources
-    external_news_sources = [
-        "github.com/openclaw",
-        "producthunt.com",
-        "reddit.com",
-        "dev.to",
-        "medium.com",
-        "infoq.cn",
-        "oschina.net",
-        "juejin.cn",
-        "zhihu.com",
-        "sspai.com",
-        "v2ex.com",
-        "36kr.com",
-        "segmentfault.com",
-    ]
-
-    # At least some of these should be present
-    found_sources = [source for source in external_news_sources if source in index_html_content]
-
-    assert len(found_sources) > 0, "No external news source links found in HTML"
+    """Test that HTML has external CSS/JS for news (content loaded from JSON)."""
+    # New architecture: News content is loaded from JSON files
+    # Check for external JS data loader
+    has_data_loader = (
+        'src="js/data-loader.js"' in index_html_content
+        or 'src="./js/data-loader.js"' in index_html_content
+    )
+    assert has_data_loader, "Missing data loader script for news content"
 
 
 def test_skill_card_github_links(index_html_content: str):
-    """Test that skill cards have GitHub links."""
-    # Find github.com links in the skills section
-    github_links = re.findall(r"https://github\.com/[\w\-/]+", index_html_content)
-
-    # Should have at least some GitHub links for skills
-    assert len(github_links) >= 5, f"Expected at least 5 GitHub links, found {len(github_links)}"
+    """Test that HTML has external JS for skills (content loaded from JSON)."""
+    # New architecture: Skills are loaded from JSON files via data-loader
+    # Check for the data directory reference or external JS files
+    has_external_js = (
+        'src="js/data-loader.js"' in index_html_content
+        or 'src="./js/data-loader.js"' in index_html_content
+    )
+    assert has_external_js, "Missing data loader for skills content"

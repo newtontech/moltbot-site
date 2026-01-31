@@ -1,0 +1,54 @@
+{
+  "category": "开发",
+  "icon": "💻",
+  "skills": [
+    {
+      "id": "cursor-agent",
+      "name": "cursor-agent",
+      "title": "Cursor 编辑器集成",
+      "description": "与 Cursor 编辑器功能集成，允许代理在 IDE 上下文中协助代码导航和编辑。",
+      "author": "OpenClaw 社区",
+      "github_url": "https://github.com/openclaw/openclaw",
+      "install_cmd": "molt install cursor-agent",
+      "category": "开发",
+      "features": ["代码上下文理解", "编辑器导航", "代码片段插入", "重构辅助"],
+      "use_case": "在 Cursor 环境中直接与代理结对编程。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": ["编码", "编辑器", "Cursor", "IDE"],
+      "icon": "💻"
+    },
+    {
+      "id": "github-actions",
+      "name": "github-actions",
+      "title": "GitHub Actions 自动化",
+      "description": "OpenClaw 的 GitHub Actions 自动化技能，允许你通过聊天创建、触发和管理 GitHub Actions 工作流。支持创建新的工作流、触发现有工作流、查看工作流运行状态和下载日志等功能。",
+      "author": "OpenClaw 社区",
+      "github_url": "https://github.com/openclaw/openclaw",
+      "install_cmd": "molt install github-actions",
+      "category": "开发",
+      "features": ["创建和管理工作流", "触发工作流", "查看运行状态", "下载日志"],
+      "use_case": "通过聊天自动化 CI/CD 流程，无需手动操作 GitHub。",
+      "stars": "400+",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["GitHub", "Actions", "CI/CD", "自动化"],
+      "icon": "⚙️"
+    },
+    {
+      "id": "claude-codepro",
+      "name": "claude-codepro",
+      "title": "Claude CodePro 工作流",
+      "description": "生产级开发工作流插件，包含代码审查、自动化部署、浏览器自动化等功能。支持完整的开发流程自动化。",
+      "author": "maxritter",
+      "github_url": "https://github.com/maxritter/claude-codepro",
+      "install_cmd": "npm install -g claude-codepro",
+      "category": "开发",
+      "features": ["代码审查工作流", "自动化部署", "浏览器自动化 E2E 测试", "生产级最佳实践"],
+      "use_case": "在企业级项目中实施完整的 AI 辅助开发工作流。",
+      "stars": "200+",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["工作流", "代码审查", "部署", "企业"],
+      "icon": "⚡"
+    }
+  ]
+}

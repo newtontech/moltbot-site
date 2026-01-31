@@ -1,0 +1,38 @@
+{
+  "category": "AI/LLM",
+  "icon": "🤖",
+  "skills": [
+    {
+      "id": "deep-research",
+      "name": "deep-research",
+      "title": "深度研究代理",
+      "description": "多步骤研究代理技能，分解复杂主题、使用 Tavily API 执行迭代搜索、验证来源并合成综合报告。",
+      "author": "OpenClaw 社区",
+      "github_url": "https://github.com/openclaw/openclaw",
+      "install_cmd": "molt install deep-research",
+      "category": "AI/LLM",
+      "features": ["迭代式搜索规划", "来源验证", "长格式内容合成", "引用管理"],
+      "use_case": "生成市场趋势或技术主题的深度报告。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["研究", "AI", "报告", "分析"],
+      "icon": "📊"
+    },
+    {
+      "id": "openclaw-foundry",
+      "name": "openclaw-foundry",
+      "title": "Foundry 自我编写扩展",
+      "description": "OpenClaw Foundry 是一个自我编写的元扩展，能够学习你的工作方式、研究文档并编写新功能。包含观察、研究、学习、编写和部署五个阶段。",
+      "author": "lekt9",
+      "github_url": "https://github.com/lekt9/openclaw-foundry",
+      "install_cmd": "git clone https://github.com/lekt9/openclaw-foundry ~/.openclaw/extensions/foundry",
+      "category": "AI/LLM",
+      "features": ["自我代码生成", "工作流学习与结晶", "主动学习", "沙箱验证", "递归循环改进"],
+      "use_case": "让 OpenClaw 自动学习你的工作模式并编写新的技能和功能。",
+      "stars": "24",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["AI", "元编程", "自动化", "自我学习"],
+      "icon": "🔥"
+    }
+  ]
+}

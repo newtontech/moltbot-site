@@ -1,0 +1,54 @@
+{
+  "category": "浏览器自动化",
+  "icon": "🌐",
+  "skills": [
+    {
+      "id": "autofillin",
+      "name": "autofillin",
+      "title": "浏览器自动化填充",
+      "description": "OpenClaw 的高级浏览器自动化技能。能够填充表单、导航复杂工作流程和提取数据。",
+      "author": "OpenClaw 社区",
+      "github_url": "https://github.com/openclaw/openclaw",
+      "install_cmd": "molt install autofillin",
+      "category": "浏览器自动化",
+      "features": ["表单填充和提交", "页面导航和截图", "数据提取", "会话管理"],
+      "use_case": "自动化重复性网络任务，如填写时间表或日报。",
+      "stars": "N/A",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["自动化", "浏览器", "Chrome", "网络"],
+      "icon": "🌐"
+    },
+    {
+      "id": "dev-browser",
+      "name": "dev-browser",
+      "title": "Dev Browser 浏览器自动化",
+      "description": "Claude Code 的浏览器自动化插件，让 AI 能够控制浏览器来测试和验证开发工作。支持点击、导航、截图、表单填充等操作。",
+      "author": "SawyerHood",
+      "github_url": "https://github.com/SawyerHood/dev-browser",
+      "install_cmd": "npm install -g dev-browser",
+      "category": "浏览器自动化",
+      "features": ["浏览器控制", "E2E UI 测试", "表单自动填充", "页面截图", "无头模式支持"],
+      "use_case": "在开发过程中让 AI 自动验证前端功能和 UI 交互。",
+      "stars": "100+",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["浏览器", "自动化", "测试", "E2E"],
+      "icon": "🌐"
+    },
+    {
+      "id": "on-device-browser-agent",
+      "name": "on-device-browser-agent",
+      "title": "本地设备浏览器智能体",
+      "description": "使用 WebLLM 实现的本地 AI 浏览器自动化 Chrome 扩展。完全在设备上运行，无需云 API，完全隐私保护。",
+      "author": "RunanywhereAI",
+      "github_url": "https://github.com/RunanywhereAI/on-device-browser-agent",
+      "install_cmd": "npm install on-device-browser-agent",
+      "category": "浏览器自动化",
+      "features": ["完全本地运行", "无需云 API", "隐私保护", "WebLLM 驱动", "Chrome 扩展"],
+      "use_case": "在保护隐私的前提下实现本地 AI 浏览器自动化。",
+      "stars": "50+",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["本地", "隐私", "WebLLM", "Chrome"],
+      "icon": "🔒"
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Card Template Test</title>
+    <style>
+        /* Minimal styles from index.html for testing */
+        :root {
+            --primary: #6366f1;
+            --accent: #9b59b6;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-main: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --radius-lg: 20px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #f8f9fa;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .skill-title-group {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .skill-title-zh {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .skill-title-en {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .skill-features li {
+            padding: 0.625rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-features li::before {
+            content: '✓';
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        .skill-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .skill-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .github-btn:hover {
+            background: var(--accent-gradient);
+        }
+
+        .install-box {
+            flex: 1;
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .install-cmd {
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #00d9ff;
+            flex: 1;
+        }
+
+        .copy-btn {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Skill Card Template Test</h1>
+
+    <div id="test-container" class="skills-grid"></div>
+
+    <script>
+        // Test data
+        const testSkill = {
+            name: "bear-notes",
+            title: "Bear Notes 集成",
+            description: "在 macOS 上通过 grizzly CLI 创建、搜索和管理 Bear 笔记。支持创建带标签的笔记、追加文本和读取笔记内容。",
+            author: "Tyler Wince (grizzly)",
+            github_url: "https://github.com/tylerwince/grizzly",
+            install_cmd: "molt install bear-notes",
+            category: "生产力",
+            features: [
+                "创建带标题和标签的笔记",
+                "向现有笔记追加文本",
+                "按标签或内容搜索笔记"
+            ],
+            use_case: "快速将会议记录或想法记录到 Bear，无需离开终端。",
+            stars: "N/A",
+            icon: "📝"
+        };
+
+        function renderSkillCard(skill) {
+            // Template (inline for testing)
+            let template = `<div class="skill-card" data-category="{{category}}">
+    <div class="skill-header">
+        <span class="skill-icon">{{icon}}</span>
+        <div class="skill-title-group">
+            <span class="skill-title-zh">{{title}}</span>
+            <span class="skill-title-en">{{name}}</span>
+        </div>
+    </div>
+    <p class="skill-desc">{{description}}</p>
+    <ul class="skill-features">
+        {{features}}
+    </ul>
+    <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        💡 使用案例：{{use_case}}
+    </p>
+    <div class="skill-meta">
+        <div>👤 {{author}}</div>
+        <div>{{stars_display}}</div>
+    </div>
+    <div class="skill-actions">
+        <a href="{{github_url}}" target="_blank" class="github-btn">
+            🔗 GitHub
+        </a>
+        <div class="install-box">
+            <code class="install-cmd">{{install_cmd}}</code>
+            <button class="copy-btn" onclick="copyText('{{install_cmd}}', this)">📋 复制</button>
+        </div>
+    </div>
+</div>`;
+
+            // Prepare HTML content
+            const featuresHtml = skill.features.map(f => `<li>${f}</li>`).join('');
+            const starsDisplay = skill.stars && skill.stars !== 'N/A' ? `⭐ ${skill.stars}` : '';
+
+            // Replace placeholders
+            template = template
+                .replace(/\{\{category\}\}/g, skill.category)
+                .replace(/\{\{icon\}\}/g, skill.icon)
+                .replace(/\{\{title\}\}/g, skill.title)
+                .replace(/\{\{name\}\}/g, skill.name)
+                .replace(/\{\{description\}\}/g, skill.description)
+                .replace(/\{\{features\}\}/g, featuresHtml)
+                .replace(/\{\{use_case\}\}/g, skill.use_case)
+                .replace(/\{\{author\}\}/g, skill.author)
+                .replace(/\{\{stars_display\}\}/g, starsDisplay)
+                .replace(/\{\{github_url\}\}/g, skill.github_url)
+                .replace(/\{\{install_cmd\}\}/g, skill.install_cmd);
+
+            return template;
+        }
+
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const original = btn.innerHTML;
+                btn.innerHTML = '✅ 已复制!';
+                setTimeout(() => btn.innerHTML = original, 2000);
+            });
+        }
+
+        // Render test card
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('test-container');
+            const cardHtml = renderSkillCard(testSkill);
+            container.innerHTML = cardHtml;
+
+            console.log('✅ Template rendered successfully!');
+            console.log('Test data:', testSkill);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!--
+  News Card HTML Template
+  ========================
+  This template defines the structure for a news card with placeholder variables
+  that can be replaced using JavaScript template replacement.
+
+  Available Variables:
+  - {{badge_text}}: Platform name (e.g., "GitHub Releases", "Product Hunt")
+  - {{badge_style}}: CSS gradient style for the badge (default: English/Chinese variants)
+  - {{image_url}}: URL to the card image
+  - {{image_alt}}: Alt text for the image
+  - {{date}}: Publication date
+  - {{title}}: News title
+  - {{summary}}: News summary/description
+  - {{tags}}: Array of tags (will be rendered as mini-tag spans)
+  - {{source_url}}: Link URL for the card
+-->
+
+<a href="{{source_url}}" target="_blank" class="unified-card">
+    <!-- Platform Badge -->
+    <div class="card-badge" style="{{badge_style}}">
+        {{badge_text}}
+    </div>
+
+    <!-- Card Image/Media -->
+    <div class="card-media">
+        <img src="{{image_url}}" alt="{{image_alt}}" loading="lazy">
+    </div>
+
+    <!-- Card Content -->
+    <div class="card-content">
+        <!-- Publication Date -->
+        <div class="card-date">
+            <span class="icon">📅</span>
+            {{date}}
+        </div>
+
+        <!-- Card Title -->
+        <h3 class="card-title">{{title}}</h3>
+
+        <!-- Card Summary -->
+        <p class="card-summary">{{summary}}</p>
+
+        <!-- Card Footer (Tags + Action Button) -->
+        <div class="card-footer">
+            <!-- Tags Group -->
+            <div class="tag-group">
+                {{tags_html}}
+            </div>
+
+            <!-- Action Button -->
+            <span class="action-btn">
+                查看详情 <span>→</span>
+            </span>
+        </div>
+    </div>
+</a>
+
+<!--
+  Example Usage (JavaScript):
+  ===========================
+
+  const template = await fetch('/templates/news-card.html').then(r => r.text());
+
+  const cardData = {
+    badge_text: 'GitHub Releases',
+    badge_style: 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);',
+    image_url: 'https://example.com/image.jpg',
+    image_alt: 'News Title',
+    date: '2026-01-30',
+    title: '🚀 Project v1.0 Released',
+    summary: 'This is a summary of the news item...',
+    tags: ['Release', 'Update', 'Feature'],
+    source_url: 'https://github.com/example/releases'
+  };
+
+  // Generate tags HTML
+  cardData.tags_html = cardData.tags
+    .slice(0, 3)
+    .map(tag => `<span class="mini-tag">${tag}</span>`)
+    .join('');
+
+  // Replace placeholders
+  let cardHTML = template;
+  Object.keys(cardData).forEach(key => {
+    cardHTML = cardHTML.replace(new RegExp(`{{${key}}}`, 'g'), cardData[key]);
+  });
+
+  // Insert into DOM
+  document.getElementById('news-grid').innerHTML += cardHTML;
+
+  Badge Style Presets:
+  =====================
+  English platforms: 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);'
+  Chinese platforms: 'background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);'
+-->

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Loader Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        h1 { color: #6366f1; }
+        h2 { color: #4f46e5; margin-top: 2rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #6366f1;
+        }
+        .stat-label {
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 0.75rem 1.5rem;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .log {
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 1rem 0;
+        }
+        .log-entry {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        .log-time {
+            color: #888;
+        }
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .category-item {
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .category-icon {
+            font-size: 2rem;
+        }
+        .category-name {
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        .category-count {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        .search-box {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .search-box input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Data Loader Test Suite</h1>
+
+    <div class="button-group">
+        <button onclick="testLoadAll()">Load All Data</button>
+        <button onclick="testGetNews()">Get News</button>
+        <button onclick="testGetSkills()">Get Skills</button>
+        <button onclick="testSearch()">Search</button>
+        <button onclick="testFilter()">Filter</button>
+        <button onclick="testRefresh()">Refresh</button>
+        <button onclick="clearLog()">Clear Log</button>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-value" id="news-count">-</div>
+            <div class="stat-label">News Items</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="skills-count">-</div>
+            <div class="stat-label">Skills</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="categories-count">-</div>
+            <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="load-time">-</div>
+            <div class="stat-label">Load Time (ms)</div>
+        </div>
+    </div>
+
+    <h2>📊 Categories</h2>
+    <div id="categories" class="category-list">
+        <p style="color: #6b7280;">Click "Load All Data" first</p>
+    </div>
+
+    <h2>🔍 Search</h2>
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search news and skills...">
+        <button onclick="performSearch()">Search</button>
+    </div>
+    <div id="search-results">
+        <p style="color: #6b7280;">Enter a search query</p>
+    </div>
+
+    <h2>📋 Activity Log</h2>
+    <div id="log" class="log"></div>
+
+    <script src="data-loader.js"></script>
+    <script src="app-data.js"></script>
+    <script>
+        let testData = null;
+
+        function log(message, data = null) {
+            const logDiv = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `
+                <span class="log-time">[${time}]</span>
+                ${message}
+                ${data ? `<pre>${JSON.stringify(data, null, 2)}</pre>` : ''}
+            `;
+            logDiv.appendChild(entry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+        }
+
+        function updateStats(data) {
+            if (!data) return;
+            document.getElementById('news-count').textContent = data.news?.count || 0;
+            document.getElementById('skills-count').textContent = data.skills?.count || 0;
+
+            const categories = DataAPI.getCategories();
+            document.getElementById('categories-count').textContent = categories.length;
+
+            // Render categories
+            const catDiv = document.getElementById('categories');
+            catDiv.innerHTML = categories.map(cat => `
+                <div class="category-item">
+                    <div class="category-icon">${cat.icon}</div>
+                    <div class="category-name">${cat.name}</div>
+                    <div class="category-count">${cat.count} items</div>
+                </div>
+            `).join('');
+        }
+
+        async function testLoadAll() {
+            log('🔄 Loading all data...');
+            const startTime = performance.now();
+
+            try {
+                testData = await DataAPI.load();
+                const endTime = performance.now();
+                const loadTime = Math.round(endTime - startTime);
+
+                log(`✅ Data loaded successfully in ${loadTime}ms`);
+                log('📊 Statistics:', {
+                    news: testData.news?.count,
+                    skills: testData.skills?.count,
+                    categories: Object.keys(testData.skills?.categories || {}).length
+                });
+
+                document.getElementById('load-time').textContent = loadTime;
+                updateStats(testData);
+
+                // Check for errors
+                if (testData.news?.errors?.length > 0) {
+                    log('⚠️ News errors:', testData.news.errors);
+                }
+                if (testData.skills?.errors?.length > 0) {
+                    log('⚠️ Skills errors:', testData.skills.errors);
+                }
+            } catch (error) {
+                log('❌ Load failed:', error.message);
+            }
+        }
+
+        function testGetNews() {
+            if (!testData) {
+                log('❌ Please load data first');
+                return;
+            }
+
+            const news = DataAPI.getNews();
+            log(`📰 Got ${news.length} news items`);
+
+            // Show first 3 items
+            log('First 3 items:', news.slice(0, 3).map(item => ({
+                title: item.title.substring(0, 50) + '...',
+                platform: item.platform,
+                date: item.publish_date
+            })));
+        }
+
+        function testGetSkills() {
+            if (!testData) {
+                log('❌ Please load data first');
+                return;
+            }
+
+            const skills = DataAPI.getSkills();
+            log(`⚡ Got ${skills.length} skills`);
+
+            // Show first 3 items
+            log('First 3 items:', skills.slice(0, 3).map(item => ({
+                title: item.title,
+                category: item.category,
+                author: item.author
+            })));
+        }
+
+        function testFilter() {
+            if (!testData) {
+                log('❌ Please load data first');
+                return;
+            }
+
+            log('🔍 Testing filters...');
+
+            // Filter news by platform type
+            const englishNews = DataAPI.getNews({ platformType: '英文' });
+            log(`📰 English news: ${englishNews.length} items`);
+
+            const chineseNews = DataAPI.getNews({ platformType: '中文' });
+            log(`📰 Chinese news: ${chineseNews.length} items`);
+
+            // Filter skills by category
+            const productivitySkills = DataAPI.getSkills({ category: 'productivity' });
+            log(`⚡ Productivity skills: ${productivitySkills.length} items`);
+
+            const devSkills = DataAPI.getSkills({ category: 'development' });
+            log(`⚡ Development skills: ${devSkills.length} items`);
+        }
+
+        function performSearch() {
+            if (!testData) {
+                log('❌ Please load data first');
+                return;
+            }
+
+            const query = document.getElementById('search-input').value.trim();
+            if (!query) {
+                log('❌ Please enter a search query');
+                return;
+            }
+
+            log(`🔍 Searching for "${query}"...`);
+
+            const newsResults = DataAPI.searchNews(query);
+            const skillResults = DataAPI.searchSkills(query);
+
+            log(`Search results:`, {
+                news: newsResults.length,
+                skills: skillResults.length
+            });
+
+            // Display results
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = `
+                <h3>News (${newsResults.length})</h3>
+                <ul>
+                    ${newsResults.slice(0, 5).map(item => `
+                        <li>${item.title.substring(0, 80)}...</li>
+                    `).join('')}
+                </ul>
+                <h3>Skills (${skillResults.length})</h3>
+                <ul>
+                    ${skillResults.slice(0, 5).map(item => `
+                        <li>${item.title} - ${item.category}</li>
+                    `).join('')}
+                </ul>
+            `;
+        }
+
+        function testSearch() {
+            const testQueries = ['OpenClaw', 'browser', 'API'];
+            testQueries.forEach(query => {
+                log(`🔍 Searching for "${query}"...`);
+
+                const newsResults = DataAPI.searchNews(query);
+                const skillResults = DataAPI.searchSkills(query);
+
+                log(`Results for "${query}":`, {
+                    news: newsResults.length,
+                    skills: skillResults.length
+                });
+            });
+        }
+
+        async function testRefresh() {
+            log('🔄 Refreshing data...');
+            const startTime = performance.now();
+
+            try {
+                const freshData = await DataAPI.refresh();
+                const endTime = performance.now();
+                const loadTime = Math.round(endTime - startTime);
+
+                log(`✅ Data refreshed in ${loadTime}ms`);
+                testData = freshData;
+                updateStats(testData);
+            } catch (error) {
+                log('❌ Refresh failed:', error.message);
+            }
+        }
+
+        // Subscribe to events
+        DataAPI.subscribe((event, data) => {
+            if (event === 'loaded') {
+                log('📢 Event: Data loaded');
+            } else if (event === 'error') {
+                log('📢 Event: Error - ' + data.message);
+            }
+        });
+
+        // Auto-load on page load
+        window.addEventListener('load', () => {
+            log('🚀 Page loaded. Click "Load All Data" to begin.');
+        });
+    </script>
+</body>
+</html>

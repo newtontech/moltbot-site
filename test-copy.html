@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Utility Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .install-box {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .install-cmd {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #00d9ff;
+            flex: 1;
+        }
+        .copy-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover {
+            transform: scale(1.05);
+        }
+        h1 { color: #333; }
+        h2 { color: #666; margin-top: 0; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Copy Utility Test</h1>
+
+    <div class="test-section">
+        <h2>Test 1: Basic Copy Functionality</h2>
+        <p>Click the button to copy the command:</p>
+        <div class="install-box">
+            <code class="install-cmd">molt install bear-notes</code>
+            <button class="copy-btn" onclick="testCopy1(this)">📋 复制</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Long Command</h2>
+        <p>Click the button to copy a longer command:</p>
+        <div class="install-box">
+            <code class="install-cmd">git clone https://github.com/lekt9/openclaw-foundry ~/.openclaw/extensions/foundry</code>
+            <button class="copy-btn" onclick="testCopy2(this)">📋 复制</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: NPM Install Command</h2>
+        <p>Click the button to copy an npm command:</p>
+        <div class="install-box">
+            <code class="install-cmd">npm install -g dev-browser</code>
+            <button class="copy-btn" onclick="testCopy3(this)">📋 复制</button>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="results" style="background: white; padding: 1rem; border-radius: 4px; font-family: monospace;"></div>
+    </div>
+
+    <script type="module">
+        import { copyText, copyToClipboard, isClipboardAvailable } from './js/utils/copy.js';
+
+        // Check if clipboard is available
+        const resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = `Clipboard API Available: ${isClipboardAvailable() ? '✅ Yes' : '❌ No'}\n`;
+
+        // Make functions available globally for onclick handlers
+        window.testCopy1 = function(btn) {
+            resultsDiv.innerHTML += '\nTest 1: ';
+            copyText('molt install bear-notes', btn).then(success => {
+                resultsDiv.innerHTML += success ? '✅ Success' : '❌ Failed';
+            });
+        };
+
+        window.testCopy2 = function(btn) {
+            resultsDiv.innerHTML += '\nTest 2: ';
+            copyText('git clone https://github.com/lekt9/openclaw-foundry ~/.openclaw/extensions/foundry', btn).then(success => {
+                resultsDiv.innerHTML += success ? '✅ Success' : '❌ Failed';
+            });
+        };
+
+        window.testCopy3 = function(btn) {
+            resultsDiv.innerHTML += '\nTest 3: ';
+            copyText('npm install -g dev-browser', btn).then(success => {
+                resultsDiv.innerHTML += success ? '✅ Success' : '❌ Failed';
+            });
+        };
+    </script>
+</body>
+</html>

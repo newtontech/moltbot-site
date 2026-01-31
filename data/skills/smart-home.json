@@ -1,0 +1,22 @@
+{
+  "category": "智能家居",
+  "icon": "🏠",
+  "skills": [
+    {
+      "id": "sonoscli",
+      "name": "sonoscli",
+      "title": "Sonos 音箱控制",
+      "description": "在本地网络控制 Sonos 音箱。播放/暂停、改变音量、分组音箱和管理队列。",
+      "author": "Peter Steinberger",
+      "github_url": "https://github.com/steipete/sonoscli",
+      "install_cmd": "molt install sonoscli",
+      "category": "智能家居",
+      "features": ["发现本地音箱", "控制播放和音量", "分组/取消分组音箱", "从 Spotify 搜索和播放（通过 SMAPI）"],
+      "use_case": "直接从代理界面控制家庭音响系统。",
+      "stars": "150+",
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      "tags": ["Sonos", "音频", "智能家居", "音乐"],
+      "icon": "🔊"
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "month": "2026-01",
+  "items": [
+    {
+      "id": "2026-01-30-01",
+      "title": "🚀 OpenClaw v2026.1.29 发布 - 重大架构重构",
+      "summary": "OpenClaw 发布了 v2026.1.29 版本，包含全新的架构重构。核心组件完全解耦，支持更好的扩展性和模块化设计。新增了 Gateway 控制平面、多代理路由、语音唤醒和实时 Canvas 等功能。",
+      "platform": "GitHub Releases",
+      "platform_type": "英文",
+      "source_url": "https://github.com/openclaw/openclaw/releases",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      "tags": [
+        "发布",
+        "重构",
+        "架构"
+      ]
+    },
+    {
+      "id": "2026-01-30-02",
+      "title": "🎉 OpenClaw 登顶 Product Hunt，首日 5k+ 赞",
+      "summary": "OpenClaw 在 Product Hunt 上的发布获得了社区的热烈响应。新的品牌和架构设计受到了广泛关注，首日就获得了 5,000+ 赞和数百条讨论。开发者们称赞其模块化设计和本地优先理念。",
+      "platform": "Product Hunt",
+      "platform_type": "英文",
+      "source_url": "https://www.producthunt.com/posts/openclaw",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "Product Hunt",
+        "社区",
+        "发布",
+        "热门"
+      ]
+    },
+    {
+      "id": "2026-01-30-03",
+      "title": "💬 GitHub 讨论区：OpenClaw 新架构备受好评",
+      "summary": "GitHub Discussions 上涌现了大量关于 OpenClaw 新架构设计的讨论帖。开发者们高度评价了模块化的设计、更好的代码组织和清晰的结构。一些资深架构师将其与 Kubernetes 等现代化工具进行了深度比较。",
+      "platform": "GitHub Discussions",
+      "platform_type": "英文",
+      "source_url": "https://github.com/openclaw/openclaw/discussions",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "社区",
+        "讨论",
+        "架构",
+        "好评"
+      ]
+    },
+    {
+      "id": "2026-01-30-04",
+      "title": "🛡️ Hacker News 深度报道：OpenClaw 安全模型分析",
+      "summary": "Hacker News 首页出现了关于 OpenClaw 安全模型的深度报道文章。文章详细分析了 OpenClaw 如何处理敏感数据、DM 访问控制、沙箱隔离等安全问题，并与主流本地 AI 助手进行了对比。",
+      "platform": "Hacker News",
+      "platform_type": "英文",
+      "source_url": "https://news.ycombinator.com/item?id=openclaw-security",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": [
+        "Hacker News",
+        "安全",
+        "报道",
+        "深度分析"
+      ]
+    },
+    {
+      "id": "2026-01-30-05",
+      "title": "🔴 Reddit 热议：OpenClaw 的实际使用体验",
+      "summary": "Reddit 的 r/LocalLLM 板块上出现了关于 OpenClaw 使用的热议帖，首日获得 500+ 赞和 200+ 评论。用户们分享了从手机通过 WhatsApp 控制电脑、自动化工作流程、以及在遛狗时让 AI 创建规格文件等实际案例。",
+      "platform": "Reddit",
+      "platform_type": "英文",
+      "source_url": "https://www.reddit.com/r/LocalLLM/comments/openclaw-experience",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+      "tags": [
+        "Reddit",
+        "使用体验",
+        "实际案例",
+        "热议"
+      ]
+    },
+    {
+      "id": "2026-01-30-06",
+      "title": "📝 Dev.to 技术博客：深度解析 OpenClaw 核心架构",
+      "summary": "Dev.to 上发布了一篇关于 OpenClaw 核心架构的深度解析文章。文章详细介绍了新的模块化设计、Gateway 控制平面的实现细节、以及如何扩展和自定义功能的技术要点。",
+      "platform": "Dev.to",
+      "platform_type": "英文",
+      "source_url": "https://dev.to/user/openclaw-dev/architecture-deep-dive",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "技术博客",
+        "架构",
+        "Dev.to",
+        "深度解析"
+      ]
+    },
+    {
+      "id": "2026-01-30-07",
+      "title": "📖 Medium 长文：OpenClaw 重构背后的思考和设计决策",
+      "summary": "Medium 上的一篇长文，由 OpenClaw 核心团队成员分享了从 Moltbot 重构为 OpenClaw 背后的深入思考和关键设计决策。文章讲述了品牌更名的原因、面临的技术挑战、如何平衡向后兼容性和架构演进的心路历程。",
+      "platform": "Medium",
+      "platform_type": "英文",
+      "source_url": "https://medium.com/openclaw/refactoring-decisions",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "Medium",
+        "长文",
+        "设计决策",
+        "重构"
+      ]
+    },
+    {
+      "id": "2026-01-30-08",
+      "title": "📊 InfoQ 报道：OpenClaw 架构创新获企业关注",
+      "summary": "InfoQ 发布了对 OpenClaw 架构创新的专题报道。文章分析了 OpenClaw 的 Gateway 控制平面、多代理路由系统如何在企业级场景中应用，以及与传统微服务架构的异同点。",
+      "platform": "InfoQ",
+      "platform_type": "英文",
+      "source_url": "https://www.infoq.cn/article/openclaw-architecture",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "InfoQ",
+        "报道",
+        "架构",
+        "企业"
+      ]
+    },
+    {
+      "id": "2026-01-30-09",
+      "title": "🎥️ 开源中国：OpenClaw 开源热度榜第一",
+      "summary": "开源中国网站发布了本周开源项目热度榜，OpenClaw 以 GitHub Stars 增长速度第一名的位置登榜。报告特别强调了 OpenClaw 的社区活跃度、Issue 响应速度和文档完善度。",
+      "platform": "开源中国",
+      "platform_type": "中文",
+      "source_url": "https://www.oschina.net/news/openclaw-trending",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      "tags": [
+        "开源中国",
+        "热度榜",
+        "GitHub",
+        "第一"
+      ]
+    },
+    {
+      "id": "2026-01-30-10",
+      "title": "🔥 掘金：OpenClaw 技能开发指南",
+      "summary": "掘金发布了一篇 OpenClaw 技能开发的实战指南。文章从零开始，详细介绍了如何为 OpenClaw 开发自定义技能、如何使用 Gateway API、如何编写技能清单和测试技能功能。",
+      "platform": "掘金",
+      "platform_type": "中文",
+      "source_url": "https://juejin.cn/post/openclaw-skill-dev-guide",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "掘金",
+        "技能开发",
+        "教程",
+        "实战"
+      ]
+    },
+    {
+      "id": "2026-01-30-11",
+      "title": "💬 知乎圆桌：OpenClaw 的技术影响和社区讨论",
+      "summary": "知乎技术社区举办了一场关于 OpenClaw 的圆桌讨论。邀请了 OpenClaw 核心开发者、资深架构师和 AI 领域专家，深入讨论 OpenClaw 的技术架构对整个 AI 助手生态的影响和未来发展方向。",
+      "platform": "知乎",
+      "platform_type": "中文",
+      "source_url": "https://www.zhihu.com/roundtable/openclaw-tech-impact",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "知乎",
+        "圆桌",
+        "讨论",
+        "技术"
+      ]
+    },
+    {
+      "id": "2026-01-30-12",
+      "title": "📱 少数派：OpenClaw 实战评测与深度体验",
+      "summary": "少数派发布了对 OpenClaw 的深度实战评测文章。作者实际使用 OpenClaw 两周，详细记录了安装过程、配置技巧、日常工作流集成、以及遇到的坑和解决方案。文章高度评价了 OpenClaw 的稳定性和实用性。",
+      "platform": "少数派",
+      "platform_type": "中文",
+      "source_url": "https://sspai.com/article/openclaw-deep-review",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "少数派",
+        "评测",
+        "实战",
+        "体验"
+      ]
+    },
+    {
+      "id": "2026-01-30-13",
+      "title": "🔧️ V2EX：OpenClaw 插件开发和部署教程",
+      "summary": "V2EX 社区开发者分享了一系列 OpenClaw 插件开发和部署的教程帖。内容包括：如何使用 GitHub Actions 自动化插件的 CI/CD、如何将插件发布到社区仓库、如何编写高质量的插件清单、以及如何调试插件中的常见问题。",
+      "platform": "V2EX",
+      "platform_type": "中文",
+      "source_url": "https://www.v2ex.com/t/openclaw-plugin-dev-tutorial",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "V2EX",
+        "插件开发",
+        "教程",
+        "部署"
+      ]
+    },
+    {
+      "id": "2026-01-30-14",
+      "title": "🎨️ 36氪：OpenClaw 设计系统和用户体验分析",
+      "summary": "36氪发布了对 OpenClaw 设计系统和用户体验的分析报道。文章详细介绍了 OpenClaw 的设计系统、图标设计、视觉语言、交互模式以及用户体验设计背后的思考过程。文章将 OpenClaw 的设计与国内外优秀开源项目进行了对比分析。",
+      "platform": "36氪",
+      "platform_type": "中文",
+      "source_url": "https://36kr.com/p/openclaw-design-analysis",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "36氪",
+        "设计系统",
+        "UX",
+        "分析"
+      ]
+    },
+    {
+      "id": "2026-01-30-15",
+      "title": "🚚️ SegmentFault：OpenClaw 性能优化和最佳实践",
+      "summary": "SegmentFault 发布了一系列关于 OpenClaw 性能优化和最佳实践的技术文章。内容涵盖了：如何优化 OpenClaw 的启动速度、如何减少内存占用、如何提升技能执行效率、以及如何在大规模场景下部署 OpenClaw。",
+      "platform": "SegmentFault",
+      "platform_type": "中文",
+      "source_url": "https://segmentfault.com/t/openclaw-performance-optimization",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "SegmentFault",
+        "性能优化",
+        "最佳实践",
+        "部署"
+      ]
+    },
+    {
+      "id": "2026-01-30-16",
+      "title": "🌟 OpenClaw 两天突破 106K Stars - 创造 GitHub 历史",
+      "summary": "OpenClaw 在发布后两天内突破 106,124 Stars，创造了 GitHub 历史上的增长记录。这标志着社区已经选择了自己拥有的个人 AI 助手，而不是租用的云服务。同期 memU 记忆基础设施项目也获得了 6K+ Stars。",
+      "platform": "Medium",
+      "platform_type": "英文",
+      "source_url": "https://medium.com/@lssmj2014/github-trending-january-30-2026-openclaw-crosses-106k-on-day-2-da62c30642af",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+      "tags": [
+        "发布",
+        "热门",
+        "GitHub",
+        "记录"
+      ]
+    },
+    {
+      "id": "2026-01-30-17",
+      "title": "🦞 Moltbot 2026 终极个人 AI 助手指南",
+      "summary": "Dev.to 发布了 Moltbot (原名 Clawdbot) 的终极指南。详细介绍了如何部署个人 AI 助手、配置浏览器控制、文件系统访问、API 集成、邮件日历和智能家居设备控制等功能。",
+      "platform": "Dev.to",
+      "platform_type": "英文",
+      "source_url": "https://dev.to/czmilo/moltbot-the-ultimate-personal-ai-assistant-guide-for-2026-d4e",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": [
+        "教程",
+        "指南",
+        "Dev.to",
+        "部署"
+      ]
+    },
+    {
+      "id": "2026-01-30-18",
+      "title": "🤖 2026年1月 AI 汇总：自主 AI 智能体的崛起",
+      "summary": "Dev.to 发布了 2026 年1月 AI 领域的汇总文章，重点介绍了 OpenClaw、Ralph Wiggum、Cowork、Remotion Agent Skills 和 MCP Apps 等五个关键工具。文章分析了 OpenClaw 如何代表 Claude 的增强版本。",
+      "platform": "Dev.to",
+      "platform_type": "英文",
+      "source_url": "https://dev.to/joeljstephen/january-2026-ai-roundup-the-rise-of-autonomous-ai-agents-405",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+      "tags": [
+        "AI",
+        "汇总",
+        "Dev.to",
+        "智能体"
+      ]
+    },
+    {
+      "id": "2026-01-30-19",
+      "title": "🔥 OpenClaw Foundry：自我编写代码的元扩展",
+      "summary": "lekt9 发布了 OpenClaw Foundry，这是一个能够自我编写代码的元扩展。Foundry 能够学习你的工作方式、研究文档并编写新功能。包含观察、研究、学习、编写和部署五个阶段。",
+      "platform": "GitHub",
+      "platform_type": "英文",
+      "source_url": "https://github.com/lekt9/openclaw-foundry",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "GitHub",
+        "发布",
+        "元扩展",
+        "自动化"
+      ]
+    },
+    {
+      "id": "2026-01-30-20",
+      "title": "📊 OpenClaw 架构创新获企业关注",
+      "summary": "InfoQ 发布了对 OpenClaw 架构创新的专题报道。文章分析了 OpenClaw 的 Gateway 控制平面、多代理路由系统如何在企业级场景中应用，以及与传统微服务架构的异同点。",
+      "platform": "InfoQ",
+      "platform_type": "英文",
+      "source_url": "https://www.infoq.cn/article/openclaw-architecture",
+      "publish_date": "2026-01-30",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": [
+        "InfoQ",
+        "报道",
+        "架构",
+        "企业"
+      ]
+    }
+  ]
+}

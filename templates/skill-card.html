@@ -1,0 +1,40 @@
+<div class="skill-card" data-category="{{category}}">
+    <!-- Header: Icon and Titles -->
+    <div class="skill-header">
+        <span class="skill-icon">{{icon}}</span>
+        <div class="skill-title-group">
+            <span class="skill-title-zh">{{title}}</span>
+            <span class="skill-title-en">{{name}}</span>
+        </div>
+    </div>
+
+    <!-- Description -->
+    <p class="skill-desc">{{description}}</p>
+
+    <!-- Features List -->
+    <ul class="skill-features">
+        {{features}}
+    </ul>
+
+    <!-- Use Case -->
+    <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        💡 使用案例：{{use_case}}
+    </p>
+
+    <!-- Metadata: Author and Stars -->
+    <div class="skill-meta">
+        <div class="skill-author">👤 {{author}}</div>
+        <div class="skill-stars">{{stars_display}}</div>
+    </div>
+
+    <!-- Actions: GitHub Link and Install Command -->
+    <div class="skill-actions">
+        <a href="{{github_url}}" target="_blank" class="github-btn">
+            🔗 GitHub
+        </a>
+        <div class="install-box">
+            <code class="install-cmd">{{install_cmd}}</code>
+            <button class="copy-btn" onclick="copyText('{{install_cmd}}', this)">📋 复制</button>
+        </div>
+    </div>
+</div>

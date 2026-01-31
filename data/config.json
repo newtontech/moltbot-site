@@ -1,0 +1,52 @@
+{
+  "site": {
+    "title": "Moltbot - 个人 AI 助手新闻站",
+    "description": "OpenClaw/Moltbot 最新资讯和技能插件",
+    "version": "2.0.0",
+    "author": "newtontech",
+    "github": "https://github.com/moltbot/moltbot",
+    "docs": "https://docs.molt.bot"
+  },
+  "features": {
+    "autoUpdate": true,
+    "updateInterval": "1h",
+    "searchEnabled": true,
+    "darkMode": true,
+    "pagination": true,
+    "itemsPerPage": 12
+  },
+  "news": {
+    "platforms": {
+      "github": { "name": "GitHub", "type": "英文", "icon": "🐙" },
+      "medium": { "name": "Medium", "type": "英文", "icon": "📝" },
+      "devto": { "name": "Dev.to", "type": "英文", "icon": "👨‍💻" },
+      "producthunt": { "name": "Product Hunt", "type": "英文", "icon": "🚀" },
+      "hackernews": { "name": "Hacker News", "type": "英文", "icon": "🍊" },
+      "reddit": { "name": "Reddit", "type": "英文", "icon": "🤖" },
+      "juejin": { "name": "掘金", "type": "中文", "icon": "🔥" },
+      "zhihu": { "name": "知乎", "type": "中文", "icon": "🧠" },
+      "sspai": { "name": "少数派", "type": "中文", "icon": "📱" },
+      "v2ex": { "name": "V2EX", "type": "中文", "icon": "🔧" },
+      "36kr": { "name": "36氪", "type": "中文", "icon": "🎨" },
+      "segmentfault": { "name": "SegmentFault", "type": "中文", "icon": "🚚" }
+    },
+    "filters": [
+      { "id": "all", "name": "全部", "icon": "📰" },
+      { "id": "news", "name": "英文", "icon": "🌐" },
+      { "id": "chinese", "name": "中文", "icon": "🇨🇳" },
+      { "id": "release", "name": "发布", "icon": "🚀" },
+      { "id": "showcase", "name": "案例", "icon": "✨" },
+      { "id": "code", "name": "代码", "icon": "💻" },
+      { "id": "screenshot", "name": "截图", "icon": "📸" }
+    ]
+  },
+  "skills": {
+    "categories": [
+      { "id": "productivity", "name": "生产力", "icon": "📝", "file": "productivity.json" },
+      { "id": "ai-llm", "name": "AI/LLM", "icon": "🤖", "file": "ai-llm.json" },
+      { "id": "development", "name": "开发", "icon": "💻", "file": "development.json" },
+      { "id": "smart-home", "name": "智能家居", "icon": "🏠", "file": "smart-home.json" },
+      { "id": "browser-automation", "name": "浏览器自动化", "icon": "🌐", "file": "browser-automation.json" }
+    ]
+  }
+}

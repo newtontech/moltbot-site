@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-01-31",
+  "news": {
+    "byType": {
+      "english": { "name": "英文", "icon": "🌐", "color": "#667eea" },
+      "chinese": { "name": "中文", "icon": "🇨🇳", "color": "#f59e0b" }
+    },
+    "byTag": {
+      "release": { "name": "发布", "icon": "🚀" },
+      "showcase": { "name": "案例", "icon": "✨" },
+      "code": { "name": "代码", "icon": "💻" },
+      "tutorial": { "name": "教程", "icon": "📖" },
+      "screenshot": { "name": "截图", "icon": "📸" },
+      "review": { "name": "评测", "icon": "⭐" }
+    }
+  },
+  "skills": {
+    "productivity": {
+      "name": "生产力",
+      "icon": "📝",
+      "description": "提高工作效率的工具和集成",
+      "color": "#3b82f6"
+    },
+    "ai-llm": {
+      "name": "AI/LLM",
+      "icon": "🤖",
+      "description": "人工智能和大语言模型相关",
+      "color": "#8b5cf6"
+    },
+    "development": {
+      "name": "开发",
+      "icon": "💻",
+      "description": "软件开发和编程工具",
+      "color": "#10b981"
+    },
+    "smart-home": {
+      "name": "智能家居",
+      "icon": "🏠",
+      "description": "家庭自动化和IoT设备",
+      "color": "#f59e0b"
+    },
+    "browser-automation": {
+      "name": "浏览器自动化",
+      "icon": "🌐",
+      "description": "Web自动化和浏览器控制",
+      "color": "#ef4444"
+    }
+  }
+}

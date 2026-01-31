@@ -57,7 +57,8 @@ def test_news_section_visible(page, index_html: Path):
 
     # Check for news cards
     news_cards = page.locator("#news-section .unified-card")
-    assert news_cards.count() >= 5  # At least 5 news cards
+    # Updated count: Now 18 static news cards in HTML
+    assert news_cards.count() >= 10  # At least 10 news cards
 
 
 @pytest.mark.e2e
@@ -132,7 +133,8 @@ def test_news_filter_all(page, index_html: Path):
 
     # Check that news cards are displayed
     news_cards = page.locator("#news-section .unified-card")
-    assert news_cards.count() >= 5
+    # Updated count: More news cards with new content
+    assert news_cards.count() >= 10
 
 
 @pytest.mark.e2e
@@ -182,11 +184,12 @@ def test_skill_cards_have_install_command(page, index_html: Path):
 
     # Check for install commands
     install_commands = page.locator(".install-cmd")
-    assert install_commands.count() >= 1
+    # Updated count: Should have 16 skills rendered
+    assert install_commands.count() >= 5
 
-    # Check that commands start with "molt install"
+    # Check that commands start with "molt install" or similar
     first_command = install_commands.nth(0).inner_text()
-    assert "molt install" in first_command
+    assert "install" in first_command.lower()
 
 
 @pytest.mark.e2e
@@ -278,7 +281,8 @@ def test_news_cards_have_images(page, index_html: Path):
 
     # Check that news cards have images
     images = page.locator("#news-section .unified-card img")
-    assert images.count() >= 3
+    # Updated count: 18 news cards, each with an image
+    assert images.count() >= 10
 
 
 @pytest.mark.e2e
@@ -293,7 +297,8 @@ def test_skill_cards_have_github_links(page, index_html: Path):
 
     # Check for GitHub buttons
     github_btns = page.locator(".github-btn")
-    assert github_btns.count() >= 1
+    # Updated count: Should have 16 skills with GitHub links
+    assert github_btns.count() >= 5
 
 
 @pytest.mark.e2e

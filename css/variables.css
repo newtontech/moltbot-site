@@ -1,0 +1,29 @@
+:root {
+    /* Colors */
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --accent: #9b59b6;
+    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-secondary: #6b7280;
+    --border: #e5e7eb;
+
+    /* Category Colors */
+    --cat-productivity: #4ade80;
+    --cat-ai: #f59e0b;
+    --cat-dev: #3b82f6;
+    --cat-smarthome: #10b981;
+    --cat-automation: #8b5cf6;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+
+    /* Layout */
+    --container-width: 1280px;
+    --radius: 16px;
+    --radius-lg: 20px;
+}
