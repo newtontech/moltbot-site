@@ -19,29 +19,29 @@
             --text-main: #1f2937;
             --text-secondary: #6b7280;
             --border: #e5e7eb;
-            
+
             /* Category Colors */
             --cat-productivity: #4ade80;
             --cat-ai: #f59e0b;
             --cat-dev: #3b82f6;
             --cat-smarthome: #10b981;
             --cat-automation: #8b5cf6;
-            
+
             /* Shadows */
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.08);
             --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
-            
+
             /* Layout */
             --container-width: 1280px;
             --radius: 16px;
             --radius-lg: 20px;
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -93,8 +93,8 @@
             transform: scale(1.05);
         }
 
-        .logo-icon { 
-            font-size: 2.5rem; 
+        .logo-icon {
+            font-size: 2.5rem;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
 
@@ -180,8 +180,8 @@
             padding: 3rem 0;
         }
 
-        .view-section.active { 
-            display: block; 
+        .view-section.active {
+            display: block;
             animation: fadeIn 0.3s ease;
         }
 
@@ -311,8 +311,8 @@
             gap: 0.5rem;
         }
 
-        .card-date .icon { 
-            font-size: 1rem; 
+        .card-date .icon {
+            font-size: 1rem;
         }
 
         .card-title {
@@ -1430,28 +1430,28 @@
         function renderNews(filter = 'all') {
             const grid = document.getElementById('news-grid');
             if (!grid) return;
-            
+
             const items = data.news.news_items || [];
             grid.innerHTML = '';
-            
+
             items.forEach(item => {
                 const shouldShow = filter === 'all' ||
                     (filter === 'news' && item.platform_type.includes('英文') && item.tags?.includes('发布')) ||
                     ((filter === 'showcase' && (item.tags?.includes('案例') || item.tags?.includes('体验'))) ||
                     (filter === 'code' && (item.tags?.includes('教程') || item.tags?.includes('开发'))) ||
                     (filter === 'screenshot' && (item.tags?.includes('截图') || item.tags?.includes('界面'))));
-                
+
                 if (!shouldShow) return;
-                
+
                 const card = document.createElement('a');
                 card.className = 'unified-card';
                 card.href = item.source_url;
                 card.target = '_blank';
-                
+
                 const img = item.image || 'https://via.placeholder.com/420x220?text=OpenClaw';
                 const isEnglish = item.platform_type === '英文';
                 const isChinese = item.platform_type === '中文';
-                
+
                 card.innerHTML = `
                     <div class="card-badge" style="background: ${isEnglish ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)'};">
                         ${item.platform}
@@ -1476,10 +1476,10 @@
                         </div>
                     </div>
                 `;
-                
+
                 grid.appendChild(card);
             });
-            
+
             if (grid.children.length === 0) {
                 grid.innerHTML = '<div style="text-align: center; padding: 4rem; color: var(--text-secondary);">没有找到匹配的内容</div>';
             }
@@ -1488,18 +1488,18 @@
         function renderSkills(filter = 'all') {
             const grid = document.getElementById('skills-grid');
             if (!grid) return;
-            
+
             const items = data.skills.skills || [];
             const filtered = filter === 'all' ? items : items.filter(s => s.category === filter);
-            
+
             grid.innerHTML = '';
-            
+
             filtered.forEach(skill => {
                 const card = document.createElement('div');
                 card.className = 'skill-card';
-                
+
                 const featureList = (skill.features || []).map(f => `<li>${f}</li>`).join('');
-                
+
                 card.innerHTML = `
                     <div class="skill-header">
                         <span class="skill-icon">${skill.icon}</span>
@@ -1529,10 +1529,10 @@
                         </div>
                     </div>
                 `;
-                
+
                 grid.appendChild(card);
             });
-            
+
             if (grid.children.length === 0) {
                 grid.innerHTML = '<div style="text-align: center; padding: 4rem; color: var(--text-secondary);">没有找到匹配的技能插件</div>';
             }
@@ -1540,19 +1540,19 @@
 
         function filterNews(filter, btn) {
             currentNewsFilter = filter;
-            
+
             document.querySelectorAll('#news-section .filter-chip').forEach(chip => chip.classList.remove('active'));
             btn.classList.add('active');
-            
+
             renderNews(filter);
         }
 
         function filterSkills(category, btn) {
             currentSkillFilter = category;
-            
+
             document.querySelectorAll('.skill-filter-btn').forEach(button => button.classList.remove('active'));
             btn.classList.add('active');
-            
+
             renderSkills(category);
         }
 

@@ -1,0 +1,73 @@
+# Pre-commit configuration for Moltbot Site
+# Minimum pre-commit version: 3.0.0
+default_stages: [commit]
+default_language_version:
+  python: python3.10
+
+repos:
+  # General hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: '^(assets/|\.github/)'
+      - id: end-of-file-fixer
+        exclude: '^(assets/|\.github/)'
+      - id: check-yaml
+        args: [--unsafe]
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  # Python formatting with Ruff
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.0
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  # HTML validation
+  - repo: local
+    hooks:
+      - id: html-validation
+        name: HTML validation
+        entry: uv run pytest tests/test_html_validation.py -v
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  # Link checking
+  - repo: local
+    hooks:
+      - id: link-check
+        name: Check external links
+        entry: uv run pytest tests/test_links.py -v -m "not slow"
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  # JavaScript syntax check
+  - repo: local
+    hooks:
+      - id: js-syntax-check
+        name: JavaScript syntax check
+        entry: uv run pytest tests/test_javascript.py -v
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  # E2E tests (skip in pre-commit for faster feedback, run separately)
+  # - repo: local
+  #   hooks:
+  #     - id: e2e-tests
+  #       name: End-to-end tests
+  #       entry: uv run pytest tests/test_e2e.py -v
+  #       language: system
+  #       pass_filenames: false
+  #       always_run: true
