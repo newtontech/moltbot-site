@@ -49,6 +49,38 @@
       "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
       "tags": ["工作流", "代码审查", "部署", "企业"],
       "icon": "⚡"
+    },
+    {
+      "id": "openclaw-security-scan",
+      "name": "openclaw-security-scan",
+      "title": "OpenClaw 安全扫描工具",
+      "description": "CLI 安全扫描工具，用于发现 OpenClaw AI 代理的风险配置。帮助在生产环境部署前锁定代理运行时，检查敏感权限和潜在安全漏洞。",
+      "author": "legendaryabhi",
+      "github_url": "https://github.com/legendaryabhi/openclaw-security-scan",
+      "install_cmd": "npm install -g openclaw-security-scan",
+      "category": "开发",
+      "features": ["配置安全检查", "风险权限检测", "生产环境安全审计", "自动化扫描"],
+      "use_case": "在部署 OpenClaw 到生产环境前进行安全扫描。",
+      "stars": "2",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": ["安全", "扫描", "CLI", "工具"],
+      "icon": "🔒"
+    },
+    {
+      "id": "openclaw-skills",
+      "name": "openclaw-skills",
+      "title": "BankrBot 技能库合集",
+      "description": "Moltbot 技能库，包含 Polymarket、加密货币价格查询、交易分析等多个实用技能。为 OpenClaw 用户提供丰富的开箱即用功能。",
+      "author": "BankrBot",
+      "github_url": "https://github.com/BankrBot/openclaw-skills",
+      "install_cmd": "molt install bankrbot-skills",
+      "category": "开发",
+      "features": ["Polymarket 集成", "加密货币价格", "交易分析", "多技能合集"],
+      "use_case": "获取实时市场数据和交易分析，支持加密货币相关决策。",
+      "stars": "76",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      "tags": ["加密货币", "Polymarket", "交易", "技能库"],
+      "icon": "💰"
     }
   ]
 }

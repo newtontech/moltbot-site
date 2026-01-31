@@ -33,6 +33,38 @@
       "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
       "tags": ["AI", "元编程", "自动化", "自我学习"],
       "icon": "🔥"
+    },
+    {
+      "id": "memu",
+      "name": "memu",
+      "title": "memU 主动代理记忆系统",
+      "description": "为像 OpenClaw 这样的 24/7 主动代理提供记忆功能的基础设施。支持长期记忆、上下文检索、知识图谱和跨会话记忆持久化。",
+      "author": "NevaMind-AI",
+      "github_url": "https://github.com/NevaMind-AI/memU",
+      "install_cmd": "pip install memu",
+      "category": "AI/LLM",
+      "features": ["长期记忆存储", "上下文检索", "知识图谱", "跨会话持久化", "向量搜索"],
+      "use_case": "让 OpenClaw 记住所有对话和上下文，提供连贯的长期交互体验。",
+      "stars": "6639",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+      "tags": ["记忆", "基础设施", "向量", "AI"],
+      "icon": "🧠"
+    },
+    {
+      "id": "agent-smith",
+      "name": "agent-smith",
+      "title": "Agent Smith 提示词注入防御",
+      "description": "为 OpenClaw 提供的运行时提示词注入防御工具。保护 AI 代理免受攻击，包含 AI 驱动的异常检测和自动响应机制。",
+      "author": "the-smith-project",
+      "github_url": "https://github.com/the-smith-project/agent-smith",
+      "install_cmd": "npm install -g @smith-project/agent",
+      "category": "AI/LLM",
+      "features": ["运行时防护", "异常检测", "自动响应", "提示词注入检测"],
+      "use_case": "在生产环境部署 OpenClaw 时保护 AI 代理免受恶意攻击。",
+      "stars": "5",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "tags": ["安全", "防御", "提示词注入", "AI"],
+      "icon": "🛡️"
     }
   ]
 }
