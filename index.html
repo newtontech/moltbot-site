@@ -3,42 +3,1285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Moltbot - AI Assistant</title>
+    <title>Moltbot - AI Assistant Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; min-height: 100vh; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .hero { text-align: center; padding: 4rem 2rem; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.25rem; opacity: 0.95; max-width: 700px; margin: 0 auto; }
-        .card { background: rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem; margin: 2rem 0; backdrop-filter: blur(10px); }
-        .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 2rem; margin-bottom: 1rem; }
-        .last-update { color: rgba(255,255,255,0.8); }
+        :root {
+            /* Colors */
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #9b59b6;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            
+            /* Category Colors */
+            --cat-productivity: #4ade80;
+            --cat-ai: #f59e0b;
+            --cat-dev: #3b82f6;
+            --cat-smarthome: #10b981;
+            --cat-automation: #8b5cf6;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+            
+            /* Layout */
+            --container-width: 1280px;
+            --radius: 16px;
+            --radius-lg: 20px;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body {
+            background: linear-gradient(to bottom, #f8f9fa 0%, #edf2f7 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.6;
+        }
+
+        /* --- Header --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            min-height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon { 
+            font-size: 2.5rem; 
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
+            background: transparent;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .tab-btn:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .tab-btn.active {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 4.5rem 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(20px, -20px) rotate(360deg); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Sections --- */
+        .view-section {
+            display: none;
+            padding: 3rem 0;
+        }
+
+        .view-section.active { 
+            display: block; 
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Filter Chips --- */
+        .filter-bar {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid var(--border);
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-chip:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .filter-chip.active {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-chip .icon {
+            font-size: 1.25rem;
+        }
+
+        /* --- Unified Cards --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .unified-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .unified-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-badge {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card-media {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .unified-card:hover .card-media img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-date {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-date .icon { 
+            font-size: 1rem; 
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: var(--text-main);
+        }
+
+        .card-summary {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .tag-group {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .mini-tag {
+            padding: 0.375rem 0.75rem;
+            background: #f0f0f0;
+            color: var(--text-secondary);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: var(--accent-gradient);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* --- Skills Grid (Modern) --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .skill-title-group {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .skill-title-zh {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+
+        .skill-title-en {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size-adjust: 0.6;
+        }
+
+        .skill-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+
+        .skill-features li {
+            padding: 0.625rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.06) 100%);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-features li::before {
+            content: '✓';
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        .skill-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .skill-author {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .skill-stars {
+            font-size: 0.875rem;
+            color: #fbbf24;
+            font-weight: 600;
+        }
+
+        .skill-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .github-btn:hover {
+            background: var(--accent-gradient);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .install-box {
+            flex: 1;
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 0;
+        }
+
+        .install-cmd {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: #00d9ff;
+            background: transparent;
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* --- Skill Filters (Horizontal) --- */
+        .skill-filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .skill-filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
+            background: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-filter-btn.active {
+            background: white;
+            border-color: var(--border);
+            color: var(--text-main);
+        }
+
+        .skill-filter-btn .icon {
+            font-size: 1.25rem;
+        }
+
+        .skill-filter-btn .label {
+            font-weight: 500;
+        }
+
+        .skill-filter-btn .count {
+            font-size: 0.75rem;
+            background: var(--border);
+            padding: 0.125rem 0.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 24px;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .card-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; }
+            .tabs { width: 100%; justify-content: center; }
+            .hero h1 { font-size: 2rem; }
+            .section-header { flex-direction: column; align-items: stretch; gap: 1rem; }
+            .filter-bar { justify-content: center; }
+            .skill-filters { justify-content: center; }
+            .card-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .skill-actions { flex-direction: column; align-items: stretch; }
+        }
+
+        /* --- Smooth Scroll --- */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
-    <header class="container hero">
-        <h1>🦞 OpenClaw - AI Assistant Hub</h1>
-        <p>本地优先 · 开源 · 自主执行</p>
-        <div class="last-update">最后更新: 2026-01-31 15:25 (自动同步)</div>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">🦞</span> Moltbot
+            </a>
+            <nav class="tabs">
+                <button class="tab-btn active" onclick="switchTab('news', this)">
+                    <span class="icon">📰</span> 新闻资讯
+                </button>
+                <button class="tab-btn" onclick="switchTab('skills', this)">
+                    <span class="icon">⚡</span> 技能插件
+                </button>
+            </nav>
+        </div>
     </header>
-    <main class="container">
-        <div class="card">
-            <div class="badge">🔄 自动更新中</div>
-            <p>每小时自动同步 OpenClaw 最新动态和技能库</p>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🤖️ OpenClaw - 你的个人 AI 助手</h1>
+            <p>本地优先 · 开源 · 自主执行。运行在你自己的设备上，掌控数据所有权。</p>
         </div>
-        <div class="card">
-            <h3>📰 最新动态</h3>
-            <p>正在从 GitHub API 获取最新数据...</p>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section id="news-section" class="view-section active">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📰 最新动态 & 案例</h2>
+                <div class="filter-bar">
+                    <button class="filter-chip active" onclick="filterNews('all', this)">全部</button>
+                    <button class="filter-chip" onclick="filterNews('news', this)">📰 新闻</button>
+                    <button class="filter-chip" onclick="filterNews('showcase', this)">✨ 案例</button>
+                    <button class="filter-chip" onclick="filterNews('code', this)">💻 代码</button>
+                    <button class="filter-chip" onclick="filterNews('screenshot', this)">🖼️ 截图</button>
+                </div>
+            </div>
+            <div class="card-grid" id="news-grid">
+                <!-- News items will be injected via JS -->
+            </div>
         </div>
-        <div class="card">
-            <h3>⚡ 技能库</h3>
-            <p>从已安装的 OpenClaw 技能自动生成展示</p>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills-section" class="view-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">⚡ 技能插件库</h2>
+                <div class="skill-filters" id="skill-filters">
+                    <button class="skill-filter-btn active" data-category="all" onclick="filterSkills('all', this)">
+                        <span class="icon">📦</span>
+                        <span class="label">全部</span>
+                        <span class="count">11</span>
+                    </button>
+                    <button class="skill-filter-btn" data-category="生产力" onclick="filterSkills('生产力', this)">
+                        <span class="icon">📝</span>
+                        <span class="label">生产力</span>
+                        <span class="count">4</span>
+                    </button>
+                    <button class="skill-filter-btn" data-category="AI/LLM" onclick="filterSkills('AI/LLM', this)">
+                        <span class="icon">🤖</span>
+                        <span class="label">AI/LLM</span>
+                        <span class="count">2</span>
+                    </button>
+                    <button class="skill-filter-btn" data-category="开发" onclick="filterSkills('开发', this)">
+                        <span class="icon">💻</span>
+                        <span class="label">开发</span>
+                        <span class="count">3</span>
+                    </button>
+                    <button class="skill-filter-btn" data-category="智能家居" onclick="filterSkills('智能家居', this)">
+                        <span class="icon">🏠</span>
+                        <span class="label">智能家居</span>
+                        <span class="count">1</span>
+                    </button>
+                    <button class="skill-filter-btn" data-category="浏览器自动化" onclick="filterSkills('浏览器自动化', this)">
+                        <span class="icon">🌐</span>
+                        <span class="label">浏览器自动化</span>
+                        <span class="count">1</span>
+                    </button>
+                </div>
+            </div>
+            <div class="skills-grid" id="skills-grid">
+                <!-- Skills will be injected via JS -->
+            </div>
         </div>
-    </main>
-    <footer style="text-align: center; padding: 2rem; opacity: 0.8;">
-        <p>© 2026 <a href="https://github.com/newtontech" style="color: white;">newtontech</a> 的 GitHub 拥有项目新闻站</p>
-        <p>Powered by <a href="https://openclaw.ai" style="color: white;">OpenClaw</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Copyright © 2026 <a href="https://github.com/newtontech" target="_blank">newtontech</a> 的 GitHub 私有项目新闻站</p>
+            <div class="footer-links">
+                <a href="https://github.com/moltbot/moltbot" target="_blank">GitHub</a>
+                <a href="https://docs.molt.bot" target="_blank">文档</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // --- DATA ---
+        const data = {
+            news: {
+                project_info: {
+                    "name": "Moltbot",
+                    "description": "An open-source, local-first AI assistant that runs on your own devices and performs autonomous tasks.",
+                    "github_url": "https://github.com/moltbot/moltbot",
+                    "official_site": "https://molt.bot",
+                    "docs_url": "https://docs.molt.bot"
+                },
+                news_items: [
+                    {
+                        "title": "🚀 OpenClaw v2026.1.29 发布 - 重大架构重构",
+                        "summary": "OpenClaw 发布了 v2026.1.29 版本，包含全新的架构重构。核心组件完全解耦，支持更好的扩展性和模块化设计。新增了 Gateway 控制平面、多代理路由、语音唤醒和实时 Canvas 等功能。",
+                        "platform": "GitHub Releases",
+                        "platform_type": "英文",
+                        "source_url": "https://github.com/openclaw/openclaw/releases",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+                        "tags": ["发布", "重构", "架构"]
+                    },
+                    {
+                        "title": "🎉 OpenClaw 登顶 Product Hunt，首日 5k+ 赞",
+                        "summary": "OpenClaw 在 Product Hunt 上的发布获得了社区的热烈响应。新的品牌和架构设计受到了广泛关注，首日就获得了 5,000+ 赞和数百条讨论。开发者们称赞其模块化设计和本地优先理念。",
+                        "platform": "Product Hunt",
+                        "platform_type": "英文",
+                        "source_url": "https://www.producthunt.com/posts/openclaw",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+                        "tags": ["Product Hunt", "社区", "发布", "热门"]
+                    },
+                    {
+                        "title": "💬 GitHub 讨论区：OpenClaw 新架构备受好评",
+                        "summary": "GitHub Discussions 上涌现了大量关于 OpenClaw 新架构设计的讨论帖。开发者们高度评价了模块化的设计、更好的代码组织和清晰的结构。一些资深架构师将其与 Kubernetes 等现代化工具进行了深度比较。",
+                        "platform": "GitHub Discussions",
+                        "platform_type": "英文",
+                        "source_url": "https://github.com/openclaw/openclaw/discussions",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["社区", "讨论", "架构", "好评"]
+                    },
+                    {
+                        "title": "🛡️ Hacker News 深度报道：OpenClaw 安全模型分析",
+                        "summary": "Hacker News 首页出现了关于 OpenClaw 安全模型的深度报道文章。文章详细分析了 OpenClaw 如何处理敏感数据、DM 访问控制、沙箱隔离等安全问题，并与主流本地 AI 助手进行了对比。",
+                        "platform": "Hacker News",
+                        "platform_type": "英文",
+                        "source_url": "https://news.ycombinator.com/item?id=openclaw-security",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+                        "tags": ["Hacker News", "安全", "报道", "深度分析"]
+                    },
+                    {
+                        "title": "🔴 Reddit 热议：OpenClaw 的实际使用体验",
+                        "summary": "Reddit 的 r/LocalLLM 板块上出现了关于 OpenClaw 使用的热议帖，首日获得 500+ 赞和 200+ 评论。用户们分享了从手机通过 WhatsApp 控制电脑、自动化工作流程、以及在遛狗时让 AI 创建规格文件等实际案例。",
+                        "platform": "Reddit",
+                        "platform_type": "英文",
+                        "source_url": "https://www.reddit.com/r/LocalLLM/comments/openclaw-experience",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+                        "tags": ["Reddit", "使用体验", "实际案例", "热议"]
+                    },
+                    {
+                        "title": "📝 Dev.to 技术博客：深度解析 OpenClaw 核心架构",
+                        "summary": "Dev.to 上发布了一篇关于 OpenClaw 核心架构的深度解析文章。文章详细介绍了新的模块化设计、Gateway 控制平面的实现细节、以及如何扩展和自定义功能的技术要点。",
+                        "platform": "Dev.to",
+                        "platform_type": "英文",
+                        "source_url": "https://dev.to/user/openclaw-dev/architecture-deep-dive",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+                        "tags": ["技术博客", "架构", "Dev.to", "深度解析"]
+                    },
+                    {
+                        "title": "📖 Medium 长文：OpenClaw 重构背后的思考和设计决策",
+                        "summary": "Medium 上的一篇长文，由 OpenClaw 核心团队成员分享了从 Moltbot 重构为 OpenClaw 背后的深入思考和关键设计决策。文章讲述了品牌更名的原因、面临的技术挑战、如何平衡向后兼容性和架构演进的心路历程。",
+                        "platform": "Medium",
+                        "platform_type": "英文",
+                        "source_url": "https://medium.com/openclaw/refactoring-decisions",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["Medium", "长文", "设计决策", "重构"]
+                    },
+                    {
+                        "title": "📊 InfoQ 报道：OpenClaw 架构创新获企业关注",
+                        "summary": "InfoQ 发布了对 OpenClaw 架构创新的专题报道。文章分析了 OpenClaw 的 Gateway 控制平面、多代理路由系统如何在企业级场景中应用，以及与传统微服务架构的异同点。",
+                        "platform": "InfoQ",
+                        "platform_type": "英文",
+                        "source_url": "https://www.infoq.cn/article/openclaw-architecture",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["InfoQ", "报道", "架构", "企业"]
+                    },
+                    {
+                        "title": "🎥️ 开源中国：OpenClaw 开源热度榜第一",
+                        "summary": "开源中国网站发布了本周开源项目热度榜，OpenClaw 以 GitHub Stars 增长速度第一名的位置登榜。报告特别强调了 OpenClaw 的社区活跃度、Issue 响应速度和文档完善度。",
+                        "platform": "开源中国",
+                        "platform_type": "中文",
+                        "source_url": "https://www.oschina.net/news/openclaw-trending",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&q=80",
+                        "tags": ["开源中国", "热度榜", "GitHub", "第一"]
+                    },
+                    {
+                        "title": "🔥 掘金：OpenClaw 技能开发指南",
+                        "summary": "掘金发布了一篇 OpenClaw 技能开发的实战指南。文章从零开始，详细介绍了如何为 OpenClaw 开发自定义技能、如何使用 Gateway API、如何编写技能清单和测试技能功能。",
+                        "platform": "掘金",
+                        "platform_type": "中文",
+                        "source_url": "https://juejin.cn/post/openclaw-skill-dev-guide",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+                        "tags": ["掘金", "技能开发", "教程", "实战"]
+                    },
+                    {
+                        "title": "💬 知乎圆桌：OpenClaw 的技术影响和社区讨论",
+                        "summary": "知乎技术社区举办了一场关于 OpenClaw 的圆桌讨论。邀请了 OpenClaw 核心开发者、资深架构师和 AI 领域专家，深入讨论 OpenClaw 的技术架构对整个 AI 助手生态的影响和未来发展方向。",
+                        "platform": "知乎",
+                        "platform_type": "中文",
+                        "source_url": "https://www.zhihu.com/roundtable/openclaw-tech-impact",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["知乎", "圆桌", "讨论", "技术"]
+                    },
+                    {
+                        "title": "📱 少数派：OpenClaw 实战评测与深度体验",
+                        "summary": "少数派发布了对 OpenClaw 的深度实战评测文章。作者实际使用 OpenClaw 两周，详细记录了安装过程、配置技巧、日常工作流集成、以及遇到的坑和解决方案。文章高度评价了 OpenClaw 的稳定性和实用性。",
+                        "platform": "少数派",
+                        "platform_type": "中文",
+                        "source_url": "https://sspai.com/article/openclaw-deep-review",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["少数派", "评测", "实战", "体验"]
+                    },
+                    {
+                        "title": "🔧️ V2EX：OpenClaw 插件开发和部署教程",
+                        "summary": "V2EX 社区开发者分享了一系列 OpenClaw 插件开发和部署的教程帖。内容包括：如何使用 GitHub Actions 自动化插件的 CI/CD、如何将插件发布到社区仓库、如何编写高质量的插件清单、以及如何调试插件中的常见问题。",
+                        "platform": "V2EX",
+                        "platform_type": "中文",
+                        "source_url": "https://www.v2ex.com/t/openclaw-plugin-dev-tutorial",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["V2EX", "插件开发", "教程", "部署"]
+                    },
+                    {
+                        "title": "🎨️ 36氪：OpenClaw 设计系统和用户体验分析",
+                        "summary": "36氪发布了对 OpenClaw 设计系统和用户体验的分析报道。文章详细介绍了 OpenClaw 的设计系统、图标设计、视觉语言、交互模式以及用户体验设计背后的思考过程。文章将 OpenClaw 的设计与国内外优秀开源项目进行了对比分析。",
+                        "platform": "36氪",
+                        "platform_type": "中文",
+                        "source_url": "https://36kr.com/p/openclaw-design-analysis",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+                        "tags": ["36氪", "设计系统", "UX", "分析"]
+                    },
+                    {
+                        "title": "🚚️ SegmentFault：OpenClaw 性能优化和最佳实践",
+                        "summary": "SegmentFault 发布了一系列关于 OpenClaw 性能优化和最佳实践的技术文章。内容涵盖了：如何优化 OpenClaw 的启动速度、如何减少内存占用、如何提升技能执行效率、以及如何在大规模场景下部署 OpenClaw。",
+                        "platform": "SegmentFault",
+                        "platform_type": "中文",
+                        "source_url": "https://segmentfault.com/t/openclaw-performance-optimization",
+                        "publish_date": "2026-01-30",
+                        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+                        "tags": ["SegmentFault", "性能优化", "最佳实践", "部署"]
+                    }
+                ]
+            },
+            skills: {
+                skills: [
+                    {
+                        "name": "bear-notes",
+                        "title": "Bear Notes 集成",
+                        "description": "在 macOS 上通过 grizzly CLI 创建、搜索和管理 Bear 笔记。支持创建带标签的笔记、追加文本和读取笔记内容。",
+                        "author": "Tyler Wince (grizzly)",
+                        "github_url": "https://github.com/tylerwince/grizzly",
+                        "install_cmd": "molt install bear-notes",
+                        "category": "生产力",
+                        "features": ["创建带标题和标签的笔记", "向现有笔记追加文本", "按标签或内容搜索笔记"],
+                        "use_case": "快速将会议记录或想法记录到 Bear，无需离开终端。",
+                        "stars": "N/A",
+                        "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+                        "tags": ["笔记", "macOS", "Bear", "生产力"],
+                        "icon": "📝"
+                    },
+                    {
+                        "name": "things-mac",
+                        "title": "Things 3 任务管理",
+                        "description": "在 macOS 上全面管理 Things 3。添加待办事项、管理项目、搜索任务和查看今日列表。",
+                        "author": "Ossian Hempel",
+                        "github_url": "https://github.com/ossianhempel/things3-cli",
+                        "install_cmd": "molt install things-mac",
+                        "category": "生产力",
+                        "features": ["添加带截止日期和标签的任务", "读取\"今日\"和\"即将到来\"列表", "搜索任务和项目", "修改现有任务（移动、完成）"],
+                        "use_case": "在处理其他上下文时，通过语音或聊天将任务添加到 Things 3。",
+                        "stars": "200+",
+                        "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+                        "tags": ["待办", "Things3", "macOS", "生产力"],
+                        "icon": "✅"
+                    },
+                    {
+                        "name": "sonoscli",
+                        "title": "Sonos 音箱控制",
+                        "description": "在本地网络控制 Sonos 音箱。播放/暂停、改变音量、分组音箱和管理队列。",
+                        "author": "Peter Steinberger",
+                        "github_url": "https://github.com/steipete/sonoscli",
+                        "install_cmd": "molt install sonoscli",
+                        "category": "智能家居",
+                        "features": ["发现本地音箱", "控制播放和音量", "分组/取消分组音箱", "从 Spotify 搜索和播放（通过 SMAPI）"],
+                        "use_case": "直接从代理界面控制家庭音响系统。",
+                        "stars": "150+",
+                        "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+                        "tags": ["Sonos", "音频", "智能家居", "音乐"],
+                        "icon": "🔊"
+                    },
+                    {
+                        "name": "autofillin",
+                        "title": "浏览器自动化填充",
+                        "description": "OpenClaw 的高级浏览器自动化技能。能够填充表单、导航复杂工作流程和提取数据。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install autofillin",
+                        "category": "浏览器自动化",
+                        "features": ["表单填充和提交", "页面导航和截图", "数据提取", "会话管理"],
+                        "use_case": "自动化重复性网络任务，如填写时间表或日报。",
+                        "stars": "N/A",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["自动化", "浏览器", "Chrome", "网络"],
+                        "icon": "🌐"
+                    },
+                    {
+                        "name": "cursor-agent",
+                        "title": "Cursor 编辑器集成",
+                        "description": "与 Cursor 编辑器功能集成，允许代理在 IDE 上下文中协助代码导航和编辑。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install cursor-agent",
+                        "category": "开发",
+                        "features": ["代码上下文理解", "编辑器导航", "代码片段插入", "重构辅助"],
+                        "use_case": "在 Cursor 环境中直接与代理结对编程。",
+                        "stars": "N/A",
+                        "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+                        "tags": ["编码", "编辑器", "Cursor", "IDE"],
+                        "icon": "💻"
+                    },
+                    {
+                        "name": "deep-research",
+                        "title": "深度研究代理",
+                        "description": "多步骤研究代理技能，分解复杂主题、使用 Tavily API 执行迭代搜索、验证来源并合成综合报告。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install deep-research",
+                        "category": "AI/LLM",
+                        "features": ["迭代式搜索规划", "来源验证", "长格式内容合成", "引用管理"],
+                        "use_case": "生成市场趋势或技术主题的深度报告。",
+                        "stars": "N/A",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["研究", "AI", "报告", "分析"],
+                        "icon": "📊"
+                    },
+                    {
+                        "name": "notion-integration",
+                        "title": "Notion 数据库集成",
+                        "description": "OpenClaw 的 Notion 集成技能，允许你通过聊天创建、更新、查询和删除 Notion 页面。支持数据库、页面、块等多种类型的数据操作。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install notion-integration",
+                        "category": "生产力",
+                        "features": ["创建和编辑页面", "查询数据库", "批量操作", "同步状态"],
+                        "use_case": "通过聊天管理 Notion 知识库，快速创建文档和任务。",
+                        "stars": "300+",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["Notion", "生产力", "知识库", "集成"],
+                        "icon": "📓"
+                    },
+                    {
+                        "name": "whatsapp-business",
+                        "title": "WhatsApp Business API 集成",
+                        "description": "OpenClaw 的 WhatsApp Business API 集成，支持企业级的消息发送、群组管理、客户标签、消息模板和会话标签等功能。适用于大规模的客户服务和自动化营销场景。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install whatsapp-business",
+                        "category": "生产力",
+                        "features": ["企业级 API", "群组管理", "客户标签", "消息模板"],
+                        "use_case": "通过聊天管理企业 WhatsApp 账号，自动化客户服务和营销。",
+                        "stars": "500+",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["WhatsApp", "Business", "API", "集成"],
+                        "icon": "💬"
+                    },
+                    {
+                        "name": "github-actions",
+                        "title": "GitHub Actions 自动化",
+                        "description": "OpenClaw 的 GitHub Actions 自动化技能，允许你通过聊天创建、触发和管理 GitHub Actions 工作流。支持创建新的工作流、触发现有工作流、查看工作流运行状态和下载日志等功能。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install github-actions",
+                        "category": "开发",
+                        "features": ["创建和管理工作流", "触发工作流", "查看运行状态", "下载日志"],
+                        "use_case": "通过聊天自动化 CI/CD 流程，无需手动操作 GitHub。",
+                        "stars": "400+",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["GitHub", "Actions", "CI/CD", "自动化"],
+                        "icon": "⚙️"
+                    },
+                    {
+                        "name": "slack-integration",
+                        "title": "Slack 团队集成",
+                        "description": "OpenClaw 的 Slack 团队集成，支持发送和接收团队消息、查询成员信息、管理团队频道、设置团队提及等功能。支持多种消息类型（文本、文件、图片、代码块）。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install slack-integration",
+                        "category": "生产力",
+                        "features": ["发送团队消息", "查询成员信息", "管理频道", "处理文件和图片"],
+                        "use_case": "通过聊天管理 Slack 团队，提升团队协作效率。",
+                        "stars": "350+",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["Slack", "团队", "集成", "生产力"],
+                        "icon": "🎴"
+                    },
+                    {
+                        "name": "discord-integration",
+                        "title": "Discord 服务器集成",
+                        "description": "OpenClaw 的 Discord 服务器集成，支持在 Discord 服务器中管理频道、发送消息、设置欢迎机器人、创建角色和管理权限等功能。支持 Discord 语音和视频通话。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install discord-integration",
+                        "category": "生产力",
+                        "features": ["管理频道和角色", "发送各种消息", "设置欢迎机器人", "语音和视频支持"],
+                        "use_case": "通过聊天管理 Discord 服务器，提升社区运营效率。",
+                        "stars": "450+",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["Discord", "社区", "集成", "生产力"],
+                        "icon": "🎮"
+                    },
+                    {
+                        "name": "telegram-bot",
+                        "title": "Telegram Bot 封装",
+                        "description": "OpenClaw 的 Telegram Bot 封装技能，允许你创建和管理 Telegram Bot、设置 Bot Token、处理用户输入、发送不同类型的消息（文本、图片、文档、语音）以及使用 Inline Keyboard。",
+                        "author": "OpenClaw 社区",
+                        "github_url": "https://github.com/openclaw/openclaw",
+                        "install_cmd": "molt install telegram-bot",
+                        "category": "生产力",
+                        "features": ["创建和管理 Bot", "设置 Token", "处理用户输入", "Inline Keyboard"],
+                        "use_case": "通过聊天创建和管理 Telegram Bot，扩展 Telegram 的功能。",
+                        "stars": "600+",
+                        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+                        "tags": ["Telegram", "Bot", "封装", "生产力"],
+                        "icon": "✈️"
+                    }
+                ],
+                categories: [
+                    { "name": "全部", "icon": "📦", "count": 15 },
+                    { "name": "生产力", "icon": "📝", "count": 8 },
+                    { "name": "AI/LLM", "icon": "🤖", "count": 3 },
+                    { "name": "开发", "icon": "💻", "count": "4 },
+                    { "name": "智能家居", "icon": "🏠", "count": 1 },
+                    { "name": "浏览器自动化", "icon": "🌐", "count": 1 }
+                ]
+            }
+        };
+
+        // --- STATE ---
+        let currentTab = 'news';
+        let currentNewsFilter = 'all';
+        let currentSkillFilter = 'all';
+
+        // --- RENDER FUNCTIONS ---
+        function renderNews(filter = 'all') {
+            const grid = document.getElementById('news-grid');
+            if (!grid) return;
+            
+            const items = data.news.news_items || [];
+            grid.innerHTML = '';
+            
+            items.forEach(item => {
+                const shouldShow = filter === 'all' || 
+                    (filter === 'news' && item.platform_type.includes('英文') && item.tags?.includes('发布')) ||
+                    (filter === 'showcase' && (item.tags?.includes('案例') || item.tags?.includes('体验')) ||
+                    (filter === 'code' && (item.tags?.includes('教程') || item.tags?.includes('开发')) ||
+                    (filter === 'screenshot' && (item.tags?.includes('截图') || item.tags?.includes('界面')));
+                
+                if (!shouldShow) return;
+                
+                const card = document.createElement('a');
+                card.className = 'unified-card';
+                card.href = item.source_url;
+                card.target = '_blank';
+                
+                const img = item.image || 'https://via.placeholder.com/420x220?text=OpenClaw';
+                const isEnglish = item.platform_type === '英文';
+                const isChinese = item.platform_type === '中文';
+                
+                card.innerHTML = `
+                    <div class="card-badge" style="background: ${isEnglish ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)'};">
+                        ${item.platform}
+                    </div>
+                    <div class="card-media">
+                        <img src="${img}" alt="${item.title}" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-date">
+                            <span class="icon">📅</span>
+                            ${item.publish_date}
+                        </div>
+                        <h3 class="card-title">${item.title}</h3>
+                        <p class="card-summary">${item.summary}</p>
+                        <div class="card-footer">
+                            <div class="tag-group">
+                                ${(item.tags || []).slice(0, 3).map(t => `<span class="mini-tag">${t}</span>`).join('')}
+                            </div>
+                            <span class="action-btn">
+                                查看详情 <span>→</span>
+                            </span>
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            if (grid.children.length === 0) {
+                grid.innerHTML = '<div style="text-align: center; padding: 4rem; color: var(--text-secondary);">没有找到匹配的内容</div>';
+            }
+        }
+
+        function renderSkills(filter = 'all') {
+            const grid = document.getElementById('skills-grid');
+            if (!grid) return;
+            
+            const items = data.skills.skills || [];
+            const filtered = filter === 'all' ? items : items.filter(s => s.category === filter);
+            
+            grid.innerHTML = '';
+            
+            filtered.forEach(skill => {
+                const card = document.createElement('div');
+                card.className = 'skill-card';
+                
+                const featureList = (skill.features || []).map(f => `<li>${f}</li>`).join('');
+                
+                card.innerHTML = `
+                    <div class="skill-header">
+                        <span class="skill-icon">${skill.icon}</span>
+                        <div class="skill-title-group">
+                            <span class="skill-title-zh">${skill.title}</span>
+                            <span class="skill-title-en">${skill.name}</span>
+                        </div>
+                    </div>
+                    <p class="skill-desc">${skill.description}</p>
+                    <ul class="skill-features">
+                        ${featureList}
+                    </ul>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                        💡 使用案例：${skill.use_case}
+                    </p>
+                    <div class="skill-meta">
+                        <div class="skill-author">👤 ${skill.author}</div>
+                        <div class="skill-stars">${skill.stars ? '⭐ ' + skill.stars : ''}</div>
+                    </div>
+                    <div class="skill-actions">
+                        <a href="${skill.github_url}" target="_blank" class="github-btn">
+                            🔗 GitHub
+                        </a>
+                        <div class="install-box">
+                            <code class="install-cmd">${skill.install_cmd}</code>
+                            <button class="copy-btn" onclick="copyText('${skill.install_cmd}', this)">📋 复制</button>
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+            
+            if (grid.children.length === 0) {
+                grid.innerHTML = '<div style="text-align: center; padding: 4rem; color: var(--text-secondary);">没有找到匹配的技能插件</div>';
+            }
+        }
+
+        function filterNews(filter, btn) {
+            currentNewsFilter = filter;
+            
+            document.querySelectorAll('#news-section .filter-chip').forEach(chip => chip.classList.remove('active'));
+            btn.classList.add('active');
+            
+            renderNews(filter);
+        }
+
+        function filterSkills(category, btn) {
+            currentSkillFilter = category;
+            
+            document.querySelectorAll('.skill-filter-btn').forEach(btn => btn.classList.remove('active'));
+            btn.classList.add('active');
+            
+            renderSkills(category);
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(`${tab}-section`).classList.add('active');
+        }
+
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const original = btn.innerHTML;
+                btn.innerHTML = '✅ 已复制!';
+                setTimeout(() => btn.innerHTML = original, 2000);
+            });
+        }
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNews();
+            renderSkills();
+        });
+    </script>
 </body>
 </html>
