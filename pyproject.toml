@@ -44,3 +44,8 @@ exclude_lines = [
     "raise AssertionError",
     "raise NotImplementedError",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest-playwright>=0.7.2",
+]

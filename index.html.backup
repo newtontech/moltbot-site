@@ -18,7 +18,7 @@
             --text-main: #2d3436;
             --text-secondary: #636e72;
             --border: #dfe6e9;
-            
+
             /* Shadows */
             --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -127,7 +127,7 @@
             position: relative;
             display: inline-block;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -263,7 +263,7 @@
             gap: 6px;
             transition: gap 0.2s;
         }
-        
+
         .action-btn:hover {
             gap: 10px;
         }
@@ -1411,29 +1411,29 @@
 
              // 3. Code (optional to mix in, but maybe keep separate? For now mixing all non-code)
             // Let's filter based on state.newsFilter
-            
+
             let filtered = allItems;
             if (state.newsFilter === 'news') filtered = allItems.filter(i => i.type === 'news');
             if (state.newsFilter === 'showcase') filtered = allItems.filter(i => i.type === 'showcase');
             if (state.newsFilter === 'code') {
                 // Special case for code
                 renderCodeSnippets();
-                return; 
+                return;
             }
 
             // Render
             filtered.forEach(item => {
                 const card = document.createElement('article');
                 card.className = 'unified-card';
-                
+
                 const d = item.data;
                 const isNews = item.type === 'news';
-                
+
                 // Image handling
                 let imgUrl = d.image || 'https://via.placeholder.com/400x200';
-                
+
                 const badgeText = isNews ? d.platform : 'Use Case';
-                
+
                 card.innerHTML = `
                     <div class="card-badge">${badgeText}</div>
                     <div class="card-media">
@@ -1486,15 +1486,15 @@
 
             // 2. Content
             els.skillsGrid.innerHTML = '';
-            const items = state.skillFilter === 'all' 
-                ? db.skills.skills 
+            const items = state.skillFilter === 'all'
+                ? db.skills.skills
                 : db.skills.skills.filter(s => s.category === state.skillFilter);
 
             items.forEach(skill => {
                 const card = document.createElement('div');
                 card.className = 'skill-card';
                 card.setAttribute('data-cat', skill.category);
-                
+
                 const featuresHtml = skill.features.slice(0, 3)
                     .map(f => `<li class="feature-item"><span class="check-icon">✓</span> ${f}</li>`)
                     .join('');
@@ -1510,7 +1510,7 @@
                             </div>
                         </div>
                         <p class="skill-desc">${skill.description}</p>
-                        
+
                         <ul class="feature-list">
                             ${featuresHtml}
                         </ul>
@@ -1534,7 +1534,7 @@
 
         function setTab(tabName) {
             state.activeTab = tabName;
-            
+
             // Update Nav
             els.tabs.forEach(t => t.classList.remove('active'));
             document.querySelector(`.tab-btn[onclick="setTab('${tabName}')"]`).classList.add('active');
