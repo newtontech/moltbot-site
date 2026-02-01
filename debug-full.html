@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>完整调试信息</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        .section { background: #f9f9f9; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+        .warn { color: orange; font-weight: bold; }
+        .info { color: blue; }
+        pre { background: #f0f0f0; padding: 10px; overflow-x: auto; border-radius: 3px; }
+        code { background: #e8e8e8; padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Moltbot Site 完整调试</h1>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+
+        function addSection(title, content) {
+            output.innerHTML += `<div class="section"><h3>${title}</h3>${content}</div>`;
+        }
+
+        async function fullDebug() {
+            // Section 1: Environment
+            addSection('1. 环境', `
+                <div>JavaScript: <span class="pass">✅ 已启用</span></div>
+                <div>当前时间: ${new Date().toLocaleString('zh-CN')}</div>
+                <div>User Agent: <code>${navigator.userAgent}</code></div>
+            `);
+
+            // Section 2: File access
+            addSection('2. 文件访问', `
+                <div>测试 /data/config.json: <span id="test-config">...</span></div>
+                <div>测试 /data/categories.json: <span id="test-categories">...</span></div>
+                <div>测试 /data/news/2026-01.json: <span id="test-news">...</span></div>
+                <div>测试 /data/skills/development.json: <span id="test-skills">...</span></div>
+            `);
+
+            // Test config
+            try {
+                const configRes = await fetch('/data/config.json');
+                const config = await configRes.json();
+                document.getElementById('test-config').innerHTML = `<span class="pass">✅</span> ${config.config?.site?.title || 'N/A'}`;
+            } catch (e) {
+                document.getElementById('test-config').innerHTML = `<span class="fail">❌ ${e.message}</span>`;
+            }
+
+            // Test categories
+            try {
+                const catsRes = await fetch('/data/categories.json');
+                const cats = await catsRes.json();
+                document.getElementById('test-categories').innerHTML = `<span class="pass">✅</span> ${Object.keys(cats || {}).length} categories`;
+            } catch (e) {
+                document.getElementById('test-categories').innerHTML = `<span class="fail">❌ ${e.message}</span>`;
+            }
+
+            // Test news
+            try {
+                const newsRes = await fetch('/data/news/2026-01.json');
+                const news = await newsRes.json();
+                document.getElementById('test-news').innerHTML = `<span class="pass">✅</span> ${news.items?.length || 0} items`;
+            } catch (e) {
+                document.getElementById('test-news').innerHTML = `<span class="fail">❌ ${e.message}</span>`;
+            }
+
+            // Test skills
+            try {
+                const skillRes = await fetch('/data/skills/development.json');
+                const skill = await skillRes.json();
+                document.getElementById('test-skills').innerHTML = `<span class="pass">✅</span> ${skill.skills?.length || 0} skills`;
+            } catch (e) {
+                document.getElementById('test-skills').innerHTML = `<span class="fail">❌ ${e.message}</span>`;
+            }
+
+            // Section 3: JavaScript modules
+            addSection('3. JavaScript 模块', `
+                <div>dataLoader: <span id="test-dataloader">...</span></div>
+                <div>renderNews: <span id="test-rendernews">...</span></div>
+                <div>renderSkills: <span id="test-renderskills">...</span></div>
+            `);
+
+            // Test dataLoader
+            if (typeof dataLoader !== 'undefined') {
+                document.getElementById('test-dataloader').innerHTML = `<span class="pass">✅ 已加载</span>`;
+
+                try {
+                    const allData = await dataLoader.loadAll();
+                    addSection('4. 数据加载器测试', `
+                        <div>loadAll(): <span class="pass">✅ 成功</span></div>
+                        <div>News items: ${allData.news?.items?.length || 0}</div>
+                        <div>News count: ${allData.news?.count || 0}</div>
+                        <div>Skills: ${allData.skills?.skills?.length || 0}</div>
+                        <div>Categories: ${Object.keys(allData.skills?.categories || {}).length}</div>
+                        <div>Timestamp: ${allData.timestamp || 'N/A'}</div>
+                        ${allData.news?.errors?.length ? `<div class="fail">News errors: ${allData.news.errors.length}</div>` : ''}
+                        ${allData.skills?.errors?.length ? `<div class="fail">Skills errors: ${allData.skills.errors.length}</div>` : ''}
+                    `);
+                } catch (e) {
+                    addSection('4. 数据加载器测试', `<span class="fail">❌ loadAll() 失败: ${e.message}</span>`);
+                }
+            } else {
+                document.getElementById('test-dataloader').innerHTML = `<span class="fail">❌ 未加载</span>`;
+            }
+
+            // Test render functions
+            if (typeof renderNews === 'function') {
+                document.getElementById('test-rendernews').innerHTML = `<span class="pass">✅ 已加载</span>`;
+            } else {
+                document.getElementById('test-rendernews').innerHTML = `<span class="fail">❌ 未加载</span>`;
+            }
+
+            if (typeof renderSkills === 'function') {
+                document.getElementById('test-renderskills').innerHTML = `<span class="pass">✅ 已加载</span>`;
+            } else {
+                document.getElementById('test-renderskills').innerHTML = `<span class="fail">❌ 未加载</span>`;
+            }
+
+            // Section 5: Console messages
+            addSection('5. 操作', `
+                <p>请打开浏览器控制台 (F12) 查看：</p>
+                <ul>
+                    <li>JavaScript 错误</li>
+                    <li>网络请求失败</li>
+                    <li>console.log 输出</li>
+                </ul>
+                <p>如有错误，请截图并发送给开发者。</p>
+            `);
+        }
+
+        fullDebug();
+    </script>
+</body>
+</html>
