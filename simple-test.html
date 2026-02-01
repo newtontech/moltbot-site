@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>简单测试</title>
+</head>
+<body>
+    <h1>🧪 GitHub Pages 部署测试</h1>
+    <p>如果你看到这个页面，说明部署成功了！</p>
+    <p>加载时间: <span id="time"></span></p>
+    <hr>
+    <h2>数据文件测试</h2>
+    <ul>
+        <li id="test-config">测试 config.json...</li>
+        <li id="test-news">测试 news/2026-01.json...</li>
+        <li id="test-skills">测试 skills/...</li>
+    </ul>
+    <hr>
+    <p>完整网站: <a href="/">返回主页</a></p>
+
+    <script>
+        document.getElementById('time').textContent = new Date().toISOString();
+
+        async function runTests() {
+            // Test config
+            try {
+                const config = await fetch('/data/config.json').then(r => r.json());
+                document.getElementById('test-config').innerHTML = `✅ config.json: ${config.config?.skills?.categories?.length} categories`;
+            } catch (e) {
+                document.getElementById('test-config').innerHTML = `❌ config.json: ${e.message}`;
+            }
+
+            // Test news
+            try {
+                const news = await fetch('/data/news/2026-01.json').then(r => r.json());
+                document.getElementById('test-news').innerHTML = `✅ news/2026-01.json: ${news.items?.length} items`;
+            } catch (e) {
+                document.getElementById('test-news').innerHTML = `❌ news/2026-01.json: ${e.message}`;
+            }
+
+            // Test skills
+            try {
+                const skills = await fetch('/data/skills/development.json').then(r => r.json());
+                document.getElementById('test-skills').innerHTML = `✅ skills/development.json: ${skills.skills?.length} skills`;
+            } catch (e) {
+                document.getElementById('test-skills').innerHTML = `❌ skills/development.json: ${e.message}`;
+            }
+        }
+
+        runTests();
+    </script>
+</body>
+</html>
