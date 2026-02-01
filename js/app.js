@@ -5,51 +5,28 @@ let currentSkillFilter = 'all';
 
 // --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🚀 Page loaded, initializing...');
     initializeApp();
 });
 
 // --- MAIN APP INITIALIZATION ---
-function initializeApp() {
-    // Initialize global state
-    initGlobalState();
+async function initializeApp() {
+    console.log('📥 Initializing app...');
 
-    // Initial render
-    renderInitialView();
-}
+    // Show loading state
+    showLoadingState();
 
-// --- GLOBAL STATE INITIALIZATION ---
-function initGlobalState() {
-    // Reset to default state
-    currentTab = 'news';
-    currentNewsFilter = 'all';
-    currentSkillFilter = 'all';
-
-    // Set up event listeners for navigation
-    setupNavigationHandlers();
-
-    // Set up event listeners for filters
-    setupFilterHandlers();
-}
-
-// --- NAVIGATION HANDLERS ---
-function setupNavigationHandlers() {
-    // Tab switching is handled via onclick attributes in HTML
-    // This function is a placeholder for future event delegation
-}
-
-// --- FILTER HANDLERS ---
-function setupFilterHandlers() {
-    // News and skill filters are handled via onclick attributes in HTML
-    // This function is a placeholder for future event delegation
-}
-
-// --- INITIAL RENDER ---
-async function renderInitialView() {
     try {
         // Load all data using dataLoader
+        console.log('📥 Loading data...');
         const allData = await dataLoader.loadAll();
+        console.log('✅ Data loaded:', {
+            newsCount: allData.news?.count || 0,
+            skillsCount: allData.skills?.count || 0,
+            timestamp: allData.timestamp
+        });
 
-        // Update global data object with loaded data
+        // Update global data object
         if (typeof data !== 'undefined') {
             data.news = {
                 project_info: allData.config?.site || {},
@@ -59,57 +36,90 @@ async function renderInitialView() {
                 skills: allData.skills.skills || [],
                 categories: allData.skills.categories || {}
             };
-        }
-
-        // Also update data.news to include items for backward compatibility
-        if (typeof data !== 'undefined' && allData.news) {
-            data.news.items = allData.news.items || [];
+            console.log('✅ Global data object updated:', {
+                newsItems: data.news.news_items?.length || 0,
+                skills: data.skills.skills?.length || 0,
+                categories: Object.keys(data.skills.categories || {}).length
+            });
         }
 
         // Render news with loaded data
         if (typeof renderNews === 'function') {
+            console.log('📥 Rendering news...');
             renderNews(currentNewsFilter);
+            console.log('✅ News rendered');
         }
 
         // Render skills with loaded data
         if (typeof renderSkills === 'function') {
+            console.log('📥 Rendering skills...');
             renderSkills(currentSkillFilter, allData.skills);
+            console.log('✅ Skills rendered');
         }
 
-        console.log('Data loaded successfully:', {
-            newsCount: allData.news.count,
-            skillsCount: allData.skills.count
-        });
+        console.log('✅ App initialized successfully');
+
     } catch (error) {
-        console.error('Failed to load data:', error);
+        console.error('❌ Failed to initialize app:', error);
+        showErrorState(error);
+    }
+}
 
-        // Show error message
-        const newsGrid = document.getElementById('news-grid');
-        const skillsGrid = document.getElementById('skills-grid');
+// --- LOADING STATE ---
+function showLoadingState() {
+    console.log('📥 Showing loading state...');
 
-        if (newsGrid) {
-            newsGrid.innerHTML = `
-                <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
-                    <div>数据加载失败</div>
-                    <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">
-                        ${error.message}
-                    </div>
-                </div>
-            `;
-        }
+    const newsGrid = document.getElementById('news-grid');
+    const skillsGrid = document.getElementById('skills-grid');
 
-        if (skillsGrid) {
-            skillsGrid.innerHTML = `
-                <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
-                    <div>数据加载失败</div>
-                    <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">
-                        ${error.message}
-                    </div>
-                </div>
-            `;
-        }
+    if (newsGrid) {
+        newsGrid.innerHTML = `
+            <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
+                <div style="font-size: 2rem;">⏳</div>
+                <div>正在加载数据...</div>
+            </div>
+        `;
+        console.log('✅ News loading state set');
+    }
+
+    if (skillsGrid) {
+        skillsGrid.innerHTML = `
+            <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
+                <div style="font-size: 2rem;">⏳</div>
+                <div>正在加载数据...</div>
+            </div>
+        `;
+        console.log('✅ Skills loading state set');
+    }
+}
+
+function showErrorState(error) {
+    console.log('📥 Showing error state...');
+
+    const newsGrid = document.getElementById('news-grid');
+    const skillsGrid = document.getElementById('skills-grid');
+
+    const errorMsg = `
+        <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
+            <div>数据加载失败</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">
+                ${error.message}
+            </div>
+            <div style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.5;">
+                请刷新页面重试
+            </div>
+        </div>
+    `;
+
+    if (newsGrid) {
+        newsGrid.innerHTML = errorMsg;
+        console.log('✅ News error state set');
+    }
+
+    if (skillsGrid) {
+        skillsGrid.innerHTML = errorMsg;
+        console.log('✅ Skills error state set');
     }
 }
 
@@ -137,6 +147,7 @@ function filterNews(filter, btn) {
     // Re-render news with new filter (using global data object)
     if (typeof renderNews === 'function') {
         const newsData = typeof data !== 'undefined' ? data.news : null;
+        console.log('📥 Filtering news:', filter, 'with data:', newsData);
         renderNews(filter, newsData);
     }
 }
@@ -154,6 +165,7 @@ function filterSkills(category, btn) {
     // Re-render skills with new filter (using global data object)
     if (typeof renderSkills === 'function') {
         const skillsData = typeof data !== 'undefined' ? data.skills : null;
+        console.log('📥 Filtering skills:', category, 'with data:', skillsData);
         renderSkills(category, skillsData);
     }
 }
@@ -170,3 +182,5 @@ function copyText(text, btn) {
         setTimeout(() => btn.innerHTML = '📋 复制', 2000);
     });
 }
+
+console.log('✅ App script loaded');
