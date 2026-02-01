@@ -177,6 +177,7 @@ def test_skills_data_file_exists(project_root: Path):
         assert skills_data.is_file(), "skills-data.json should be a file"
 
 
+@pytest.mark.skip(reason="showcase-data.json 已迁移到 data/news/ 目录，此文件不再需要")
 def test_showcase_data_file_exists(project_root: Path):
     """Test that showcase-data.json file exists in project root."""
     showcase_data = project_root / "showcase-data.json"

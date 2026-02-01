@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Moltbot Site Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Moltbot Site 数据加载调试</h1>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+
+        function log(message, type = 'info') {
+            console.log(message);
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = message;
+            output.appendChild(div);
+        }
+
+        async function testLoading() {
+            try {
+                log('=== 开始测试数据加载 ===', 'info');
+
+                // Test 1: Load config
+                log('\n1. 测试加载 config.json...', 'info');
+                try {
+                    const configRes = await fetch('/data/config.json');
+                    if (!configRes.ok) throw new Error(`HTTP ${configRes.status}`);
+                    const config = await configRes.json();
+                    log(`✅ Config loaded successfully`, 'success');
+                    log(`   - Site title: ${config.config?.site?.title}`);
+                    log(`   - Skills categories: ${config.config?.skills?.categories?.length}`);
+                } catch (e) {
+                    log(`❌ Config failed: ${e.message}`, 'error');
+                }
+
+                // Test 2: Load news
+                log('\n2. 测试加载新闻数据...', 'info');
+                try {
+                    const newsRes = await fetch('/data/news/2026-01.json');
+                    if (!newsRes.ok) throw new Error(`HTTP ${newsRes.status}`);
+                    const news = await newsRes.json();
+                    log(`✅ News loaded successfully`, 'success');
+                    log(`   - Items: ${news.items?.length}`);
+                    log(`   - Month: ${news.month}`);
+                } catch (e) {
+                    log(`❌ News failed: ${e.message}`, 'error');
+                }
+
+                // Test 3: Load skills
+                log('\n3. 测试加载技能数据...', 'info');
+                const skillFiles = ['development.json', 'ai-llm.json', 'productivity.json'];
+                for (const file of skillFiles) {
+                    try {
+                        const skillRes = await fetch(`/data/skills/${file}`);
+                        if (!skillRes.ok) throw new Error(`HTTP ${skillRes.status}`);
+                        const skill = await skillRes.json();
+                        log(`✅ ${file}: ${skill.skills?.length} skills`, 'success');
+                    } catch (e) {
+                        log(`❌ ${file}: ${e.message}`, 'error');
+                    }
+                }
+
+                // Test 4: Load data-loader.js
+                log('\n4. 测试 data-loader.js...', 'info');
+                try {
+                    const dlRes = await fetch('/js/data-loader.js');
+                    if (!dlRes.ok) throw new Error(`HTTP ${dlRes.status}`);
+                    const dlText = await dlRes.text();
+                    log(`✅ data-loader.js loaded (${dlText.length} bytes)`, 'success');
+                } catch (e) {
+                    log(`❌ data-loader.js failed: ${e.message}`, 'error');
+                }
+
+                log('\n=== 测试完成 ===', 'info');
+
+            } catch (error) {
+                log(`\n❌ Fatal error: ${error.message}`, 'error');
+                console.error(error);
+            }
+        }
+
+        // Run test
+        testLoading();
+    </script>
+</body>
+</html>

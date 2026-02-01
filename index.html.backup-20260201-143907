@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moltbot - AI Assistant Hub</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">🦞</span> Moltbot
+            </a>
+            <nav class="tabs">
+                <button class="tab-btn active" onclick="switchTab('news', this)">
+                    <span class="icon">📰</span> 新闻资讯
+                </button>
+                <button class="tab-btn" onclick="switchTab('skills', this)">
+                    <span class="icon">⚡</span> 技能插件
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🤖️ OpenClaw - 你的个人 AI 助手</h1>
+            <p>本地优先 · 开源 · 自主执行。运行在你自己的设备上，掌控数据所有权。</p>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section id="news-section" class="view-section active">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📰 最新动态 & 案例</h2>
+                <div class="filter-bar">
+                    <button class="filter-chip active" onclick="filterNews('all', this)">全部</button>
+                    <button class="filter-chip" onclick="filterNews('news', this)">📰 新闻</button>
+                    <button class="filter-chip" onclick="filterNews('showcase', this)">✨ 案例</button>
+                    <button class="filter-chip" onclick="filterNews('code', this)">💻 代码</button>
+                    <button class="filter-chip" onclick="filterNews('screenshot', this)">🖼️ 截图</button>
+                </div>
+            </div>
+            <div class="card-grid" id="news-grid">
+                <!-- News cards will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills-section" class="view-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">⚡ 技能插件库</h2>
+                <div class="skill-filters" id="skill-filters">
+                    <!-- Skill filters will be rendered here -->
+                </div>
+            </div>
+            <div class="skills-grid" id="skills-grid">
+                <!-- Skills will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Copyright © 2026 <a href="https://github.com/newtontech" target="_blank">newtontech</a> 的 GitHub 私有项目新闻站</p>
+            <div class="footer-links">
+                <a href="https://github.com/moltbot/moltbot" target="_blank">GitHub</a>
+                <a href="https://docs.molt.bot" target="_blank">文档</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External JS Scripts -->
+    <script src="js/data-loader.js"></script>
+    <script src="js/renderers/news-renderer.js"></script>
+    <script src="js/renderers/skills-renderer.js"></script>
+    <script src="js/utils/filter.js"></script>
+    <script src="js/utils/copy.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Fallback data for static rendering (used when external data files fail to load) -->
+    <script>
+        // Backup data object - this is only used as fallback
+        // Primary data loading is handled by data-loader.js from /data/*.json files
+        const data = {
+            news: {
+                project_info: {
+                    "name": "Moltbot",
+                    "description": "An open-source, local-first AI assistant that runs on your own devices and performs autonomous tasks.",
+                    "github_url": "https://github.com/moltbot/moltbot",
+                    "official_site": "https://molt.bot",
+                    "docs_url": "https://docs.molt.bot"
+                },
+                news_items: []
+            },
+            skills: {
+                skills: [],
+                categories: []
+            }
+        };
+    </script>
+</body>
+</html>

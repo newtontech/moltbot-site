@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Moltbot Site Simple Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        .result { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Moltbot Site 简单调试</h1>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+
+        async function testLoading() {
+            // Test 1: Load config
+            output.innerHTML += '<div class="result"><h2>1. Config.json</h2>';
+            try {
+                const configRes = await fetch('/data/config.json');
+                const config = await configRes.json();
+                output.innerHTML += `<div class="success">✅ Config loaded</div>`;
+                output.innerHTML += `<div>Categories: ${config.config?.skills?.categories?.length}</div>`;
+            } catch (e) {
+                output.innerHTML += `<div class="error">❌ Failed: ${e.message}</div>`;
+            }
+            output.innerHTML += '</div>';
+
+            // Test 2: Load news
+            output.innerHTML += '<div class="result"><h2>2. News Data</h2>';
+            try {
+                const newsRes = await fetch('/data/news/2026-01.json');
+                const news = await newsRes.json();
+                output.innerHTML += `<div class="success">✅ News loaded: ${news.items?.length} items</div>`;
+                output.innerHTML += `<div>Month: ${news.month}</div>`;
+            } catch (e) {
+                output.innerHTML += `<div class="error">❌ Failed: ${e.message}</div>`;
+            }
+            output.innerHTML += '</div>';
+
+            // Test 3: Load skills
+            output.innerHTML += '<div class="result"><h2>3. Skills Data</h2>';
+            const skillFiles = ['development.json', 'ai-llm.json', 'productivity.json'];
+            let totalSkills = 0;
+            for (const file of skillFiles) {
+                try {
+                    const skillRes = await fetch(`/data/skills/${file}`);
+                    const skill = await skillRes.json();
+                    const count = skill.skills?.length || 0;
+                    totalSkills += count;
+                    output.innerHTML += `<div>✅ ${file}: ${count} skills</div>`;
+                } catch (e) {
+                    output.innerHTML += `<div class="error">❌ ${file}: ${e.message}</div>`;
+                }
+            }
+            output.innerHTML += `<div class="success">Total: ${totalSkills} skills</div>`;
+            output.innerHTML += '</div>';
+        }
+
+        testLoading();
+    </script>
+</body>
+</html>

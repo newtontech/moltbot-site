@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Moltbot Site Filter Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🧪 过滤器逻辑测试</h1>
+    <div id="output"></div>
+
+    <script>
+        // Test data (same structure as actual data)
+        const testItems = [
+            {
+                "title": "🚀 OpenClaw 发布",
+                "platform_type": "英文",
+                "tags": ["发布", "架构"]
+            },
+            {
+                "title": "🎉 Product Hunt",
+                "platform_type": "英文",
+                "tags": ["Product Hunt", "社区", "发布"]
+            },
+            {
+                "title": "💬 GitHub 讨论",
+                "platform_type": "英文",
+                "tags": ["社区", "讨论"]
+            }
+        ];
+
+        // Filter function from news-renderer.js
+        function matchesNewsFilter(item, filter) {
+            if (filter === 'all') {
+                return true;
+            }
+
+            const tags = item.tags || [];
+
+            switch (filter) {
+                case 'news':
+                    return item.platform_type.includes('英文') && tags.includes('发布');
+
+                case 'showcase':
+                    return tags.includes('案例') || tags.includes('体验');
+
+                case 'code':
+                    return tags.includes('教程') || tags.includes('开发');
+
+                case 'screenshot':
+                    return tags.includes('截图') || tags.includes('界面');
+
+                default:
+                    return true;
+            }
+        }
+
+        // Run tests
+        const output = document.getElementById('output');
+
+        function testFilter(filterName, filterValue) {
+            output.innerHTML += `<div class="test"><h3>测试: ${filterName}</h3>`;
+            const results = testItems.filter(item => matchesNewsFilter(item, filterValue));
+            if (results.length > 0) {
+                output.innerHTML += `<span class="pass">✅ 通过 (${results.length} 项)</span>`;
+                results.forEach(item => {
+                    output.innerHTML += `<div>  - ${item.title}</div>`;
+                });
+            } else {
+                output.innerHTML += `<span class="fail">❌ 失败 (0 项)</span>`;
+            }
+            output.innerHTML += `</div>`;
+        }
+
+        testFilter('全部 (all)', 'all');
+        testFilter('新闻 (news)', 'news');
+        testFilter('案例 (showcase)', 'showcase');
+        testFilter('代码 (code)', 'code');
+        testFilter('截图 (screenshot)', 'screenshot');
+    </script>
+</body>
+</html>
