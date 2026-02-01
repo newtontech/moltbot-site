@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>部署测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test { background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🧪 GitHub Pages 部署测试</h1>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+        const tests = [];
+
+        function log(message) {
+            console.log(message);
+            output.innerHTML += `<div>${message}</div>`;
+        }
+
+        function runTests() {
+            log('<h2>1. 基础检查</h2>');
+
+            // Test 1: HTML loaded
+            log('<div class="test">✅ HTML 已加载</div>');
+
+            // Test 2: JavaScript enabled
+            if (typeof window !== 'undefined') {
+                log('<div class="test">✅ JavaScript 已启用</div>');
+            } else {
+                log('<div class="test">❌ JavaScript 未启用</div>');
+            }
+
+            log('<h2>2. 文件访问测试</h2>');
+
+            // Test 3: Config file
+            fetch('/data/config.json')
+                .then(r => {
+                    if (r.ok) {
+                        return r.json();
+                    }
+                    throw new Error(`HTTP ${r.status}`);
+                })
+                .then(config => {
+                    log(`<div class="test"><span class="pass">✅ config.json</span></div>`);
+                    log(`<div>Categories: ${config.config?.skills?.categories?.length}</div>`);
+                })
+                .catch(e => {
+                    log(`<div class="test"><span class="fail">❌ config.json: ${e.message}</span></div>`);
+                });
+
+            // Test 4: News file
+            fetch('/data/news/2026-01.json')
+                .then(r => {
+                    if (r.ok) {
+                        return r.json();
+                    }
+                    throw new Error(`HTTP ${r.status}`);
+                })
+                .then(news => {
+                    log(`<div class="test"><span class="pass">✅ news/2026-01.json</span></div>`);
+                    log(`<div>Items: ${news.items?.length}</div>`);
+                })
+                .catch(e => {
+                    log(`<div class="test"><span class="fail">❌ news/2026-01.json: ${e.message}</span></div>`);
+                });
+
+            // Test 5: Skills files
+            const skillFiles = ['development.json', 'ai-llm.json', 'productivity.json'];
+            skillFiles.forEach(file => {
+                fetch(`/data/skills/${file}`)
+                    .then(r => {
+                        if (r.ok) {
+                            return r.json();
+                        }
+                        throw new Error(`HTTP ${r.status}`);
+                    })
+                    .then(skill => {
+                        log(`<div class="test"><span class="pass">✅ skills/${file}</span> - ${skill.skills?.length} skills</div>`);
+                    })
+                    .catch(e => {
+                        log(`<div class="test"><span class="fail">❌ skills/${file}: ${e.message}</span></div>`);
+                    });
+            });
+
+            log('<h2>3. 数据加载器测试</h2>');
+
+            // Test 6: data-loader.js
+            fetch('/js/data-loader.js')
+                .then(r => {
+                    if (r.ok) {
+                        log(`<div class="test"><span class="pass">✅ data-loader.js</span> - ${r.headers.get('content-length')} bytes</div>`);
+                    } else {
+                        throw new Error(`HTTP ${r.status}`);
+                    }
+                })
+                .catch(e => {
+                    log(`<div class="test"><span class="fail">❌ data-loader.js: ${e.message}</span></div>`);
+                });
+
+            log('<h2>4. 时间戳</h2>');
+            log(`<div>页面加载时间: ${new Date().toISOString()}</div>`);
+        }
+
+        // Run tests after a short delay
+        setTimeout(runTests, 100);
+    </script>
+</body>
+</html>
