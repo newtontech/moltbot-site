@@ -1,9 +1,669 @@
 {
-  "last_updated": "2026-02-02T16:06:41Z",
+  "last_updated": "2026-02-03T14:06:05Z",
   "skills": [
     {
-      "name": "No",
-      "version": "installed",
+      "name": "[plugins]",
+      "version": "feishu_doc: Registered feishu_doc, feishu_app_scopes",
+      "installed": true
+    },
+    {
+      "name": "[plugins]",
+      "version": "feishu_wiki: Registered feishu_wiki tool",
+      "installed": true
+    },
+    {
+      "name": "[plugins]",
+      "version": "feishu_drive: Registered feishu_drive tool",
+      "installed": true
+    },
+    {
+      "name": "[plugins]",
+      "version": "feishu_bitable: Registered 6 bitable tools",
+      "installed": true
+    },
+    {
+      "name": "Skills",
+      "version": "(19/56 ready)",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "Status \u2502 Skill \u2502 Description \u2502 Source \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 feishu-doc \u2502 Feishu document read/write operations. Activate when user \u2502 openclaw-extra \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 mentions Feishu docs, cloud docs, or docx links. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 feishu-drive \u2502 Feishu cloud storage file management. Activate when user \u2502 openclaw-extra \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 mentions cloud space, folders, drive. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 feishu-perm \u2502 Feishu permission management for documents and files. Activate \u2502 openclaw-extra \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 when user mentions sharing, permissions, collaborators. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 feishu-wiki \u2502 Feishu knowledge base navigation. Activate when user mentions \u2502 openclaw-extra \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 knowledge base, wiki, or wiki links. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udd10 1password \u2502 Set up and use 1Password CLI (op). Use when installing the \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 CLI, enabling desktop app integration, signing in (single or \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 multi-account), or reading/injecting/running secrets via op. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcdd apple-notes \u2502 Manage Apple Notes via the `memo` CLI on macOS (create, view, \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 edit, delete, search, move, and export notes). Use when a user \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 asks OpenClaw to add a note, list notes, search notes, or \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 manage note folders. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \u23f0 apple- \u2502 Manage Apple Reminders via the `remindctl` CLI on macOS (list, \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 reminders \u2502 add, edit, complete, delete). Supports lists, date filters, \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 and JSON/plain output. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udc3b bear-notes \u2502 Create, search, and manage Bear notes via grizzly CLI. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 bird \u2502 X/Twitter CLI for reading, searching, and posting via cookies \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 or Sweetistics. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcf0 blogwatcher \u2502 Monitor blogs and RSS/Atom feeds for updates using the \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 blogwatcher CLI. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83e\uded0 blucli \u2502 BluOS CLI (blu) for discovery, playback, grouping, and volume. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 bluebubbles \u2502 Build or update the BlueBubbles external channel plugin for \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 OpenClaw (extension package, REST send/probe, webhook inbound). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcf8 camsnap \u2502 Capture frames or clips from RTSP/ONVIF cameras. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udce6 clawhub \u2502 Use the ClawHub CLI to search, install, update, and publish \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 agent skills from clawhub.com. Use when you need to fetch new \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 skills on the fly, sync installed skills to latest or a \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 specific version, or publish new/updated skill folders with \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 the npm-installed clawhub CLI. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 coding-agent \u2502 Run Codex CLI, Claude Code, OpenCode, or Pi Coding Agent via \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 background process for programmatic control. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83c\udf9b\ufe0f eightctl \u2502 Control Eight Sleep pods (status, temperature, alarms, \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 schedules). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \u264a\ufe0f gemini \u2502 Gemini CLI for one-shot Q&A, summaries, and generation. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83e\uddf2 gifgrep \u2502 Search GIF providers with CLI/TUI, download results, and \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 extract stills/sheets. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 github \u2502 Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 pr`, `gh run`, and `gh api` for issues, PRs, CI runs, and \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 advanced queries. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83c\udfae gog \u2502 Google Workspace CLI for Gmail, Calendar, Drive, Contacts, \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 Sheets, and Docs. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udccd goplaces \u2502 Query Google Places API (New) via the goplaces CLI for text \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 search, place details, resolve, and reviews. Use for human- \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 friendly place lookup or JSON output for scripts. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udce7 himalaya \u2502 CLI to manage emails via IMAP/SMTP. Use `himalaya` to list, \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 read, write, reply, forward, search, and organize emails from \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 the terminal. Supports multiple accounts and message \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 composition with MML (MIME Meta Language). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udce8 imsg \u2502 iMessage/SMS CLI for listing chats, history, watch, and \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 sending. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udccd local-places \u2502 Search for places (restaurants, cafes, etc.) via Google Places \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 API proxy on localhost. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 mcporter \u2502 Use the mcporter CLI to list, configure, auth, and call MCP \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 servers/tools directly (HTTP or stdio), including ad-hoc \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 servers, config edits, and CLI/type generation. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcca model-usage \u2502 Use CodexBar CLI local cost usage to summarize per-model usage \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 for Codex or Claude, including the current (most recent) model \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 or a full model breakdown. Trigger when asked for model-level \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 usage/cost data from codexbar, or when you need a scriptable \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 per-model summary from codexbar cost JSON. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83c\udf4c nano-banana- \u2502 Generate or edit images via Gemini 3 Pro Image (Nano Banana \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 pro \u2502 Pro). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 nano-pdf \u2502 Edit PDFs with natural-language instructions using the nano- \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 pdf CLI. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcdd notion \u2502 Notion API for creating and managing pages, databases, and \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 blocks. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udc8e obsidian \u2502 Work with Obsidian vaults (plain Markdown notes) and automate \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 via obsidian-cli. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\uddbc\ufe0f openai-image- \u2502 Batch-generate images via OpenAI Images API. Random prompt \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 gen \u2502 sampler + `index.html` gallery. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83c\udf99\ufe0f openai- \u2502 Local speech-to-text with the Whisper CLI (no API key). \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 whisper \u2502 \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \u2601\ufe0f openai- \u2502 Transcribe audio via OpenAI Audio Transcriptions API (Whisper). \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 whisper-api \u2502 \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udca1 openhue \u2502 Control Philips Hue lights/scenes via the OpenHue CLI. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83e\uddff oracle \u2502 Best practices for using the oracle CLI (prompt + file \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 bundling, engines, sessions, and file attachment patterns). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udef5 ordercli \u2502 Foodora-only CLI for checking past orders and active order \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 status (Deliveroo WIP). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udc40 peekaboo \u2502 Capture and automate macOS UI with the Peekaboo CLI. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udde3\ufe0f sag \u2502 ElevenLabs text-to-speech with mac-style say UX. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcdc session-logs \u2502 Search and analyze your own session logs (older/parent \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 conversations) using jq. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udde3\ufe0f sherpa-onnx- \u2502 Local text-to-speech via sherpa-onnx (offline, no cloud) \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 tts \u2502 \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 skill-creator \u2502 Create or update AgentSkills. Use when designing, structuring, \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 or packaging skills with scripts, references, and assets. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 slack \u2502 Use when you need to control Slack from Clawdbot via the slack \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 tool, including reacting to messages or pinning/unpinning \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 items in Slack channels or DMs. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83c\udf0a songsee \u2502 Generate spectrograms and feature-panel visualizations from \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 audio with the songsee CLI. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udd0a sonoscli \u2502 Control Sonos speakers (discover/status/play/volume/group). \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83c\udfb5 spotify-player \u2502 Terminal Spotify playback/search via spogo (preferred) or \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 spotify_player. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83e\uddfe summarize \u2502 Summarize or extract text/transcripts from URLs, podcasts, and \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 local files (great fallback for \u201ctranscribe this YouTube/ \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 video\u201d). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \u2705 things-mac \u2502 Manage Things 3 via the `things` CLI on macOS (add/update \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 projects+todos via URL scheme; read/search/list from the local \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 Things database). Use when a user asks OpenClaw to add a task \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 to Things, list inbox/today/upcoming, search tasks, or inspect \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 projects/areas/tags. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 tmux \u2502 Remote-control tmux sessions for interactive CLIs by sending \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 keystrokes and scraping pane output. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udccb trello \u2502 Manage Trello boards, lists, and cards via the Trello REST API. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83c\udf9e\ufe0f video-frames \u2502 Extract frames or short clips from videos using ffmpeg. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcde voice-call \u2502 Start voice calls via the OpenClaw voice-call plugin. \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2717 missing \u2502 \ud83d\udcf1 wacli \u2502 Send WhatsApp messages to other people or search/sync WhatsApp \u2502 openclaw-bundled \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 history via the wacli CLI (not for normal user chats). \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 weather \u2502 Get current weather and forecasts (no API key required). \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 canvas-lms \u2502 Access Canvas LMS (Instructure) for course data, assignments, \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 grades, and submissions. Use when checking due dates, viewing \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 grades, listing courses, or fetching course materials from \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 Canvas. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 ralph-loop \u2502 Generate copy-paste bash scripts for Ralph Wiggum/AI agent \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 loops (Codex, Claude Code, OpenCode, Goose). Use when asked \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 for a \u201cRalph loop\u201d, \u201cRalph Wiggum loop\u201d, or an AI loop to plan/ \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 build code via PROMPT.md + AGENTS.md, SPECS, and \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 IMPLEMENTATION_PLAN.md, including PLANNING vs BUILDING modes, \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 backpressure, sandboxing, and completion conditions. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2713 ready \u2502 \ud83d\udce6 tavily \u2502 AI-optimized web search via Tavily API. Returns concise, \u2502 openclaw-workspace \u2502",
+      "installed": true
+    },
+    {
+      "name": "\u2502",
+      "version": "\u2502 \u2502 relevant results for AI agents. \u2502 \u2502",
+      "installed": true
+    },
+    {
+      "name": "Tip:",
+      "version": "use `npx clawhub` to search, install, and sync skills.",
       "installed": true
     }
   ]

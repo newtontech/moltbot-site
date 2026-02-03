@@ -1,830 +1,1235 @@
 {
   "items": [
     {
-      "title": "What Is OpenClaw And Why It Matters For Crypto’s Next Phase? - Forbes",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "title": "AI personal assistant takes the world by storm: \u201cNow I feel like I\u2019m living in the future\u201d - The Jerusalem Post",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.jpost.com/consumerism/article-884953",
+      "publish_date": "2026-02-03T14:00:06Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.jpost.com/consumerism/article-884953",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Open VSX Publisher Account Hijacked in Fresh GlassWorm Attack - SecurityWeek",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.securityweek.com/open-vsx-publisher-account-hijacked-in-fresh-glassworm-attack/",
+      "publish_date": "2026-02-03T14:00:06Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.securityweek.com/open-vsx-publisher-account-hijacked-in-fresh-glassworm-attack/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "The GlassWorm malware has appeared on the Open VSX marketplace again, after a publisher\u2019s account was compromised in a supply chain attack, Socket reports.",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://markets.financialcontent.com/stocks/article/jcnnewswire-2026-2-3-eagle-trial-shows-olympusr-caddietm-ai-solution-aids-in-the-detection-of-high-risk-and-hard-to-detect-colorectal-lesions",
+      "publish_date": "2026-02-03T14:00:06Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://markets.financialcontent.com/stocks/article/jcnnewswire-2026-2-3-eagle-trial-shows-olympusr-caddietm-ai-solution-aids-in-the-detection-of-high-risk-and-hard-to-detect-colorectal-lesions",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "FinancialContent - EAGLE Trial Shows Olympus(R) CADDIE(TM) AI Solution Aids in the Detection of High-Risk and Hard-to-Detect Colorectal Lesions - FinancialContent",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://mlq.ai/news/openai-unveils-macos-codex-app-to-challenge-ai-coding-leaders/",
+      "publish_date": "2026-02-03T14:00:06Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://mlq.ai/news/openai-unveils-macos-codex-app-to-challenge-ai-coding-leaders/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "TOKYO, Feb 3, 2026 - (JCN Newswire) -",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://techcrunch.com/2026/02/02/openai-launches-new-macos-app-for-agentic-coding/",
+      "publish_date": "2026-02-03T14:00:06Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://techcrunch.com/2026/02/02/openai-launches-new-macos-app-for-agentic-coding/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "OpenAI Unveils macOS Codex App to Challenge AI Coding Leaders - MLQ.ai",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "",
+      "publish_date": "2026-02-03T14:00:06Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "OpenAI launches new MacOS app for agentic coding - TechCrunch",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "",
+      "publish_date": "2026-02-03T14:00:06Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Google\u2019s Latest AI Search Features Look Like a Personalized Travel Concierge - Skift",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://skift.com/2026/02/02/googles-latest-ai-search-features-look-like-a-personalized-travel-concierge/",
+      "publish_date": "2026-02-03T14:00:12Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://skift.com/2026/02/02/googles-latest-ai-search-features-look-like-a-personalized-travel-concierge/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "AI in HR: Redefining Workforce Management in the Modern Enterprise - North Penn Now",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://northpennnow.com/news/2026/feb/02/ai-in-hr-redefining-workforce-management-in-the-modern-enterprise/",
+      "publish_date": "2026-02-03T14:00:12Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://northpennnow.com/news/2026/feb/02/ai-in-hr-redefining-workforce-management-in-the-modern-enterprise/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Scaling medical AI across clinical contexts - Nature",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.nature.com/articles/s41591-025-04184-7",
+      "publish_date": "2026-02-03T14:00:12Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.nature.com/articles/s41591-025-04184-7",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "OpenAI launches new MacOS app for agentic coding - TechCrunch",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://techcrunch.com/2026/02/02/openai-launches-new-macos-app-for-agentic-coding/",
+      "publish_date": "2026-02-03T14:00:12Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://techcrunch.com/2026/02/02/openai-launches-new-macos-app-for-agentic-coding/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "OpenAI\u2019s Codex app: When your IDE gets a brain - The Next Web",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://thenextweb.com/news/openais-codex-app-when-your-ide-gets-a-brain",
+      "publish_date": "2026-02-03T14:00:13Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://thenextweb.com/news/openais-codex-app-when-your-ide-gets-a-brain",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Match officials for Matchweek 25 - Premier League",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.premierleague.com/en/news/4572714/match-officials-for-matchweek-25-of-2025-26-premier-league-season",
+      "publish_date": "2026-02-03T14:00:16Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.premierleague.com/en/news/4572714/match-officials-for-matchweek-25-of-2025-26-premier-league-season",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Match officials for Matchweek 26 - Premier League",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.premierleague.com/en/news/4579733/match-officials-for-matchweek-26-of-2025-26-premier-league-season",
+      "publish_date": "2026-02-03T14:00:16Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.premierleague.com/en/news/4579733/match-officials-for-matchweek-26-of-2025-26-premier-league-season",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "New Dallas program trains \u2018forgotten workforce\u2019 for medical assistant jobs - Dallas News",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.dallasnews.com/news/education/2026/02/02/dallas-medical-assistant-jobs-training-program/",
+      "publish_date": "2026-02-03T14:00:16Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.dallasnews.com/news/education/2026/02/02/dallas-medical-assistant-jobs-training-program/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Former Sherrone Moore assistant lands NFL job after 8-year Michigan stint - sportingnews.com",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.sportingnews.com/us/ncaa-football/michigan/news/former-sherrone-moore-assistant-lands-nfl-job-after-8-year-michigan-stint/74ed5f93368f3c3c96c5aac6",
+      "publish_date": "2026-02-03T14:00:16Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.sportingnews.com/us/ncaa-football/michigan/news/former-sherrone-moore-assistant-lands-nfl-job-after-8-year-michigan-stint/74ed5f93368f3c3c96c5aac6",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Titans hiring 49ers assistant head coach Gus Bradley as their new defensive coordinator - NFL.com",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.nfl.com/news/titans-hiring-49ers-assistant-head-coach-gus-bradley-as-their-new-defensive-coordinator",
+      "publish_date": "2026-02-03T14:00:16Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.nfl.com/news/titans-hiring-49ers-assistant-head-coach-gus-bradley-as-their-new-defensive-coordinator",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Elon Musk warns a new social network where AI agents talk to one another is the beginning of \u2018the singularity\u2019 - Fortune",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://fortune.com/2026/02/02/elon-musk-moltbook-ai-social-network-moltbot-singularity-human-intelligence/",
+      "publish_date": "2026-02-03T14:00:19Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://fortune.com/2026/02/02/elon-musk-moltbook-ai-social-network-moltbot-singularity-human-intelligence/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Researchers hacked Moltbook's database in under 3 minutes and accessed thousands of emails and private DMs - Business Insider",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.businessinsider.com/moltbook-ai-agent-hack-wiz-security-email-database-2026-2",
+      "publish_date": "2026-02-03T14:00:19Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.businessinsider.com/moltbook-ai-agent-hack-wiz-security-email-database-2026-2",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Elon Musk has lauded the 'social media for AI agents' platform Moltbook as a bold step for AI. Others are skeptical - CNBC",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.cnbc.com/2026/02/02/social-media-for-ai-agents-moltbook.html",
+      "publish_date": "2026-02-03T14:00:19Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.cnbc.com/2026/02/02/social-media-for-ai-agents-moltbook.html",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Moltbook, the AI social network, exposed human credentials due to vibe-coded security flaw - Engadget",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.engadget.com/ai/moltbook-the-ai-social-network-exposed-human-credentials-due-to-vibe-coded-security-flaw-230324567.html",
+      "publish_date": "2026-02-03T14:00:19Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.engadget.com/ai/moltbook-the-ai-social-network-exposed-human-credentials-due-to-vibe-coded-security-flaw-230324567.html",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "\u2018Moltbook\u2019 Social Media Site for AI Agents Had Big Security Hole - Insurance Journal",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.insurancejournal.com/news/national/2026/02/02/856488.htm",
+      "publish_date": "2026-02-03T14:00:19Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.insurancejournal.com/news/national/2026/02/02/856488.htm",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "AI personal assistant takes the world by storm: \u201cNow I feel like I\u2019m living in the future\u201d - The Jerusalem Post",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.jpost.com/consumerism/article-884953",
+      "publish_date": "2026-02-03T14:00:25Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.jpost.com/consumerism/article-884953",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "'Moltbook' social media site for AI agents had big security hole, cyber firm Wiz says - Reuters",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.reuters.com/legal/litigation/moltbook-social-media-site-ai-agents-had-big-security-hole-cyber-firm-wiz-says-2026-02-02/",
+      "publish_date": "2026-02-03T14:00:25Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.reuters.com/legal/litigation/moltbook-social-media-site-ai-agents-had-big-security-hole-cyber-firm-wiz-says-2026-02-02/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Researchers hacked Moltbook's database in under 3 minutes and accessed thousands of emails and private DMs - Business Insider",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.businessinsider.com/moltbook-ai-agent-hack-wiz-security-email-database-2026-2",
+      "publish_date": "2026-02-03T14:00:25Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.businessinsider.com/moltbook-ai-agent-hack-wiz-security-email-database-2026-2",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Moltbook, the AI social network, exposed human credentials due to vibe-coded security flaw - Engadget",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.engadget.com/ai/moltbook-the-ai-social-network-exposed-human-credentials-due-to-vibe-coded-security-flaw-230324567.html",
+      "publish_date": "2026-02-03T14:00:25Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.engadget.com/ai/moltbook-the-ai-social-network-exposed-human-credentials-due-to-vibe-coded-security-flaw-230324567.html",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "The RaaS Blueprint: Key Insights from a conversation with RobCo\u2019s Roman H\u00f6lzl - The Robot Report",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
+      "source": "Tavily Search",
+      "url": "https://www.therobotreport.com/the-raas-blueprint-key-insights-from-a-conversation-with-robcos-roman-holzl/",
+      "publish_date": "2026-02-03T14:00:25Z",
+      "platform": "Web",
+      "platform_type": "\u641c\u7d22",
+      "source_url": "https://www.therobotreport.com/the-raas-blueprint-key-insights-from-a-conversation-with-robcos-roman-holzl/",
+      "tags": [
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "What Is OpenClaw And Why It Matters For Crypto\u2019s Next Phase? - Forbes",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.forbes.com/sites/digital-assets/2026/01/31/what-is-openclaw-and-why-it-matters-for-cryptos-next-phase/",
       "publish_date": "2026-02-01T10:16:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.forbes.com/sites/digital-assets/2026/01/31/what-is-openclaw-and-why-it-matters-for-cryptos-next-phase/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "What a Chaotic Social Network for AI Agents Reveals About the Future of Booking - Skift",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://skift.com/2026/01/31/what-a-chaotic-social-network-for-ai-agents-reveals-about-the-future-of-booking/",
       "publish_date": "2026-02-01T10:16:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://skift.com/2026/01/31/what-a-chaotic-social-network-for-ai-agents-reveals-about-the-future-of-booking/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Goranson Bain Ausley Welcomes Collaborative Family Law Attorney Jill Lowe to Plano Office - PRWeb",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.prweb.com/releases/goranson-bain-ausley-welcomes-collaborative-family-law-attorney-jill-lowe-to-plano-office-302674743.html",
       "publish_date": "2026-02-01T10:16:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.prweb.com/releases/goranson-bain-ausley-welcomes-collaborative-family-law-attorney-jill-lowe-to-plano-office-302674743.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Crypto mining company announces game-changing project that could transform industry: 'A data-driven, replicable model' - The Cool Down",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.thecooldown.com/green-business/canaan-inc-crypto-mining-farm-heat-greenhouse/",
       "publish_date": "2026-02-01T10:16:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.thecooldown.com/green-business/canaan-inc-crypto-mining-farm-heat-greenhouse/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "OWL DEADLINE MONDAY: ROSEN, GLOBAL INVESTOR COUNSEL, - GlobeNewswire",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.globenewswire.com/news-release/2026/01/31/3229868/0/en/OWL-DEADLINE-MONDAY-ROSEN-GLOBAL-INVESTOR-COUNSEL-Encourages-Blue-Owl-Capital-Inc-Investors-to-Secure-Counsel-Before-Important-February-2-Deadline-in-Securities-Class-Action-OWL.html",
       "publish_date": "2026-02-01T10:16:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.globenewswire.com/news-release/2026/01/31/3229868/0/en/OWL-DEADLINE-MONDAY-ROSEN-GLOBAL-INVESTOR-COUNSEL-Encourages-Blue-Owl-Capital-Inc-Investors-to-Secure-Counsel-Before-Important-February-2-Deadline-in-Securities-Class-Action-OWL.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "AI Ramblings: Episode 40 - AI: Reset to Zero",
-      "summary": "从 AI 搜索到的最新信息",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://michaelparekh.substack.com/p/ai-ramblings-episode-40",
       "publish_date": "2026-02-01T10:16:11Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://michaelparekh.substack.com/p/ai-ramblings-episode-40",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "AI can make workers better — then worse at their jobs, an innovation theorist warns - Business Insider",
-      "summary": "从 AI 搜索到的最新信息",
+      "title": "AI can make workers better \u2014 then worse at their jobs, an innovation theorist warns - Business Insider",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.businessinsider.com/ai-can-make-you-better-then-worse-at-your-job-2026-1",
       "publish_date": "2026-02-01T10:16:11Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.businessinsider.com/ai-can-make-you-better-then-worse-at-your-job-2026-1",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "The Blackstone exec behind the firm's AI playbook says CEOs should ask themselves these 5 questions - Business Insider",
-      "summary": "从 AI 搜索到的最新信息",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.businessinsider.com/blackstone-executive-rodney-zemmel-ceo-ai-use-2026-1",
       "publish_date": "2026-02-01T10:16:11Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.businessinsider.com/blackstone-executive-rodney-zemmel-ceo-ai-use-2026-1",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "\"We're in the singularity\": New AI platform skips the humans entirely - Axios",
-      "summary": "从 AI 搜索到的最新信息",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.axios.com/2026/01/31/ai-moltbook-human-need-tech",
       "publish_date": "2026-02-01T10:16:11Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.axios.com/2026/01/31/ai-moltbook-human-need-tech",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "High-Grade Silver and Gold Intercepts Boost Confidence in Avino Silver & Gold Mines Ltd. (ASM)’s Growth Plan - Insider Monkey",
-      "summary": "从 AI 搜索到的最新信息",
+      "title": "High-Grade Silver and Gold Intercepts Boost Confidence in Avino Silver & Gold Mines Ltd. (ASM)\u2019s Growth Plan - Insider Monkey",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "",
       "publish_date": "2026-02-01T10:16:11Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "• Access to our Detailed Report on this Game-Changing AI Stock:",
-      "summary": "从 AI 搜索到的最新信息",
+      "title": "\u2022 Access to our Detailed Report on this Game-Changing AI Stock:",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "",
       "publish_date": "2026-02-01T10:16:11Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Physician Assistants Want a New Name and More Power. Not Everyone Is Happy. - The New York Times",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.nytimes.com/2026/01/31/upshot/physician-assistants-doctors-role.html",
       "publish_date": "2026-02-01T10:16:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.nytimes.com/2026/01/31/upshot/physician-assistants-doctors-role.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "Cade Knox Becomes Robert Saleh’s Game-Management Aide for the Titans - Paul Kuharsky",
-      "summary": "从 assistant 搜索到的最新信息",
+      "title": "Cade Knox Becomes Robert Saleh\u2019s Game-Management Aide for the Titans - Paul Kuharsky",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.paulkuharsky.com/news/cade-knox-robert-saleh-titans-game-management",
       "publish_date": "2026-02-01T10:16:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.paulkuharsky.com/news/cade-knox-robert-saleh-titans-game-management",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Giants set to promote Chad Hall to wide receivers coach as John Harbaugh assembles staff - New York Post",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://nypost.com/2026/01/31/sports/giants-set-to-promote-chad-hall-to-wide-receivers-coach/",
       "publish_date": "2026-02-01T10:16:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://nypost.com/2026/01/31/sports/giants-set-to-promote-chad-hall-to-wide-receivers-coach/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "NZ Football Foundation seek philanthropy and partnerships manager - Friends of Football",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.friendsoffootballnz.com/2026/02/01/nz-football-foundation-seek-philanthropy-and-partnerships-manager/",
       "publish_date": "2026-02-01T10:16:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.friendsoffootballnz.com/2026/02/01/nz-football-foundation-seek-philanthropy-and-partnerships-manager/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "The New Zealand Football Foundation are recruiting a philanthropy and partnerships manager to lead fundraising and donor engagement across football in Aotearoa.",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.reuters.com/sports/report-falcons-add-alex-van-pelt-qb-coach--flm-2026-01-31/",
       "publish_date": "2026-02-01T10:16:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.reuters.com/sports/report-falcons-add-alex-van-pelt-qb-coach--flm-2026-01-31/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Report: Falcons add Alex Van Pelt as QB coach - Reuters",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "",
       "publish_date": "2026-02-01T10:16:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "What a Chaotic Social Network for AI Agents Reveals About the Future of Booking - Skift",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://skift.com/2026/01/31/what-a-chaotic-social-network-for-ai-agents-reveals-about-the-future-of-booking/",
       "publish_date": "2026-02-01T10:16:15Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://skift.com/2026/01/31/what-a-chaotic-social-network-for-ai-agents-reveals-about-the-future-of-booking/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Exposed Moltbook Database Let Anyone Take Control of Any AI Agent on the Site - 404 Media",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.404media.co/exposed-moltbook-database-let-anyone-take-control-of-any-ai-agent-on-the-site/",
       "publish_date": "2026-02-01T10:16:15Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.404media.co/exposed-moltbook-database-let-anyone-take-control-of-any-ai-agent-on-the-site/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "\"We're in the singularity\": New AI platform skips the humans entirely - Axios",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.axios.com/2026/01/31/ai-moltbook-human-need-tech",
       "publish_date": "2026-02-01T10:16:15Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.axios.com/2026/01/31/ai-moltbook-human-need-tech",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Moltbook AI Social Network: 1.4 Million Agents Build A Digital Society - Forbes",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.bozemandailychronicle.com/ap_news/business/a-chatbot-entirely-powered-by-humans-not-artificial-intelligence-this-chilean-community-shows-why/article_4973d3d3-5399-50f6-8348-a6fd7c9aed78.html",
       "publish_date": "2026-02-01T10:16:15Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.bozemandailychronicle.com/ap_news/business/a-chatbot-entirely-powered-by-humans-not-artificial-intelligence-this-chilean-community-shows-why/article_4973d3d3-5399-50f6-8348-a6fd7c9aed78.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "A chatbot entirely powered by humans, not artificial intelligence? This Chilean community shows why - Bozeman Daily Chronicle",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "",
       "publish_date": "2026-02-01T10:16:15Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "What Is OpenClaw And Why It Matters For Crypto’s Next Phase? - Forbes",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "title": "What Is OpenClaw And Why It Matters For Crypto\u2019s Next Phase? - Forbes",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.forbes.com/sites/digital-assets/2026/01/31/what-is-openclaw-and-why-it-matters-for-cryptos-next-phase/",
       "publish_date": "2026-02-01T10:16:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.forbes.com/sites/digital-assets/2026/01/31/what-is-openclaw-and-why-it-matters-for-cryptos-next-phase/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "Stellantis’ new robot does in 90 minutes what would take a human weeks - USA Today",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "title": "Stellantis\u2019 new robot does in 90 minutes what would take a human weeks - USA Today",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.usatoday.com/story/cars/news/2026/01/31/stellantis-inventory-dexory-robot/88455249007/",
       "publish_date": "2026-02-01T10:16:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.usatoday.com/story/cars/news/2026/01/31/stellantis-inventory-dexory-robot/88455249007/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "‘Escape From Tarkov’ Gets ‘Escape From Duckov’ Crossover Next Month - Forbes",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "title": "\u2018Escape From Tarkov\u2019 Gets \u2018Escape From Duckov\u2019 Crossover Next Month - Forbes",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.forbes.com/sites/mikestubbs/2026/01/31/escape-from-tarkov-gets-escape-from-duckov-crossover-next-month/",
       "publish_date": "2026-02-01T10:16:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.forbes.com/sites/mikestubbs/2026/01/31/escape-from-tarkov-gets-escape-from-duckov-crossover-next-month/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "New Klint Kubiak Rumors on Possibility OC Returns to Seahawks amid Raiders, Cardinals Buzz - Bleacher Report",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://bleacherreport.com/articles/25380050-new-klint-kubiak-rumors-possibility-oc-returns-seahawks-amid-raiders-cardinals-buzz",
       "publish_date": "2026-02-01T10:16:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://bleacherreport.com/articles/25380050-new-klint-kubiak-rumors-possibility-oc-returns-seahawks-amid-raiders-cardinals-buzz",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "‘Highguard’ Just Flipped The Emergency 5v5 Switch, Did It Fix It? - Forbes",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "title": "\u2018Highguard\u2019 Just Flipped The Emergency 5v5 Switch, Did It Fix It? - Forbes",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.forbes.com/sites/paultassi/2026/01/31/highguard-just-flipped-the-emergency-5v5-switch-did-it-fix-it/",
       "publish_date": "2026-02-01T10:16:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.forbes.com/sites/paultassi/2026/01/31/highguard-just-flipped-the-emergency-5v5-switch-did-it-fix-it/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "From Clawdbot to Moltbot to OpenClaw: Meet the AI agent driving buzz and fear globally - CNBC",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Clawdbot's creator said he had to stop vibe coding for his mental health - Business Insider",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.businessinsider.com/clawdbot-creator-vibe-coding-rabbit-hole-obsessed-openclaw-peter-steinberger-2026-2",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.businessinsider.com/clawdbot-creator-vibe-coding-rabbit-hole-obsessed-openclaw-peter-steinberger-2026-2",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "The Major Business Names in the Epstein Files - The New York Times",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.nytimes.com/2026/02/02/business/dealbook/epstein-files-business.html",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.nytimes.com/2026/02/02/business/dealbook/epstein-files-business.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Kevin Warsh",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.bbc.com/news/articles/c62n410w5yno",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.bbc.com/news/articles/c62n410w5yno",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Sergey Brin",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.prnewswire.com/news-releases/xactus-acquires-baleen-solutions-expanding-intelligent-verification-capabilities-for-self-employed-income-analysis-302676461.html",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.prnewswire.com/news-releases/xactus-acquires-baleen-solutions-expanding-intelligent-verification-capabilities-for-self-employed-income-analysis-302676461.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Steve Tisch",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "What is the 'social media network for AI' Moltbook? - BBC",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Xactus Acquires Baleen Solutions, Expanding Intelligent Verification Capabilities for Self-Employed Income Analysis - PR Newswire",
-      "summary": "从 OpenClaw 搜索到的最新信息",
+      "summary": "\u4ece OpenClaw \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "",
       "publish_date": "2026-02-02T16:00:09Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "AI enters the Philippine neighbourhood store - Asian Business Review",
-      "summary": "从 AI 搜索到的最新信息",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://asianbusinessreview.com/exclusive/ai-enters-philippine-neighbourhood-store",
       "publish_date": "2026-02-02T16:00:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://asianbusinessreview.com/exclusive/ai-enters-philippine-neighbourhood-store",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Artificial Intelligence returns stall as 77% of firms lack readiness - Asian Business Review",
-      "summary": "从 AI 搜索到的最新信息",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://asianbusinessreview.com/news/artificial-intelligence-returns-stall-77-firms-lack-readiness",
       "publish_date": "2026-02-02T16:00:12Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://asianbusinessreview.com/news/artificial-intelligence-returns-stall-77-firms-lack-readiness",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "Luma AI’s $1 million contest calls on creatives to make their dream ads with AI - Ad Age",
-      "summary": "从 AI 搜索到的最新信息",
+      "title": "Luma AI\u2019s $1 million contest calls on creatives to make their dream ads with AI - Ad Age",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://adage.com/technology/ai/aa-luma-ai-dream-brief/",
       "publish_date": "2026-02-02T16:00:13Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://adage.com/technology/ai/aa-luma-ai-dream-brief/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "AI is here, but who will regulate it? - InsuranceNewsNet",
-      "summary": "从 AI 搜索到的最新信息",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://insurancenewsnet.com/innarticle/ai-is-here-but-who-will-regulate-it",
       "publish_date": "2026-02-02T16:00:13Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://insurancenewsnet.com/innarticle/ai-is-here-but-who-will-regulate-it",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Do You Feel the AGI Yet? - The Atlantic",
-      "summary": "从 AI 搜索到的最新信息",
+      "summary": "\u4ece AI \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.theatlantic.com/technology/2026/02/do-you-feel-agi-yet/685845/",
       "publish_date": "2026-02-02T16:00:13Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.theatlantic.com/technology/2026/02/do-you-feel-agi-yet/685845/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Sean McVay, Rams Lose Coveted Coach to NFC West Rival: Report - Newsweek",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.newsweek.com/sports/nfl/sean-mcvay-rams-lose-coveted-coach-to-nfc-west-rival-report-11450466",
       "publish_date": "2026-02-02T16:00:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.newsweek.com/sports/nfl/sean-mcvay-rams-lose-coveted-coach-to-nfc-west-rival-report-11450466",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Dolphins to hire Duggan as defensive coordinator. Weaver gets bypassed for 2 jobs - Miami Herald",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.miamiherald.com/sports/nfl/miami-dolphins/article314456613.html",
       "publish_date": "2026-02-02T16:00:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.miamiherald.com/sports/nfl/miami-dolphins/article314456613.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Ex-DHS Official Slammed for Seeking Pro-Trump Federal Prosecutor Candidates - Newsweek",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.newsweek.com/ex-dhs-official-slammed-for-seeking-pro-trump-federal-prosecutor-candidates-11450187",
       "publish_date": "2026-02-02T16:00:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.newsweek.com/ex-dhs-official-slammed-for-seeking-pro-trump-federal-prosecutor-candidates-11450187",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Pittsburgh Steelers Coaching Staff Tracker (Updating) - Steelers Depot",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://steelersdepot.com/2026/02/pittsburgh-steelers-coaching-staff-tracker-updating/",
       "publish_date": "2026-02-02T16:00:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://steelersdepot.com/2026/02/pittsburgh-steelers-coaching-staff-tracker-updating/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Gophers Defensive Assistant Reportedly Headed to NFL - Sports Illustrated",
-      "summary": "从 assistant 搜索到的最新信息",
+      "summary": "\u4ece assistant \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.si.com/college/minnesota/gophers-football/gophers-defensive-assistant-reportedly-headed-to-nfl",
       "publish_date": "2026-02-02T16:00:17Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.si.com/college/minnesota/gophers-football/gophers-defensive-assistant-reportedly-headed-to-nfl",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "From Clawdbot to Moltbot to OpenClaw: Meet the AI agent driving buzz and fear globally - CNBC",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html",
       "publish_date": "2026-02-02T16:00:22Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Clawdbot's creator said he had to stop vibe coding for his mental health - Business Insider",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.businessinsider.com/clawdbot-creator-vibe-coding-rabbit-hole-obsessed-openclaw-peter-steinberger-2026-2",
       "publish_date": "2026-02-02T16:00:22Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.businessinsider.com/clawdbot-creator-vibe-coding-rabbit-hole-obsessed-openclaw-peter-steinberger-2026-2",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "What is the 'social media network for AI' Moltbook? - BBC",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.bbc.com/news/articles/c62n410w5yno",
       "publish_date": "2026-02-02T16:00:22Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.bbc.com/news/articles/c62n410w5yno",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "AI agents got their own Reddit, and now they're asking who's really in charge - Business Insider",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.businessinsider.com/moltbook-ai-agents-social-network-reddit-2026-2",
       "publish_date": "2026-02-02T16:00:22Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.businessinsider.com/moltbook-ai-agents-social-network-reddit-2026-2",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Moltbook asks what happens if you give AI agents exclusive access to their own version of Reddit? The answer: bad things - PC Gamer",
-      "summary": "从 Moltbot 搜索到的最新信息",
+      "summary": "\u4ece Moltbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.pcgamer.com/software/ai/moltbook-is-like-reddit-but-only-ai-agents-are-allowed-though-after-spending-hours-trawling-through-threads-it-looks-more-like-a-huge-unhinged-roleplay-server-to-me/",
       "publish_date": "2026-02-02T16:00:22Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.pcgamer.com/software/ai/moltbook-is-like-reddit-but-only-ai-agents-are-allowed-though-after-spending-hours-trawling-through-threads-it-looks-more-like-a-huge-unhinged-roleplay-server-to-me/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Clawdbot's creator said he had to stop vibe coding for his mental health - Business Insider",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.businessinsider.com/clawdbot-creator-vibe-coding-rabbit-hole-obsessed-openclaw-peter-steinberger-2026-2",
       "publish_date": "2026-02-02T16:00:27Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.businessinsider.com/clawdbot-creator-vibe-coding-rabbit-hole-obsessed-openclaw-peter-steinberger-2026-2",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "From Clawdbot to Moltbot to OpenClaw: Meet the AI agent driving buzz and fear globally - CNBC",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html",
       "publish_date": "2026-02-02T16:00:27Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://www.cnbc.com/2026/02/02/openclaw-open-source-ai-agent-rise-controversy-clawdbot-moltbot-moltbook.html",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
-      "title": "Indonesia ‘conditionally’ lifts ban on Grok - TechCrunch",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "title": "Indonesia \u2018conditionally\u2019 lifts ban on Grok - TechCrunch",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://techcrunch.com/2026/02/01/indonesia-conditionally-lifts-ban-on-grok/",
       "publish_date": "2026-02-02T16:00:27Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://techcrunch.com/2026/02/01/indonesia-conditionally-lifts-ban-on-grok/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Robots descend into lava tubes to prepare for future Moon bases - ScienceDaily",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "http://www.sciencedaily.com/releases/2026/02/260201231259.htm",
       "publish_date": "2026-02-02T16:00:27Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "http://www.sciencedaily.com/releases/2026/02/260201231259.htm",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     },
     {
       "title": "Mars Rover Drives with the Help of Anthropic AI - Payload Space",
-      "summary": "从 Clawdbot 搜索到的最新信息",
+      "summary": "\u4ece Clawdbot \u641c\u7d22\u5230\u7684\u6700\u65b0\u4fe1\u606f",
       "source": "Tavily Search",
       "url": "https://payloadspace.com/mars-rover-drives-with-the-help-of-anthropic-ai/",
       "publish_date": "2026-02-02T16:00:27Z",
       "platform": "Web",
-      "platform_type": "搜索",
+      "platform_type": "\u641c\u7d22",
       "source_url": "https://payloadspace.com/mars-rover-drives-with-the-help-of-anthropic-ai/",
       "tags": [
-        "搜索",
-        "自动更新",
+        "\u641c\u7d22",
+        "\u81ea\u52a8\u66f4\u65b0",
         "Tavily"
       ]
     }
   ],
-  "last_updated": "2026-02-02T16:06:31Z"
+  "last_updated": "2026-02-03T14:05:54Z"
 }
