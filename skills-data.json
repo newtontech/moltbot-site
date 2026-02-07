@@ -1,6 +1,51 @@
 {
-  "last_updated": "2026-02-04T04:00:00Z",
+  "last_updated": "2026-02-07T09:00:51Z",
   "skills": [
+    {
+      "name": "tavily-search",
+      "version": "1.0.0",
+      "installed": true
+    },
+    {
+      "name": "mcporter",
+      "version": "1.0.0",
+      "installed": true
+    },
+    {
+      "name": "coding-agent",
+      "version": "1.0.1",
+      "installed": true
+    },
+    {
+      "name": "github",
+      "version": "1.0.0",
+      "installed": true
+    },
+    {
+      "name": "weather",
+      "version": "1.0.0",
+      "installed": true
+    },
+    {
+      "name": "tmux",
+      "version": "1.0.0",
+      "installed": true
+    },
+    {
+      "name": "nano-pdf",
+      "version": "1.0.0",
+      "installed": true
+    },
+    {
+      "name": "slack",
+      "version": "1.0.0",
+      "installed": true
+    },
+    {
+      "name": "discord",
+      "version": "1.0.1",
+      "installed": true
+    },
     {
       "name": "bird",
       "version": "1.0.0",
@@ -12,68 +57,13 @@
       "installed": true
     },
     {
-      "name": "coding-agent",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "computer-use",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "coremem",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "discord",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "docker-essentials",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "github",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "mcporter",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "nano-pdf",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
       "name": "ralph-loop",
-      "version": "1.0.0",
+      "version": "0.1.1",
       "installed": true
     },
     {
-      "name": "slack",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "tavily-search",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "tmux",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "weather",
-      "version": "1.0.0",
+      "name": "moltsci",
+      "version": "1.1.7",
       "installed": true
     }
   ]
