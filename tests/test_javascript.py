@@ -191,3 +191,23 @@ def test_javascript_template_literals(index_html_content: str):
         or 'src="js/renderers/skills-renderer.js"' in index_html_content
     )
     assert has_renderers, "Missing external JS renderers that should use template literals"
+
+
+def test_data_loader_uses_relative_paths_for_pages_project_sites():
+    """Data loader should avoid absolute-root JSON paths for GitHub Pages project deployments."""
+    loader_path = "js/data-loader.js"
+    with open(loader_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    forbidden_patterns = [
+        "loadJSON('/news-data.json')",
+        "loadJSON('/skills-data.json')",
+        "basePath = '/data'",
+    ]
+
+    for pattern in forbidden_patterns:
+        assert pattern not in content, f"Found absolute path pattern that breaks project-site deploys: {pattern}"
+
+    assert "loadJSON('news-data.json')" in content
+    assert "loadJSON('skills-data.json')" in content
+    assert "basePath = 'data'" in content

@@ -20,6 +20,9 @@ async function initializeApp() {
         // Load all data using dataLoader
         console.log('📥 Loading data...');
         const allData = await dataLoader.loadAll();
+        if (allData?.hasFatalError) {
+            throw new Error(allData.error || '数据加载失败：请检查数据文件路径与 GitHub Pages 子路径配置');
+        }
         console.log('✅ Data loaded:', {
             newsCount: allData.news?.count || 0,
             skillsCount: allData.skills?.count || 0,
