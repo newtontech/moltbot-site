@@ -6,7 +6,7 @@
 
 class DataLoader {
     constructor() {
-        this.basePath = '/data';
+        this.basePath = 'data';
         this.cache = new Map();
         this.cacheTimeout = 5 * 60 * 1000; // 5 minutes
     }
@@ -83,8 +83,8 @@ class DataLoader {
      */
     async loadNews(month = null) {
         try {
-            // Load from root directory instead of /data/news/
-            const newsData = await this.loadJSON('/news-data.json');
+            // Use relative path so GitHub Pages project sites (/repo-name/) work correctly
+            const newsData = await this.loadJSON('news-data.json');
 
             return {
                 month: month || 'unknown',
@@ -191,8 +191,8 @@ class DataLoader {
      */
     async loadAllSkills() {
         try {
-            // Load from root directory instead of /data/skills/
-            const skillsData = await this.loadJSON('/skills-data.json');
+            // Use relative path so GitHub Pages project sites (/repo-name/) work correctly
+            const skillsData = await this.loadJSON('skills-data.json');
 
             return {
                 skills: skillsData.skills || [],
@@ -223,8 +223,8 @@ class DataLoader {
         try {
             // Direct load from root directory, bypassing loadAllNews and loadAllSkills
             const [newsData, skillsData] = await Promise.all([
-                this.loadJSON('/news-data.json'),
-                this.loadJSON('/skills-data.json')
+                this.loadJSON('news-data.json'),
+                this.loadJSON('skills-data.json')
             ]);
 
             return {
@@ -256,6 +256,7 @@ class DataLoader {
                 categories: {},
                 news: { items: [], count: 0, errors: [error.message] },
                 skills: { skills: [], categories: {}, count: 0, errors: [error.message] },
+                hasFatalError: true,
                 error: error.message,
                 timestamp: new Date().toISOString()
             };
