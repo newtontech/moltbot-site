@@ -83,16 +83,11 @@ class DataLoader {
      */
     async loadNews(month = null) {
         try {
-            // If no month specified, load current month
-            if (!month) {
-                const now = new Date();
-                month = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-            }
-
-            const newsData = await this.loadJSON(`${this.basePath}/news/${month}.json`);
+            // Load from root directory instead of /data/news/
+            const newsData = await this.loadJSON('/news-data.json');
 
             return {
-                month: newsData.month,
+                month: month || 'unknown',
                 items: newsData.items || [],
                 count: newsData.items?.length || 0,
                 timestamp: new Date().toISOString()
@@ -196,51 +191,14 @@ class DataLoader {
      */
     async loadAllSkills() {
         try {
-            const config = await this.loadConfig();
-            const categoryConfigs = config.config?.skills?.categories || [];
-
-            // Load all category files in parallel
-            const promises = categoryConfigs.map(cat => this.loadSkillsCategory(cat.id));
-            const results = await Promise.allSettled(promises);
-
-            const allSkills = [];
-            const categoryData = {};
-            const errors = [];
-
-            results.forEach((result, index) => {
-                const catConfig = categoryConfigs[index];
-
-                if (result.status === 'fulfilled') {
-                    const data = result.value;
-
-                    // Store category info
-                    categoryData[catConfig.id] = {
-                        name: catConfig.name,
-                        icon: catConfig.icon,
-                        count: data.count
-                    };
-
-                    // Add category to each skill
-                    const skillsWithCategory = data.skills.map(skill => ({
-                        ...skill,
-                        category: catConfig.name,
-                        categoryId: catConfig.id
-                    }));
-
-                    allSkills.push(...skillsWithCategory);
-                } else {
-                    errors.push({
-                        category: catConfig.id,
-                        error: result.reason.message
-                    });
-                }
-            });
+            // Load from root directory instead of /data/skills/
+            const skillsData = await this.loadJSON('/skills-data.json');
 
             return {
-                skills: allSkills,
-                categories: categoryData,
-                count: allSkills.length,
-                errors,
+                skills: skillsData.skills || [],
+                categories: {}, // Empty categories for now
+                count: skillsData.skills?.length || 0,
+                errors: [],
                 timestamp: new Date().toISOString()
             };
         } catch (error) {
