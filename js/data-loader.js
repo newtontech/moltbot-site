@@ -221,25 +221,31 @@ class DataLoader {
      */
     async loadAll(options = {}) {
         try {
-            const [config, news, skills] = await Promise.all([
-                this.loadConfig(),
-                this.loadAllNews(options.newsMonths),
-                this.loadAllSkills()
+            // Direct load from root directory, bypassing loadAllNews and loadAllSkills
+            const [newsData, skillsData] = await Promise.all([
+                this.loadJSON('/news-data.json'),
+                this.loadJSON('/skills-data.json')
             ]);
 
             return {
-                config: config.config,
-                categories: config.categories,
+                config: {
+                    site: {
+                        title: 'Moltbot - AI Assistant Hub',
+                        description: 'OpenClaw/Moltbot Latest News and Skills',
+                        version: '2.0.0'
+                    }
+                },
+                categories: {},
                 news: {
-                    items: news.items,
-                    count: news.count,
-                    errors: news.errors
+                    items: newsData.items || [],
+                    count: newsData.items?.length || 0,
+                    errors: []
                 },
                 skills: {
-                    skills: skills.skills,
-                    categories: skills.categories,
-                    count: skills.count,
-                    errors: skills.errors
+                    skills: skillsData.skills || [],
+                    categories: {},
+                    count: skillsData.skills?.length || 0,
+                    errors: []
                 },
                 timestamp: new Date().toISOString()
             };
