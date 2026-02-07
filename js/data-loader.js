@@ -111,6 +111,10 @@ class DataLoader {
      */
     async loadAllNews(months = null) {
         try {
+            // Load all news from the single data source
+            const result = await this.loadNews();
+            let allItems = result.items || [];
+
             // Default to last 3 months if not specified
             if (!months) {
                 const now = new Date();
@@ -121,21 +125,15 @@ class DataLoader {
                 }
             }
 
-            const promises = months.map(month => this.loadNews(month));
-            const results = await Promise.allSettled(promises);
-
-            const allItems = [];
-            const errors = [];
-
-            results.forEach((result, index) => {
-                if (result.status === 'fulfilled' && result.value.items.length > 0) {
-                    allItems.push(...result.value.items);
-                } else if (result.status === 'rejected') {
-                    errors.push({ month: months[index], error: result.reason.message });
-                } else if (result.value.error) {
-                    errors.push({ month: months[index], error: result.value.error });
-                }
-            });
+            // Filter items that match the requested months
+            if (months && months.length > 0) {
+                 allItems = allItems.filter(item => {
+                     if (!item.publish_date) return false;
+                     // Extract YYYY-MM
+                     const itemMonth = item.publish_date.substring(0, 7);
+                     return months.includes(itemMonth);
+                 });
+            }
 
             // Sort by date descending
             allItems.sort((a, b) => new Date(b.publish_date) - new Date(a.publish_date));
@@ -143,7 +141,7 @@ class DataLoader {
             return {
                 items: allItems,
                 count: allItems.length,
-                errors,
+                errors: result.error ? [{ error: result.error }] : [],
                 timestamp: new Date().toISOString()
             };
         } catch (error) {
