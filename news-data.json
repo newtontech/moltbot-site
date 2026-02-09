@@ -1,6 +1,36 @@
 {
   "items": [
     {
+      "title": "Minions & Monsters - Official Trailer - IGN",
+      "summary": "从 Clawdbot 搜索到的最新信息",
+      "source": "Tavily Search",
+      "url": "https://www.itnews.com.au/news/under-malware-threat-runaway-ai-agent-project-openclaw-turns-to-googles-virustotal-623450?utm_source=feed&utm_medium=rss&utm_campaign=editors_picks",
+      "publish_date": "2026-02-09T08:00:17Z",
+      "platform": "Web",
+      "platform_type": "搜索",
+      "source_url": "https://www.itnews.com.au/news/under-malware-threat-runaway-ai-agent-project-openclaw-turns-to-googles-virustotal-623450?utm_source=feed&utm_medium=rss&utm_campaign=editors_picks",
+      "tags": [
+        "搜索",
+        "自动更新",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "AMD CEO Lisa Su Defends Forecast Amid 17% Stock Drop, Highlights Accelerating AI Demand and Helios Launch - Qoo10.co.id",
+      "summary": "从 AI 搜索到的最新信息",
+      "source": "Tavily Search",
+      "url": "https://www.ynetnews.com/tech-and-digital/article/hkrjykpvwe",
+      "publish_date": "2026-02-09T07:00:24Z",
+      "platform": "Web",
+      "platform_type": "搜索",
+      "source_url": "https://www.ynetnews.com/tech-and-digital/article/hkrjykpvwe",
+      "tags": [
+        "搜索",
+        "自动更新",
+        "Tavily"
+      ]
+    },
+    {
       "title": "An Underwater Robot Just Found Something Unbelievable on the Seabed That Was Lost for Decades! - The Daily Galaxy",
       "summary": "从 Clawdbot 搜索到的最新信息",
       "source": "Tavily Search",
@@ -1396,5 +1426,5 @@
       ]
     }
   ],
-  "last_updated": "2026-02-09T06:00:16.221656Z"
+  "last_updated": "2026-02-09T09:00:16.201404Z"
 }
