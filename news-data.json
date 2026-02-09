@@ -1,6 +1,66 @@
 {
   "items": [
     {
+      "title": "Jefferies EMEA General Counsel Departs Investment Bank - Law.com",
+      "summary": "从 assistant 搜索到的最新信息",
+      "source": "Tavily Search",
+      "url": "https://www.heraldchronicle.com/news/local/teran-to-join-st-andrew-s-sewanee-faculty/article_90aa456e-17a8-4b78-8f91-878c367566fd.html",
+      "publish_date": "2026-02-09T11:00:21Z",
+      "platform": "Web",
+      "platform_type": "搜索",
+      "source_url": "https://www.heraldchronicle.com/news/local/teran-to-join-st-andrew-s-sewanee-faculty/article_90aa456e-17a8-4b78-8f91-878c367566fd.html",
+      "tags": [
+        "搜索",
+        "自动更新",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "AI and the Superbowl ads - The Media Online",
+      "summary": "从 AI 搜索到的最新信息",
+      "source": "Tavily Search",
+      "url": "https://themediaonline.co.za/2026/02/ai-and-the-superbowl-ads/",
+      "publish_date": "2026-02-09T11:00:19Z",
+      "platform": "Web",
+      "platform_type": "搜索",
+      "source_url": "https://themediaonline.co.za/2026/02/ai-and-the-superbowl-ads/",
+      "tags": [
+        "搜索",
+        "自动更新",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "OpenClaw creator makes a case for 'specialized intelligence' over superintelligence - Business Insider",
+      "summary": "从 OpenClaw 搜索到的最新信息",
+      "source": "Tavily Search",
+      "url": "https://www.businessinsider.com/openclaw-peter-steinberger-specialized-ai-agi-superintelligence-moltbook-2026-2",
+      "publish_date": "2026-02-09T11:00:17Z",
+      "platform": "Web",
+      "platform_type": "搜索",
+      "source_url": "https://www.businessinsider.com/openclaw-peter-steinberger-specialized-ai-agi-superintelligence-moltbook-2026-2",
+      "tags": [
+        "搜索",
+        "自动更新",
+        "Tavily"
+      ]
+    },
+    {
+      "title": "Researchers Find 40,000+ Exposed OpenClaw Instances - Infosecurity Magazine",
+      "summary": "从 OpenClaw 搜索到的最新信息",
+      "source": "Tavily Search",
+      "url": "https://www.infosecurity-magazine.com/news/researchers-40000-exposed-openclaw/",
+      "publish_date": "2026-02-09T10:00:09Z",
+      "platform": "Web",
+      "platform_type": "搜索",
+      "source_url": "https://www.infosecurity-magazine.com/news/researchers-40000-exposed-openclaw/",
+      "tags": [
+        "搜索",
+        "自动更新",
+        "Tavily"
+      ]
+    },
+    {
       "title": "Minions & Monsters - Official Trailer - IGN",
       "summary": "从 Clawdbot 搜索到的最新信息",
       "source": "Tavily Search",
@@ -1426,5 +1486,5 @@
       ]
     }
   ],
-  "last_updated": "2026-02-09T09:00:16.201404Z"
+  "last_updated": "2026-02-09T11:00:27.951053Z"
 }
