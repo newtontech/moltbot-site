@@ -1,9 +1,9 @@
 """E2E test fixtures"""
 
+import os
+import socket
 import subprocess
 import time
-import socket
-import os
 from pathlib import Path
 
 import pytest
@@ -36,7 +36,7 @@ def http_server(project_root: Path):
         cwd=str(project_root),
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        preexec_fn=lambda: os.setsid()
+        preexec_fn=lambda: os.setsid(),
     )
 
     # Wait for server to start

@@ -30,7 +30,6 @@ def test_css_files_exist(css_dir):
 @pytest.mark.unit
 def test_css_files_valid_css(css_dir):
     """Test that CSS files are valid (have basic CSS syntax)."""
-    import pathlib
 
     css_files = list(css_dir.glob("*.css"))
 

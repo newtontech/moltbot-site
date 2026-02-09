@@ -1,6 +1,7 @@
 """Integration tests for filter interactions"""
 
 import re
+
 import pytest
 
 

@@ -1,6 +1,7 @@
 """Unit tests for JSON data schema validation"""
 
 import json
+
 import pytest
 
 

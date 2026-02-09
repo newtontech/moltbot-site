@@ -1,7 +1,7 @@
 """Integration tests for data loading flow"""
 
-import os
 import json
+
 import pytest
 
 
@@ -141,7 +141,9 @@ def test_news_data_valid_json(data_dir):
                 items = data["items"]
                 assert isinstance(items, list), f"{news_file.name} items should be a list"
             else:
-                assert isinstance(data, list), f"{news_file.name} should contain a list or dict with items"
+                assert isinstance(
+                    data, list
+                ), f"{news_file.name} should contain a list or dict with items"
         except json.JSONDecodeError as e:
             pytest.fail(f"{news_file.name} is not valid JSON: {e}")
 
@@ -161,7 +163,9 @@ def test_skills_data_valid_json(data_dir):
                 skills = data["skills"]
                 assert isinstance(skills, list), f"{skills_file.name} skills should be a list"
             else:
-                assert isinstance(data, list), f"{skills_file.name} should contain a list or dict with skills"
+                assert isinstance(
+                    data, list
+                ), f"{skills_file.name} should contain a list or dict with skills"
         except json.JSONDecodeError as e:
             pytest.fail(f"{skills_file.name} is not valid JSON: {e}")
 

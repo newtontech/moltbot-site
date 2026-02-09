@@ -1,6 +1,7 @@
 """Unit tests for HTML structure validation"""
 
 from html.parser import HTMLParser
+
 import pytest
 
 
