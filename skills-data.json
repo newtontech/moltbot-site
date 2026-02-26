@@ -1,69 +1,9 @@
 {
-  "last_updated": "2026-02-24T18:29:23Z",
+  "last_updated": "2026-02-26T04:20:05Z",
   "skills": [
     {
-      "name": "tavily-search",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "mcporter",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "coding-agent",
-      "version": "1.0.1",
-      "installed": true
-    },
-    {
-      "name": "github",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "weather",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "tmux",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "nano-pdf",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "slack",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "discord",
-      "version": "1.0.1",
-      "installed": true
-    },
-    {
-      "name": "bird",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "canvas-lms",
-      "version": "1.0.0",
-      "installed": true
-    },
-    {
-      "name": "ralph-loop",
-      "version": "0.1.1",
-      "installed": true
-    },
-    {
-      "name": "moltsci",
-      "version": "1.1.7",
+      "name": "No",
+      "version": "installed",
       "installed": true
     }
   ]
